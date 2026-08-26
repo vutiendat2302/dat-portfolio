@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-ink: #090b10;
+  --color-surface: #11151d;
+  --color-accent: #64f4c4;
+  --color-accent-bright: #8affd8;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  * {
+    border-color: color-mix(in srgb, white 10%, transparent);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    background:
+      radial-gradient(circle at 90% -10%, rgb(100 244 196 / 8%), transparent 28rem),
+      var(--color-ink);
+  }
+
+  ::selection {
+    background: rgb(100 244 196 / 28%);
+    color: white;
+  }
+}

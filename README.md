@@ -43,7 +43,7 @@ Project tập trung vào việc giới thiệu bản thân, các dự án đã t
 - Trang danh sách bài viết và trang chi tiết bài viết.
 - Có thể hỗ trợ tiếng Việt và tiếng Anh.
 
-## Cấu trúc project dự kiến
+## Cấu trúc project
 
 ```text
 dat-portfolio/
@@ -53,38 +53,41 @@ dat-portfolio/
 │   │   └── [slug]/
 │   ├── projects/
 │   │   └── [slug]/
+│   ├── globals.css
+│   ├── icon.svg
 │   ├── layout.tsx
-│   └── page.tsx
-│
+│   ├── not-found.tsx
+│   ├── page.tsx
+│   ├── robots.ts
+│   └── sitemap.ts
 ├── components/
 │   ├── common/
 │   ├── home/
 │   ├── blog/
 │   └── project/
-│
 ├── content/
 │   └── posts/
-│       ├── bai-viet-1.md
-│       └── bai-viet-2.md
-│
+│       └── khoi-dau-dat-portfolio.md
 ├── data/
+│   ├── education.ts
+│   ├── experience.ts
 │   ├── profile.ts
 │   ├── projects.ts
+│   ├── site.ts
 │   ├── skills.ts
-│   └── experience.ts
-│
+│   └── types.ts
 ├── public/
 │   ├── images/
 │   └── projects/
-│
 ├── lib/
-│   ├── markdown.ts
-│   └── posts.ts
-│
-├── styles/
-├── package.json
+│   ├── formatDate.ts
+│   ├── posts.ts
+│   └── seo.ts
+├── AGENTS.md
+├── eslint.config.mjs
 ├── next.config.ts
-├── tailwind.config.ts
+├── package.json
+├── postcss.config.mjs
 └── tsconfig.json
 ```
 
@@ -149,6 +152,14 @@ Mở [http://localhost:3000](http://localhost:3000) trong trình duyệt.
 ```bash
 npm run build
 npm run start
+```
+
+### Kiểm tra chất lượng
+
+```bash
+npm run typecheck
+npm run lint
+npm run build
 ```
 
 ## Cách thêm bài viết
