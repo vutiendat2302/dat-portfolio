@@ -1,401 +1,179 @@
-# dat-portfolio
+# DAT Portfolio
 
-```
+Website portfolio cá nhân và blog kỹ thuật của Dat.
 
-Profile Website
-├── Home / Hero
-│   ├── Tên
-│   ├── Vai trò mong muốn
-│   └── Nút xem CV / liên hệ
+Project tập trung vào việc giới thiệu bản thân, các dự án đã thực hiện, kỹ năng và những bài viết trong quá trình học tập. Nội dung blog được lưu dưới dạng Markdown trong repository, không sử dụng backend hoặc database.
+
+## Mục tiêu
+
+- Giới thiệu bản thân và định hướng nghề nghiệp.
+- Showcase các project cá nhân.
+- Chia sẻ kiến thức, technical notes và learning journey.
+- Có giao diện responsive, dễ sử dụng trên desktop và mobile.
+- Dễ triển khai và dễ bảo trì.
+
+## Công nghệ
+
+- Next.js
+- TypeScript
+- TailwindCSS
+- React
+- Markdown cho blog và learning notes
+- Vercel để deploy
+
+## Tính năng
+
+### Portfolio
+
+- Trang chủ với phần giới thiệu.
+- About me.
+- Skills và công nghệ sử dụng.
+- Danh sách project.
+- Chi tiết từng project.
+- Experience và education.
+- Thông tin liên hệ.
+- Link đến GitHub, LinkedIn và các nền tảng khác.
+
+### Blog
+
+- Viết bài bằng file `.md`.
+- Hỗ trợ tiêu đề, đoạn văn, hình ảnh, code block, link và danh sách.
+- Phân loại bài viết bằng category và tags.
+- URL thân thiện theo slug.
+- Trang danh sách bài viết và trang chi tiết bài viết.
+- Có thể hỗ trợ tiếng Việt và tiếng Anh.
+
+## Cấu trúc project dự kiến
+
+```text
+dat-portfolio/
+├── app/
+│   ├── about/
+│   ├── blog/
+│   │   └── [slug]/
+│   ├── projects/
+│   │   └── [slug]/
+│   ├── layout.tsx
+│   └── page.tsx
 │
-├── About Me
-│   ├── Giới thiệu ngắn
-│   ├── Trường học
-│   └── Mục tiêu nghề nghiệp
+├── components/
+│   ├── common/
+│   ├── home/
+│   ├── blog/
+│   └── project/
 │
-├── Skills
-│   ├── Programming
-│   ├── Data / Backend
-│   └── Tools
+├── content/
+│   └── posts/
+│       ├── bai-viet-1.md
+│       └── bai-viet-2.md
 │
-├── Projects
-│   ├── Tên project
-│   ├── Mô tả
-│   ├── Công nghệ dùng
-│   └── Link GitHub / Demo
-│
-├── Education
-│
-├── Experience / Activities
-│
-└── Contact
-    ├── Email
-    ├── GitHub
-    ├── LinkedIn
-    └── Facebook
-    └── Instagram
-
-```
-
-
-Frontend: React + Vite + TailwindCSS
-Backend: NestJS
-Database: PostgreSQL 
-Image Storage: Cloudinary / Firebase Storage / Supabase Storage
-Deploy:
-- Frontend: Vercel
-- Backend: Spring Boot 
-- Database: Supabase / Neon / MongoDB Atlas
-
-1. Public Profile
-
-- Trang chủ
-- Giới thiệu bản thân
-- Kỹ năng
-- Project
-- Quá trình học tập
-- Blog / Notes
-- Gallery ảnh
-- Contact
-
-2. Admin Dashboard
-
-- Thêm / sửa / xoá bài học
-- Upload ảnh
-- Thêm project mới
-- Cập nhật kỹ năng
-- Viết nhật ký học tập
-- Quản lý CV
-
-3. Database
-
-
-
-1. Giai đoạn 1: 
-- Làm frontend portfolio tĩnh
-- Có Home, About, Skills, Projects, Contact
-
-2. Giai đoạn 2: 
-- Làm backend Express
-- Tạo database
-- Làm API cho projects và learning_logs
-
-3. Gia đoạn 3:
-- Làm admin dashboard
-- Thêm chức năng CRUD
-- Đăng nhập admin
-
-4. Giai đoạn 4: 
-- Upload ảnh
-- Gallery
-- Blog / notes
-- Deploy
-
-frontend/
+├── data/
+│   ├── profile.ts
+│   ├── projects.ts
+│   ├── skills.ts
+│   └── experience.ts
 │
 ├── public/
-│   ├── favicon.ico
-│   └── images/
-│       └── default-avatar.png
+│   ├── images/
+│   └── projects/
 │
-├── src/
-│   ├── assets/
-│   │   ├── images/
-│   │   ├── icons/
-│   │   └── fonts/
-│   │
-│   ├── api/
-│   │   ├── axiosClient.js
-│   │   ├── authApi.js
-│   │   ├── projectApi.js
-│   │   ├── learningApi.js
-│   │   ├── skillApi.js
-│   │   └── imageApi.js
-│   │
-│   ├── components/
-│   │   ├── common/
-│   │   │   ├── Button.jsx
-│   │   │   ├── Input.jsx
-│   │   │   ├── Modal.jsx
-│   │   │   ├── Loading.jsx
-│   │   │   └── ConfirmDialog.jsx
-│   │   │
-│   │   ├── layout/
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── Footer.jsx
-│   │   │   ├── PublicLayout.jsx
-│   │   │   └── AdminLayout.jsx
-│   │   │
-│   │   ├── profile/
-│   │   │   ├── HeroSection.jsx
-│   │   │   ├── AboutSection.jsx
-│   │   │   ├── SkillSection.jsx
-│   │   │   ├── ProjectSection.jsx
-│   │   │   ├── LearningTimeline.jsx
-│   │   │   └── ContactSection.jsx
-│   │   │
-│   │   ├── project/
-│   │   │   ├── ProjectCard.jsx
-│   │   │   ├── ProjectList.jsx
-│   │   │   └── ProjectForm.jsx
-│   │   │
-│   │   ├── learning/
-│   │   │   ├── LearningCard.jsx
-│   │   │   ├── LearningList.jsx
-│   │   │   └── LearningForm.jsx
-│   │   │
-│   │   └── gallery/
-│   │       ├── ImageCard.jsx
-│   │       ├── ImageGrid.jsx
-│   │       └── ImageUploadForm.jsx
-│   │
-│   ├── pages/
-│   │   ├── public/
-│   │   │   ├── HomePage.jsx
-│   │   │   ├── ProjectsPage.jsx
-│   │   │   ├── LearningPage.jsx
-│   │   │   ├── GalleryPage.jsx
-│   │   │   └── ContactPage.jsx
-│   │   │
-│   │   ├── auth/
-│   │   │   └── LoginPage.jsx
-│   │   │
-│   │   └── admin/
-│   │       ├── DashboardPage.jsx
-│   │       ├── ManageProjectsPage.jsx
-│   │       ├── ManageLearningPage.jsx
-│   │       ├── ManageSkillsPage.jsx
-│   │       └── ManageGalleryPage.jsx
-│   │
-│   ├── routes/
-│   │   ├── AppRoutes.jsx
-│   │   ├── PublicRoutes.jsx
-│   │   └── PrivateRoute.jsx
-│   │
-│   ├── hooks/
-│   │   ├── useAuth.js
-│   │   ├── useFetch.js
-│   │   └── useDebounce.js
-│   │
-│   ├── contexts/
-│   │   └── AuthContext.jsx
-│   │
-│   ├── utils/
-│   │   ├── formatDate.js
-│   │   ├── validateForm.js
-│   │   └── constants.js
-│   │
-│   ├── styles/
-│   │   └── index.css
-│   │
-│   ├── App.jsx
-│   └── main.jsx
+├── lib/
+│   ├── markdown.ts
+│   └── posts.ts
 │
-├── .env
-├── .gitignore
-├── index.html
+├── styles/
 ├── package.json
-├── tailwind.config.js
-├── postcss.config.js
-└── vite.config.js
+├── next.config.ts
+├── tailwind.config.ts
+└── tsconfig.json
+```
 
+## Định dạng bài viết
 
-personal-profile-web/
-│
-├── frontend/
-│   │
-│   ├── public/
-│   │   ├── favicon.ico
-│   │   └── images/
-│   │       └── default-avatar.png
-│   │
-│   ├── src/
-│   │   ├── assets/
-│   │   │   ├── images/
-│   │   │   ├── icons/
-│   │   │   └── fonts/
-│   │   │
-│   │   ├── api/
-│   │   │   ├── axiosClient.js
-│   │   │   ├── authApi.js
-│   │   │   ├── projectApi.js
-│   │   │   ├── learningApi.js
-│   │   │   ├── skillApi.js
-│   │   │   ├── blogApi.js
-│   │   │   └── imageApi.js
-│   │   │
-│   │   ├── components/
-│   │   │   ├── common/
-│   │   │   │   ├── Button.jsx
-│   │   │   │   ├── Input.jsx
-│   │   │   │   ├── Textarea.jsx
-│   │   │   │   ├── Modal.jsx
-│   │   │   │   ├── Loading.jsx
-│   │   │   │   └── ConfirmDialog.jsx
-│   │   │   │
-│   │   │   ├── layout/
-│   │   │   │   ├── Navbar.jsx
-│   │   │   │   ├── Footer.jsx
-│   │   │   │   ├── Sidebar.jsx
-│   │   │   │   ├── PublicLayout.jsx
-│   │   │   │   └── AdminLayout.jsx
-│   │   │   │
-│   │   │   ├── profile/
-│   │   │   │   ├── HeroSection.jsx
-│   │   │   │   ├── AboutSection.jsx
-│   │   │   │   ├── SkillSection.jsx
-│   │   │   │   ├── ProjectSection.jsx
-│   │   │   │   ├── LearningTimeline.jsx
-│   │   │   │   └── ContactSection.jsx
-│   │   │   │
-│   │   │   ├── project/
-│   │   │   │   ├── ProjectCard.jsx
-│   │   │   │   ├── ProjectList.jsx
-│   │   │   │   └── ProjectForm.jsx
-│   │   │   │
-│   │   │   ├── learning/
-│   │   │   │   ├── LearningCard.jsx
-│   │   │   │   ├── LearningList.jsx
-│   │   │   │   └── LearningForm.jsx
-│   │   │   │
-│   │   │   ├── blog/
-│   │   │   │   ├── BlogCard.jsx
-│   │   │   │   ├── BlogList.jsx
-│   │   │   │   └── BlogForm.jsx
-│   │   │   │
-│   │   │   └── gallery/
-│   │   │       ├── ImageCard.jsx
-│   │   │       ├── ImageGrid.jsx
-│   │   │       └── ImageUploadForm.jsx
-│   │   │
-│   │   ├── pages/
-│   │   │   ├── public/
-│   │   │   │   ├── HomePage.jsx
-│   │   │   │   ├── AboutPage.jsx
-│   │   │   │   ├── ProjectsPage.jsx
-│   │   │   │   ├── LearningPage.jsx
-│   │   │   │   ├── BlogPage.jsx
-│   │   │   │   ├── BlogDetailPage.jsx
-│   │   │   │   ├── GalleryPage.jsx
-│   │   │   │   └── ContactPage.jsx
-│   │   │   │
-│   │   │   ├── auth/
-│   │   │   │   └── LoginPage.jsx
-│   │   │   │
-│   │   │   └── admin/
-│   │   │       ├── DashboardPage.jsx
-│   │   │       ├── ManageProjectsPage.jsx
-│   │   │       ├── ManageLearningPage.jsx
-│   │   │       ├── ManageSkillsPage.jsx
-│   │   │       ├── ManageBlogsPage.jsx
-│   │   │       ├── ManageGalleryPage.jsx
-│   │   │       └── ManageProfilePage.jsx
-│   │   │
-│   │   ├── routes/
-│   │   │   ├── AppRoutes.jsx
-│   │   │   └── PrivateRoute.jsx
-│   │   │
-│   │   ├── contexts/
-│   │   │   └── AuthContext.jsx
-│   │   │
-│   │   ├── hooks/
-│   │   │   ├── useAuth.js
-│   │   │   ├── useFetch.js
-│   │   │   └── useDebounce.js
-│   │   │
-│   │   ├── utils/
-│   │   │   ├── constants.js
-│   │   │   ├── formatDate.js
-│   │   │   └── validateForm.js
-│   │   │
-│   │   ├── styles/
-│   │   │   └── index.css
-│   │   │
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   │
-│   ├── .env
-│   ├── .env.example
-│   ├── .gitignore
-│   ├── index.html
-│   ├── package.json
-│   ├── vite.config.js
-│   ├── tailwind.config.js
-│   └── postcss.config.js
-│
-├── backend/
-│   │
-│   ├── src/
-│   │   ├── config/
-│   │   │   ├── database.js
-│   │   │   ├── cloudinary.js
-│   │   │   └── env.js
-│   │   │
-│   │   ├── controllers/
-│   │   │   ├── auth.controller.js
-│   │   │   ├── profile.controller.js
-│   │   │   ├── project.controller.js
-│   │   │   ├── learning.controller.js
-│   │   │   ├── skill.controller.js
-│   │   │   ├── blog.controller.js
-│   │   │   └── image.controller.js
-│   │   │
-│   │   ├── routes/
-│   │   │   ├── auth.routes.js
-│   │   │   ├── profile.routes.js
-│   │   │   ├── project.routes.js
-│   │   │   ├── learning.routes.js
-│   │   │   ├── skill.routes.js
-│   │   │   ├── blog.routes.js
-│   │   │   └── image.routes.js
-│   │   │
-│   │   ├── services/
-│   │   │   ├── auth.service.js
-│   │   │   ├── project.service.js
-│   │   │   ├── learning.service.js
-│   │   │   ├── blog.service.js
-│   │   │   └── upload.service.js
-│   │   │
-│   │   ├── middlewares/
-│   │   │   ├── auth.middleware.js
-│   │   │   ├── error.middleware.js
-│   │   │   ├── upload.middleware.js
-│   │   │   └── validate.middleware.js
-│   │   │
-│   │   ├── validators/
-│   │   │   ├── auth.validator.js
-│   │   │   ├── project.validator.js
-│   │   │   ├── learning.validator.js
-│   │   │   └── blog.validator.js
-│   │   │
-│   │   ├── utils/
-│   │   │   ├── generateToken.js
-│   │   │   ├── hashPassword.js
-│   │   │   ├── slugify.js
-│   │   │   └── response.js
-│   │   │
-│   │   ├── prisma/
-│   │   │   ├── schema.prisma
-│   │   │   └── seed.js
-│   │   │
-│   │   ├── app.js
-│   │   └── server.js
-│   │
-│   ├── uploads/
-│   │   └── .gitkeep
-│   │
-│   ├── .env
-│   ├── .env.example
-│   ├── .gitignore
-│   ├── package.json
-│   └── README.md
-│
-├── docs/
-│   ├── database-design.md
-│   ├── api-documentation.md
-│   ├── deployment.md
-│   └── screenshots/
-│
-├── README.md
-├── .gitignore
-└── docker-compose.yml
+Mỗi bài viết được lưu trong `content/posts/` dưới dạng file Markdown.
+
+Ví dụ `content/posts/hoc-nextjs-co-ban.md`:
+
+````md
+---
+title: Học Next.js cơ bản
+description: Những kiến thức đầu tiên khi làm quen với Next.js.
+date: 2026-08-26
+tags:
+  - nextjs
+  - typescript
+published: true
+---
+
+# Học Next.js cơ bản
+
+Nội dung bài viết được viết bằng Markdown.
+
+```ts
+const message = 'Hello Next.js'
+console.log(message)
+```
+````
+
+Ứng dụng sẽ đọc frontmatter và nội dung Markdown, sau đó render thành trang blog tương ứng.
+
+## Routing
+
+```text
+/                  Trang chủ
+/about             Giới thiệu
+/projects          Danh sách project
+/projects/[slug]   Chi tiết project
+/blog              Danh sách bài viết
+/blog/[slug]       Chi tiết bài viết
+```
+
+## Chạy project
+
+### Cài đặt dependencies
+
+```bash
+npm install
+```
+
+### Chạy môi trường development
+
+```bash
+npm run dev
+```
+
+Mở [http://localhost:3000](http://localhost:3000) trong trình duyệt.
+
+### Build production
+
+```bash
+npm run build
+npm run start
+```
+
+## Cách thêm bài viết
+
+1. Tạo file mới trong `content/posts/`.
+2. Thêm frontmatter gồm `title`, `description`, `date`, `tags` và `published`.
+3. Viết nội dung bằng Markdown.
+4. Thêm hình ảnh vào `public/images/` nếu cần.
+5. Commit và push lên GitHub.
+6. Deploy lại website.
+
+## Deployment
+
+Website có thể deploy trực tiếp lên Vercel bằng cách kết nối với repository GitHub.
+
+Mỗi lần push code mới, Vercel sẽ tự động build và deploy phiên bản mới.
+
+## Nguyên tắc
+
+Project ưu tiên sự đơn giản:
+
+- Không backend.
+- Không database.
+- Không authentication.
+- Không admin dashboard.
+- Nội dung được quản lý bằng Git và Markdown.
+
+Nếu sau này cần cập nhật nội dung qua giao diện quản trị hoặc có nhiều người cùng chỉnh sửa, có thể cân nhắc thêm CMS. Hiện tại Markdown là đủ cho portfolio cá nhân.
