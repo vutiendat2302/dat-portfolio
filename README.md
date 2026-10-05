@@ -1,107 +1,91 @@
 # DAT Portfolio
 
-Website portfolio cá nhân và blog kỹ thuật của Dat.
+Portfolio cá nhân và technical blog của Dat, xây dựng bằng Next.js App Router, TypeScript, TailwindCSS và Markdown. Website chạy hoàn toàn theo kiến trúc static/Git-driven, không có backend hoặc database.
 
-Project tập trung vào việc giới thiệu bản thân, các dự án đã thực hiện, kỹ năng và những bài viết trong quá trình học tập. Nội dung blog được lưu dưới dạng Markdown trong repository, không sử dụng backend hoặc database.
+## Tính năng chính
 
-## Mục tiêu
-
-- Giới thiệu bản thân và định hướng nghề nghiệp.
-- Showcase các project cá nhân.
-- Chia sẻ kiến thức, technical notes và learning journey.
-- Có giao diện responsive, dễ sử dụng trên desktop và mobile.
-- Dễ triển khai và dễ bảo trì.
+- Giao diện Modern Light Tech Portfolio, responsive và content-first.
+- Ba chế độ giao diện: Light, Dark và System; mặc định theo hệ điều hành và lưu preference.
+- Ba ngôn ngữ theo URL: Tiếng Việt (`vi`), English (`en`) và 繁體中文 Đài Loan (`zh-TW`).
+- Portfolio data type-safe trong `data/*.ts` và không duplicate dữ liệu theo locale.
+- Technical blog bằng Markdown chuẩn, parse và sanitize ở server/build time.
+- Static generation, metadata, OpenGraph, `hreflang`, sitemap và robots locale-aware.
+- Server Components mặc định; chỉ theme, language và mobile menu dùng Client Components nhỏ.
 
 ## Công nghệ
 
-- Next.js
-- TypeScript
-- TailwindCSS
-- React
-- Markdown cho blog và learning notes
+- Next.js 16 App Router và React Server Components
+- TypeScript strict mode
+- TailwindCSS 4
+- `next-themes` cho Light/Dark/System
+- `gray-matter`, Remark và Rehype cho Markdown
 - Vercel để deploy
 
-## Tính năng
-
-### Portfolio
-
-- Trang chủ với phần giới thiệu.
-- About me.
-- Skills và công nghệ sử dụng.
-- Danh sách project.
-- Chi tiết từng project.
-- Experience và education.
-- Thông tin liên hệ.
-- Link đến GitHub, LinkedIn và các nền tảng khác.
-
-### Blog
-
-- Viết bài bằng file `.md`.
-- Hỗ trợ tiêu đề, đoạn văn, hình ảnh, code block, link và danh sách.
-- Phân loại bài viết bằng category và tags.
-- URL thân thiện theo slug.
-- Trang danh sách bài viết và trang chi tiết bài viết.
-- Có thể hỗ trợ tiếng Việt và tiếng Anh.
-
-## Cấu trúc project
+## Cấu trúc
 
 ```text
 dat-portfolio/
 ├── app/
-│   ├── about/
-│   ├── blog/
-│   │   └── [slug]/
-│   ├── projects/
-│   │   └── [slug]/
+│   ├── [locale]/
+│   │   ├── about/
+│   │   ├── blog/[slug]/
+│   │   ├── projects/[slug]/
+│   │   ├── layout.tsx
+│   │   ├── not-found.tsx
+│   │   └── page.tsx
 │   ├── globals.css
-│   ├── icon.svg
-│   ├── layout.tsx
-│   ├── not-found.tsx
-│   ├── page.tsx
 │   ├── robots.ts
 │   └── sitemap.ts
 ├── components/
+│   ├── blog/
 │   ├── common/
 │   ├── home/
-│   ├── blog/
-│   └── project/
-├── content/
-│   └── posts/
-│       └── khoi-dau-dat-portfolio.md
+│   ├── i18n/
+│   ├── project/
+│   └── theme/
+├── content/posts/
+│   ├── vi/
+│   ├── en/
+│   └── zh-TW/
 ├── data/
-│   ├── education.ts
-│   ├── experience.ts
-│   ├── profile.ts
-│   ├── projects.ts
-│   ├── site.ts
-│   ├── skills.ts
+├── i18n/
+│   ├── dictionaries/
+│   ├── config.ts
+│   ├── getDictionary.ts
 │   └── types.ts
-├── public/
-│   ├── images/
-│   └── projects/
 ├── lib/
-│   ├── formatDate.ts
-│   ├── posts.ts
-│   └── seo.ts
-├── AGENTS.md
-├── eslint.config.mjs
-├── next.config.ts
-├── package.json
-├── postcss.config.mjs
-└── tsconfig.json
+└── public/
 ```
 
-## Định dạng bài viết
+Các thư mục locale trong `content/posts/` chỉ cần tồn tại khi có bài viết tương ứng.
 
-Mỗi bài viết được lưu trong `content/posts/` dưới dạng file Markdown.
+## Routing
 
-Ví dụ `content/posts/hoc-nextjs-co-ban.md`:
+Locale mặc định là `vi`; `/` redirect tới `/vi`.
 
-````md
+```text
+/{locale}                         Trang chủ
+/{locale}/about                   Giới thiệu
+/{locale}/projects                Danh sách project
+/{locale}/projects/[slug]         Chi tiết project
+/{locale}/blog                    Danh sách bài viết
+/{locale}/blog/[slug]             Chi tiết bài viết
+```
+
+Locale hợp lệ: `vi`, `en`, `zh-TW`. Không dùng `zh-CN` cho phiên bản Đài Loan.
+
+## Thêm bài viết Markdown
+
+Tạo file kebab-case trong locale tương ứng, ví dụ `content/posts/vi/hoc-nextjs-co-ban.md`:
+
+```md
 ---
-title: Học Next.js cơ bản
-description: Những kiến thức đầu tiên khi làm quen với Next.js.
-date: 2026-08-26
+title: "Học Next.js cơ bản"
+description: "Những kiến thức đầu tiên khi làm quen với Next.js."
+date: "2026-08-26"
+locale: "vi"
+translationKey: "learning-nextjs-basics"
+category: "Web Development"
 tags:
   - nextjs
   - typescript
@@ -111,50 +95,20 @@ published: true
 # Học Next.js cơ bản
 
 Nội dung bài viết được viết bằng Markdown.
-
-```ts
-const message = 'Hello Next.js'
-console.log(message)
 ```
-````
 
-Ứng dụng sẽ đọc frontmatter và nội dung Markdown, sau đó render thành trang blog tương ứng.
-
-## Routing
-
-```text
-/                  Trang chủ
-/about             Giới thiệu
-/projects          Danh sách project
-/projects/[slug]   Chi tiết project
-/blog              Danh sách bài viết
-/blog/[slug]       Chi tiết bài viết
-```
+`translationKey` là optional và dùng để liên kết các bản dịch. Một bài không bắt buộc có đủ ba ngôn ngữ. Bản dịch không tồn tại sẽ không có route và không xuất hiện trong sitemap. Bài có `published: false` không được public.
 
 ## Chạy project
 
-### Cài đặt dependencies
-
 ```bash
 npm install
-```
-
-### Chạy môi trường development
-
-```bash
 npm run dev
 ```
 
-Mở [http://localhost:3000](http://localhost:3000) trong trình duyệt.
+Mở `http://localhost:3000`; ứng dụng sẽ redirect tới `/vi`.
 
-### Build production
-
-```bash
-npm run build
-npm run start
-```
-
-### Kiểm tra chất lượng
+Kiểm tra trước khi deploy:
 
 ```bash
 npm run typecheck
@@ -162,29 +116,14 @@ npm run lint
 npm run build
 ```
 
-## Cách thêm bài viết
-
-1. Tạo file mới trong `content/posts/`.
-2. Thêm frontmatter gồm `title`, `description`, `date`, `tags` và `published`.
-3. Viết nội dung bằng Markdown.
-4. Thêm hình ảnh vào `public/images/` nếu cần.
-5. Commit và push lên GitHub.
-6. Deploy lại website.
-
 ## Deployment
 
-Website có thể deploy trực tiếp lên Vercel bằng cách kết nối với repository GitHub.
+Kết nối repository với Vercel. Mỗi commit cập nhật TypeScript data hoặc Markdown content sẽ tạo lại static pages khi deploy.
 
-Mỗi lần push code mới, Vercel sẽ tự động build và deploy phiên bản mới.
+## Nguyên tắc kiến trúc
 
-## Nguyên tắc
-
-Project ưu tiên sự đơn giản:
-
-- Không backend.
-- Không database.
-- Không authentication.
-- Không admin dashboard.
-- Nội dung được quản lý bằng Git và Markdown.
-
-Nếu sau này cần cập nhật nội dung qua giao diện quản trị hoặc có nhiều người cùng chỉnh sửa, có thể cân nhắc thêm CMS. Hiện tại Markdown là đủ cho portfolio cá nhân.
+- Không backend, database, authentication, admin dashboard hoặc CMS.
+- Không API route để đọc dữ liệu local.
+- Không MDX nếu chưa có yêu cầu rõ ràng.
+- Git là source of truth cho data, nội dung và static assets.
+- Không tự bịa dữ liệu cá nhân hoặc bản dịch nội dung chưa có.

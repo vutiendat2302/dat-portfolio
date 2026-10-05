@@ -9,7 +9,9 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 
-const postsDirectory = path.join(process.cwd(), "content", "posts");
+import { locales, type Locale } from "@/i18n/config";
+
+const postsRootDirectory = path.join(process.cwd(), "content", "posts");
 const isoDatePattern = /^\d{4}-\d{2}-\d{2}$/;
 
 export interface PostMetadata {
@@ -19,15 +21,22 @@ export interface PostMetadata {
   date: string;
   tags: string[];
   published: boolean;
+  locale: Locale;
+  translationKey?: string;
   category?: string;
   coverImage?: string;
   updatedAt?: string;
-  language?: "vi" | "en";
   featured?: boolean;
+  readingTimeMinutes: number;
 }
 
 export interface Post extends PostMetadata {
   contentHtml: string;
+}
+
+export interface BlogTranslationEntry {
+  translationKey: string;
+  slugs: Partial<Record<Locale, string>>;
 }
 
 function assertString(
@@ -66,14 +75,31 @@ function optionalString(
   return value;
 }
 
-function parseMetadata(fileName: string): {
-  metadata: PostMetadata;
-  content: string;
-} {
+function getPostsDirectory(locale: Locale): string {
+  return path.join(postsRootDirectory, locale);
+}
+
+function getMarkdownFiles(locale: Locale): string[] {
+  const directory = getPostsDirectory(locale);
+
+  if (!fs.existsSync(directory)) {
+    return [];
+  }
+
+  return fs
+    .readdirSync(directory)
+    .filter((fileName) => fileName.endsWith(".md"));
+}
+
+function parseMetadata(
+  locale: Locale,
+  fileName: string,
+): { metadata: PostMetadata; content: string } {
   const slug = fileName.replace(/\.md$/, "");
-  const fullPath = path.join(postsDirectory, fileName);
+  const fullPath = path.join(getPostsDirectory(locale), fileName);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
+  const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
 
   assertString(data.title, "title", fileName);
   assertString(data.description, "description", fileName);
@@ -86,8 +112,8 @@ function parseMetadata(fileName: string): {
     throw new Error(`Invalid frontmatter field "published" in ${fileName}`);
   }
 
-  if (data.language !== undefined && data.language !== "vi" && data.language !== "en") {
-    throw new Error(`Invalid frontmatter field "language" in ${fileName}`);
+  if (data.locale !== locale) {
+    throw new Error(`Frontmatter locale in ${fileName} must match folder "${locale}"`);
   }
 
   if (data.featured !== undefined && typeof data.featured !== "boolean") {
@@ -102,46 +128,39 @@ function parseMetadata(fileName: string): {
       date: validateDate(data.date, "date", fileName),
       tags: data.tags,
       published: data.published,
+      locale,
+      translationKey: optionalString(data.translationKey, "translationKey", fileName),
       category: optionalString(data.category, "category", fileName),
       coverImage: optionalString(data.coverImage, "coverImage", fileName),
       updatedAt:
         data.updatedAt === undefined
           ? undefined
           : validateDate(data.updatedAt, "updatedAt", fileName),
-      language: data.language,
       featured: data.featured,
+      readingTimeMinutes: Math.max(1, Math.ceil(wordCount / 200)),
     },
     content,
   };
 }
 
-function getMarkdownFiles(): string[] {
-  if (!fs.existsSync(postsDirectory)) {
-    return [];
-  }
-
-  return fs
-    .readdirSync(postsDirectory)
-    .filter((fileName) => fileName.endsWith(".md"));
-}
-
-export function getPublishedPosts(): PostMetadata[] {
-  return getMarkdownFiles()
-    .map((fileName) => parseMetadata(fileName).metadata)
+export function getPublishedPosts(locale: Locale): PostMetadata[] {
+  return getMarkdownFiles(locale)
+    .map((fileName) => parseMetadata(locale, fileName).metadata)
     .filter((post) => post.published)
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
 export async function getPublishedPostBySlug(
+  locale: Locale,
   slug: string,
 ): Promise<Post | undefined> {
   const fileName = `${slug}.md`;
 
-  if (!getMarkdownFiles().includes(fileName)) {
+  if (!getMarkdownFiles(locale).includes(fileName)) {
     return undefined;
   }
 
-  const { metadata, content } = parseMetadata(fileName);
+  const { metadata, content } = parseMetadata(locale, fileName);
 
   if (!metadata.published) {
     return undefined;
@@ -159,4 +178,52 @@ export async function getPublishedPostBySlug(
     ...metadata,
     contentHtml: processedContent.toString(),
   };
+}
+
+export function getBlogTranslations(): BlogTranslationEntry[] {
+  const entries = new Map<string, BlogTranslationEntry>();
+
+  for (const locale of locales) {
+    for (const post of getPublishedPosts(locale)) {
+      if (!post.translationKey) {
+        continue;
+      }
+
+      const entry = entries.get(post.translationKey) ?? {
+        translationKey: post.translationKey,
+        slugs: {},
+      };
+
+      entry.slugs[locale] = post.slug;
+      entries.set(post.translationKey, entry);
+    }
+  }
+
+  return Array.from(entries.values());
+}
+
+export function getPostAlternatePaths(post: PostMetadata): Partial<Record<Locale, string>> {
+  if (!post.translationKey) {
+    return { [post.locale]: `/${post.locale}/blog/${post.slug}` };
+  }
+
+  const translation = getBlogTranslations().find(
+    (entry) => entry.translationKey === post.translationKey,
+  );
+
+  if (!translation) {
+    return { [post.locale]: `/${post.locale}/blog/${post.slug}` };
+  }
+
+  const alternatePaths: Partial<Record<Locale, string>> = {};
+
+  for (const locale of locales) {
+    const slug = translation.slugs[locale];
+
+    if (slug) {
+      alternatePaths[locale] = `/${locale}/blog/${slug}`;
+    }
+  }
+
+  return alternatePaths;
 }

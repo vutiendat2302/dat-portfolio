@@ -36,7 +36,7 @@ Hosting/Deploy:  Vercel
 2. Do not create `app/api/*` routes just to read local Markdown or TypeScript data. Server Components must read local data directly at build/request time.
 3. The Git repository is the single source of truth:
    - Portfolio data lives in `data/*.ts`.
-   - Blog articles live in `content/posts/*.md`.
+   - Blog articles live in `content/posts/{locale}/*.md`.
    - Static assets live in `public/`.
 4. Do not use MDX unless the user explicitly requests it. Articles must remain standard `.md` files.
 
@@ -74,6 +74,8 @@ Required fields are `title`, `description`, `date`, `tags`, and `published`. Opt
 
 Articles with `published: false` must never appear in blog listings, search, `generateStaticParams()`, related posts, or `sitemap.ts`.
 
+Each post must declare a locale matching its folder: `vi`, `en`, or `zh-TW`. `translationKey` is optional and may link real translations. Missing translations must not be fabricated or emitted as public routes.
+
 ## 6. Portfolio Data
 
 Structured domain data belongs in TypeScript files under `data/`, such as:
@@ -91,14 +93,15 @@ Keep one comprehensive array per entity and derive subsets such as featured proj
 ## 7. Routes & SSG
 
 ```text
-/                  Homepage
-/about             About, education, experience
-/projects          Project showcase
-/projects/[slug]   Project details
-/blog              Technical blog and notes
-/blog/[slug]       Article reader view
-/contact           Optional contact page
+/{locale}                         Homepage
+/{locale}/about                   About, education, experience
+/{locale}/projects                Project showcase
+/{locale}/projects/[slug]         Project details
+/{locale}/blog                    Technical blog and notes
+/{locale}/blog/[slug]             Article reader view
 ```
+
+The supported locale union is `vi | en | zh-TW`, with `vi` as the default redirect target. UI translations belong in typed dictionaries under `i18n/`; localized domain text stays with its entity in `data/*.ts`. Use Traditional Chinese appropriate for Taiwan and never substitute `zh-CN`.
 
 ## 8. TypeScript & Naming
 
@@ -122,6 +125,10 @@ Keep one comprehensive array per entity and derive subsets such as featured proj
 - Use `next/image` with explicit dimensions or fill mode.
 - Use `next/font` and keep client-side JavaScript minimal.
 - Markdown must never be parsed in client-side JavaScript.
+- Support Light, Dark, and System themes with System as the default. Theme colors must use semantic CSS tokens rather than repeated component-level color pairs.
+- Theme and language controls must be keyboard accessible, have accessible names, work on mobile, and remain isolated Client Components.
+- Theme preference may persist client-side; language state is represented by the locale URL and requires no account or database.
+- Motion must respect `prefers-reduced-motion` and must not delay navigation.
 
 ## 10. SEO
 
@@ -131,6 +138,7 @@ Keep one comprehensive array per entity and derive subsets such as featured proj
 - Use unique titles in the format `[Page Title] | Dat`, descriptions, OpenGraph data, and Twitter `summary_large_image` cards.
 - Maintain `app/sitemap.ts` and `app/robots.ts`.
 - The sitemap must exclude draft posts.
+- Metadata, OpenGraph locale, canonical URLs, `hreflang` alternates, and sitemap entries must be locale-aware. Only existing blog translations may be listed.
 
 ## 11. Content Integrity
 

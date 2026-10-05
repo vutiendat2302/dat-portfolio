@@ -1,47 +1,83 @@
 import Link from "next/link";
 
 import { Container } from "@/components/common/Container";
+import { MobileMenu } from "@/components/common/MobileMenu";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
+import { ThemeSwitcher } from "@/components/theme/ThemeSwitcher";
 import { profile } from "@/data/profile";
+import { localePath, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/types";
+import type { BlogTranslationEntry } from "@/lib/posts";
 
-const navigation = [
-  { label: "Trang chủ", href: "/" },
-  { label: "Giới thiệu", href: "/about" },
-  { label: "Dự án", href: "/projects" },
-  { label: "Bài viết", href: "/blog" },
-] as const;
+interface HeaderProps {
+  locale: Locale;
+  dictionary: Dictionary;
+  blogTranslations: BlogTranslationEntry[];
+}
 
-export function Header() {
+export function Header({ locale, dictionary, blogTranslations }: HeaderProps) {
+  const navigation = [
+    { label: dictionary.navigation.about, href: localePath(locale, "/about"), desktop: true },
+    { label: dictionary.navigation.projects, href: localePath(locale, "/projects"), desktop: true },
+    { label: dictionary.navigation.blog, href: localePath(locale, "/blog"), desktop: true },
+    {
+      label: dictionary.navigation.experience,
+      href: localePath(locale, "/about#experience"),
+      desktop: false,
+    },
+    {
+      label: dictionary.navigation.contact,
+      href: localePath(locale, "/#contact"),
+      desktop: false,
+    },
+  ];
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/8 bg-ink/85 backdrop-blur-xl">
-      <Container className="flex min-h-18 items-center justify-between gap-6 py-3">
+    <header className="theme-surface sticky top-0 z-50 border-b border-border bg-background/95">
+      <Container className="relative flex min-h-16 items-center justify-between gap-5 py-2 sm:min-h-18">
         <Link
-          href="/"
-          className="group flex items-center gap-3 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-          aria-label="Về trang chủ"
+          href={localePath(locale)}
+          className="rounded-sm text-lg font-semibold tracking-[-0.03em] text-foreground transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4"
+          aria-label="DAT Portfolio"
         >
-          <span className="grid size-9 place-items-center rounded-xl border border-accent/35 bg-accent/10 font-mono text-sm font-semibold text-accent transition group-hover:bg-accent/15">
-            {profile.initials}
-          </span>
-          <span className="hidden text-sm font-semibold tracking-wide text-white sm:inline">
-            {profile.name}
-            <span className="text-accent">.</span>
-          </span>
+          {profile.name.toUpperCase()}
+          <span className="text-accent">.</span>
         </Link>
 
-        <nav aria-label="Điều hướng chính">
-          <ul className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 text-sm text-slate-300 sm:gap-x-7">
-            {navigation.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="rounded-sm transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="hidden items-center gap-5 md:flex">
+          <nav aria-label={dictionary.navigation.menu}>
+            <ul className="flex items-center gap-x-5 text-sm text-muted lg:gap-x-7">
+              {navigation.map((item) => (
+                <li key={item.href} className={item.desktop ? "" : "hidden xl:block"}>
+                  <Link
+                    href={item.href}
+                    className="link-underline rounded-sm py-2 transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="flex items-center gap-2 border-l border-border pl-4">
+            <LanguageSwitcher
+              locale={locale}
+              label={dictionary.language.label}
+              blogTranslations={blogTranslations}
+              compact
+            />
+            <ThemeSwitcher labels={dictionary.theme} compact />
+          </div>
+        </div>
+
+        <MobileMenu
+          locale={locale}
+          dictionary={dictionary}
+          links={navigation.map(({ label, href }) => ({ label, href }))}
+          socialLinks={profile.socialLinks}
+          blogTranslations={blogTranslations}
+        />
       </Container>
     </header>
   );

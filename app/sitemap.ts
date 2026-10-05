@@ -2,30 +2,69 @@ import type { MetadataRoute } from "next";
 
 import { projects } from "@/data/projects";
 import { getSiteUrl } from "@/data/site";
-import { getPublishedPosts } from "@/lib/posts";
+import { localeConfig, localePath, locales, type Locale } from "@/i18n/config";
+import { getPostAlternatePaths, getPublishedPosts } from "@/lib/posts";
+
+function absoluteUrl(path: string): string {
+  return new URL(path, getSiteUrl()).toString();
+}
+
+function alternateLanguages(paths: Partial<Record<Locale, string>>): Record<string, string> {
+  const languages: Record<string, string> = {};
+
+  for (const locale of locales) {
+    const path = paths[locale];
+
+    if (path) {
+      languages[localeConfig[locale].htmlLang] = absoluteUrl(path);
+    }
+  }
+
+  return languages;
+}
+
+function localizedPaths(path = ""): Record<Locale, string> {
+  return {
+    vi: localePath("vi", path),
+    en: localePath("en", path),
+    "zh-TW": localePath("zh-TW", path),
+  };
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = getSiteUrl();
-  const staticRoutes = ["/", "/about", "/projects", "/blog"];
+  const staticRoutes = ["", "/about", "/projects", "/blog"];
+  const staticEntries: MetadataRoute.Sitemap = staticRoutes.flatMap((route) => {
+    const paths = localizedPaths(route);
+    return locales.map((locale) => ({
+      url: absoluteUrl(paths[locale]),
+      changeFrequency: route === "" ? "weekly" as const : "monthly" as const,
+      priority: route === "" ? 1 : 0.8,
+      alternates: { languages: alternateLanguages(paths) },
+    }));
+  });
 
-  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
-    url: new URL(route, siteUrl).toString(),
-    changeFrequency: route === "/" ? "weekly" : "monthly",
-    priority: route === "/" ? 1 : 0.8,
-  }));
+  const projectEntries: MetadataRoute.Sitemap = projects.flatMap((project) => {
+    const paths = localizedPaths(`/projects/${project.slug}`);
+    return locales.map((locale) => ({
+      url: absoluteUrl(paths[locale]),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      alternates: { languages: alternateLanguages(paths) },
+    }));
+  });
 
-  const projectEntries: MetadataRoute.Sitemap = projects.map((project) => ({
-    url: new URL(`/projects/${project.slug}`, siteUrl).toString(),
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
-
-  const postEntries: MetadataRoute.Sitemap = getPublishedPosts().map((post) => ({
-    url: new URL(`/blog/${post.slug}`, siteUrl).toString(),
-    lastModified: new Date(`${post.updatedAt ?? post.date}T00:00:00.000Z`),
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
+  const postEntries: MetadataRoute.Sitemap = locales.flatMap((locale) =>
+    getPublishedPosts(locale).map((post) => {
+      const paths = getPostAlternatePaths(post);
+      return {
+        url: absoluteUrl(localePath(locale, `/blog/${post.slug}`)),
+        lastModified: new Date(`${post.updatedAt ?? post.date}T00:00:00.000Z`),
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+        alternates: { languages: alternateLanguages(paths) },
+      };
+    }),
+  );
 
   return [...staticEntries, ...projectEntries, ...postEntries];
 }
