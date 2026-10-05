@@ -8,7 +8,8 @@ tags:
   - typescript
   - markdown
 published: true
-language: "vi"
+locale: "vi"
+translationKey: "dat-portfolio-introduction"
 featured: true
 ---
 
@@ -19,7 +20,7 @@ DAT Portfolio được xây dựng với một mục tiêu rõ ràng: nội dung
 Thay vì tạo backend, database và trang quản trị, repository Git được dùng làm nguồn dữ liệu duy nhất:
 
 - Dữ liệu portfolio nằm trong `data/*.ts`.
-- Bài viết nằm trong `content/posts/*.md`.
+- Bài viết nằm trong `content/posts/{locale}/*.md`.
 - Hình ảnh và tài nguyên tĩnh nằm trong `public/`.
 
 ## Vì sao dùng Markdown?

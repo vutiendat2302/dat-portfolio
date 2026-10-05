@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title description">
+  <title id="title">DAT Portfolio interface</title>
+  <desc id="description">A clean light portfolio page with navigation, heading, copy and project rows.</desc>
+  <rect width="1200" height="760" fill="#F1F3F5"/>
+  <rect x="72" y="54" width="1056" height="652" rx="6" fill="#FFFFFF" stroke="#DEDFDF" stroke-width="2"/>
+  <line x1="72" y1="132" x2="1128" y2="132" stroke="#DEDFDF" stroke-width="2"/>
+  <text x="116" y="103" fill="#17181A" font-family="Arial, sans-serif" font-size="26" font-weight="700">DAT<tspan fill="#2563EB">.</tspan></text>
+  <g fill="#686B70" font-family="Arial, sans-serif" font-size="16">
+    <text x="750" y="102">About</text>
+    <text x="824" y="102">Projects</text>
+    <text x="920" y="102">Blog</text>
+    <text x="984" y="102">Contact</text>
+  </g>
+  <text x="116" y="218" fill="#8B8E94" font-family="monospace" font-size="14" letter-spacing="2">SOFTWARE ENGINEER</text>
+  <text x="116" y="292" fill="#17181A" font-family="Arial, sans-serif" font-size="56" font-weight="600">Hi, I’m Dat.</text>
+  <text x="116" y="356" fill="#17181A" font-family="Arial, sans-serif" font-size="42">I build useful software.</text>
+  <rect x="116" y="400" width="470" height="12" rx="6" fill="#DEDFDF"/>
+  <rect x="116" y="428" width="398" height="12" rx="6" fill="#DEDFDF"/>
+  <rect x="116" y="482" width="154" height="46" rx="6" fill="#17181A"/>
+  <text x="144" y="512" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="15">Explore work ↗</text>
+  <rect x="760" y="205" width="252" height="252" rx="126" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="2"/>
+  <text x="842" y="365" fill="#2563EB" font-family="Arial, sans-serif" font-size="108" font-weight="600">D</text>
+  <line x1="116" y1="598" x2="1084" y2="598" stroke="#DEDFDF" stroke-width="2"/>
+  <text x="116" y="648" fill="#8B8E94" font-family="monospace" font-size="13" letter-spacing="2">02 / SELECTED WORK</text>
+  <text x="490" y="650" fill="#17181A" font-family="Arial, sans-serif" font-size="24" font-weight="600">DAT Portfolio</text>
+</svg>
