@@ -80,6 +80,8 @@ export const vi: Dictionary = {
     minuteRead: "phút đọc",
     tagsLabel: "Thẻ bài viết",
     readArticle: "Đọc bài",
+    aiTranslated: "Dịch bởi AI",
+    missingTranslationNotice: "Bài viết này chưa có bản dịch cho ngôn ngữ đã chọn. Đang hiển thị bản gốc Tiếng Việt.",
   },
   empty: {
     skills: "Nội dung kỹ năng đang được cập nhật.",

@@ -24,6 +24,11 @@ export function PostCard({ post, locale, dictionary }: PostCardProps) {
           {post.category ? (
             <p className="mt-2 font-mono text-[11px] text-subtle">{post.category}</p>
           ) : null}
+          {post.autoTranslated ? (
+            <span className="mt-2 inline-flex items-center rounded border border-border px-1.5 py-0.5 font-mono text-[10px] text-muted">
+              🤖 {dictionary.blog.aiTranslated}
+            </span>
+          ) : null}
         </div>
         <div className="max-w-2xl">
           <h3 className="text-xl font-medium tracking-[-0.025em] text-foreground sm:text-2xl">

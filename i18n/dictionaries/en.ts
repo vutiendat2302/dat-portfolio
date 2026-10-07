@@ -80,6 +80,8 @@ export const en: Dictionary = {
     minuteRead: "min read",
     tagsLabel: "Post tags",
     readArticle: "Read article",
+    aiTranslated: "AI Translated",
+    missingTranslationNotice: "This article has not been translated into English yet. Displaying the original Vietnamese version.",
   },
   empty: {
     skills: "Skills content is being updated.",

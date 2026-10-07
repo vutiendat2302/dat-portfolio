@@ -23,6 +23,8 @@ interface HomePageProps {
 }
 
 export default async function HomePage({ params }: HomePageProps) {
+
+  // lay ngon ngu tu url
   const { locale } = await params;
 
   if (!isLocale(locale)) {

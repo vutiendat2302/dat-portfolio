@@ -67,6 +67,8 @@ export interface Dictionary {
     minuteRead: string;
     tagsLabel: string;
     readArticle: string;
+    aiTranslated: string;
+    missingTranslationNotice: string;
   };
   empty: {
     skills: string;

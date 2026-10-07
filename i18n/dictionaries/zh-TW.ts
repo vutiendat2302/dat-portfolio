@@ -80,6 +80,8 @@ export const zhTW: Dictionary = {
     minuteRead: "分鐘閱讀",
     tagsLabel: "文章標籤",
     readArticle: "閱讀文章",
+    aiTranslated: "AI 翻譯",
+    missingTranslationNotice: "此文章尚未有繁體中文翻譯，目前顯示越南語原文。",
   },
   empty: {
     skills: "技術能力內容正在更新中。",

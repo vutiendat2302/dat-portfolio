@@ -1,233 +1,522 @@
 ---
+description: |
+  Kỹ năng kỹ thuật dùng để thiết kế, triển khai, debug, refactor và duy
+  trì dự án DAT Portfolio được xây dựng với Next.js, TypeScript,
+  TailwindCSS và Markdown.
 name: dat-portfolio
-description: >
-  Engineering skill for designing, implementing, debugging,
-  refactoring and maintaining the DAT Portfolio project built
-  with Next.js, TypeScript, TailwindCSS and Markdown.
 ---
 
-# DAT Portfolio — AI Agent Engineering Skill
+# DAT Portfolio --- Quy tắc kỹ thuật dành cho AI Agent
 
-This skill governs the engineering mindset, architectural boundaries, component design, content pipeline, and quality standards for the **DAT Portfolio** project. AI agents must operate as a Senior Frontend Architect and strictly adhere to these guidelines.
+Skill này quy định tư duy kỹ thuật, ranh giới kiến trúc, thiết kế
+component, pipeline nội dung và các tiêu chuẩn chất lượng cho dự án
+**DAT Portfolio**. AI agent phải làm việc với tư duy của một Senior
+Frontend Architect và tuân thủ nghiêm ngặt các hướng dẫn này.
 
-Repository-specific instructions in the root `AGENTS.md` take precedence if they differ from this skill.
+Các quy tắc riêng của repository được định nghĩa trong `AGENTS.md` ở thư
+mục gốc sẽ được ưu tiên nếu có khác biệt với skill này.
 
----
+------------------------------------------------------------------------
 
-## 1. Project Overview & Architecture Philosophy
+## 1. Tổng quan dự án và triết lý kiến trúc
 
-**DAT Portfolio** is a modern, high-performance personal developer portfolio and technical blog.
+**DAT Portfolio** là một portfolio cá nhân dành cho developer, hiện đại
+và có hiệu năng cao, đồng thời có blog kỹ thuật.
 
-* **Core Architecture**: Static Site Generation (SSG) + Git-driven Markdown Content.
-* **Hosting**: Vercel (Static CDN / Edge).
-* **Single Source of Truth**:
-  * Portfolio structured data: `data/`
-  * Technical blog articles: `content/posts/`
-  * Static media: `public/`
-* **Design Philosophy**: Minimal, technical, clean, professional, premium, and content-first.
+-   **Kiến trúc cốt lõi**: Static Site Generation (SSG) + nội dung
+    Markdown được quản lý bằng Git.
+-   **Hosting**: Vercel (Static CDN / Edge).
+-   **Nguồn dữ liệu duy nhất**:
+    -   Dữ liệu có cấu trúc của portfolio: `data/`
+    -   Bài viết blog kỹ thuật: `content/posts/`
+    -   Media tĩnh: `public/`
+-   **Triết lý thiết kế**: Tối giản, mang tính kỹ thuật, sạch sẽ, chuyên
+    nghiệp, cao cấp và ưu tiên nội dung.
 
----
+------------------------------------------------------------------------
 
-## 2. Hard Constraints & Architectural Boundaries
+## 2. Ranh giới kiến trúc và các giới hạn bắt buộc
 
-AI agents must strictly respect these boundaries:
+AI agent phải tuân thủ nghiêm ngặt các ranh giới sau:
 
-* **No Backend & No Database**: Absolutely no backend frameworks (Express, NestJS, FastAPI, Spring Boot) or database/ORM systems (PostgreSQL, MySQL, MongoDB, Redis, Supabase, Firebase, Prisma, Drizzle).
-* **No Authentication & No CMS**: No login flows, JWT, sessions, admin dashboards, or external headless CMS.
-* **No Internal Content APIs**: Never create Route Handlers (`app/api/*`) just to read local Markdown or TypeScript data. Server Components must read the filesystem directly during build/render time.
-* **No MDX without Explicit Request**: Keep blog posts in standard Markdown format.
+-   **Không Backend và Không Database**: Tuyệt đối không thêm backend
+    framework (Express, NestJS, FastAPI, Spring Boot) hoặc hệ thống
+    database/ORM (PostgreSQL, MySQL, MongoDB, Redis, Supabase, Firebase,
+    Prisma, Drizzle).
+-   **Không Authentication và Không CMS**: Không tạo luồng đăng nhập,
+    JWT, session, admin dashboard hoặc tích hợp headless CMS bên ngoài.
+-   **Không Internal Content API**: Tuyệt đối không tạo Route Handler
+    (`app/api/*`) chỉ để đọc Markdown hoặc dữ liệu TypeScript local.
+    Server Components phải đọc trực tiếp filesystem trong quá trình
+    build/render.
+-   **Không sử dụng MDX nếu chưa được yêu cầu rõ ràng**: Blog phải tiếp
+    tục sử dụng Markdown chuẩn.
 
----
+------------------------------------------------------------------------
 
-## 3. Server Components vs. Client Components
+## 3. Server Components và Client Components
 
-### Default Rule: React Server Components (RSC)
-* All pages, layouts, and presentational containers must remain Server Components.
-* Server Components handle data fetching, filesystem access, and static HTML rendering.
+### Quy tắc mặc định: React Server Components (RSC)
 
-### Leaf Component Rule for Client Interactivity
-* Mark components with `"use client"` **only at the lowest leaf level** where browser-only interactivity is strictly needed (such as `useState`, `useEffect`, event listeners, interactive search/tag filters, theme toggling, or modals).
-* **Strict Anti-Pattern**: Never convert an entire route or page component into a Client Component just because one child component requires state or interaction.
-* Pass server-fetched data as serializable props into interactive client leaf components.
+-   Tất cả page, layout và presentational container phải tiếp tục là
+    Server Component.
+-   Server Component chịu trách nhiệm lấy dữ liệu, truy cập filesystem
+    và render HTML tĩnh.
 
----
+### Quy tắc Client Component ở tầng lá
 
-## 4. Markdown Content System
+-   Chỉ đánh dấu component bằng `"use client"` **ở mức thấp nhất có
+    thể** khi thực sự cần tương tác chỉ có ở trình duyệt, chẳng hạn:
+    -   `useState`
+    -   `useEffect`
+    -   event listener
+    -   tìm kiếm/lọc tương tác
+    -   lọc theo tag
+    -   chuyển đổi theme
+    -   modal
+-   **Anti-pattern nghiêm cấm**: Không được chuyển toàn bộ route hoặc
+    page thành Client Component chỉ vì một component con cần state hoặc
+    tương tác.
+-   Dữ liệu được lấy ở server phải được truyền dưới dạng props có thể
+    serialize vào các Client Component ở tầng lá.
 
-### Frontmatter Schema
-Blog posts in `content/posts/` must use YAML frontmatter with the following fields:
-* **Required**:
-  * `title`: Post title
-  * `description`: Short summary for previews and SEO
-  * `date`: Publication date (YYYY-MM-DD)
-  * `tags`: Array of relevant technical tags
-  * `published`: Boolean flag indicating publication status
-* **Optional**:
-  * `category`: Broad topic category
-  * `coverImage`: Path to cover image in `public/`
-  * `updatedAt`: Last revised date
-  * `language`: Language code (`vi` or `en`)
-  * `featured`: Boolean flag for featured highlights
+------------------------------------------------------------------------
 
-### Server-Side Processing Pipeline
-* Read Markdown files from the filesystem strictly at build/server time.
-* Extract YAML frontmatter and transform Markdown to HTML server-side.
-* Deliver pre-rendered HTML to the client to ensure zero client-side parsing bundle overhead.
-* Validate required frontmatter fields and types while loading content; fail the build with a useful error for invalid posts.
-* Sanitize rendered HTML if raw HTML is enabled by the Markdown pipeline.
+## 4. Hệ thống nội dung Markdown
 
-### Draft Articles Rule
-* Any article with `published: false` **MUST NEVER** appear in:
-  * Public blog listings and search views.
-  * Static path generation (`generateStaticParams`).
-  * Public sitemap (`app/sitemap.ts`).
-  * Related posts or recommendations.
+### Schema của Frontmatter
 
----
+Các bài viết trong `content/posts/` phải sử dụng YAML frontmatter với
+các trường sau:
 
-## 5. Portfolio Data Architecture
+### Bắt buộc
 
-* **Location**: Domain data resides in TypeScript files under `data/` (e.g., `profile.ts`, `projects.ts`, `skills.ts`, `experience.ts`, `education.ts`).
-* **Derivation over Duplication**:
-  * Store data in a single comprehensive array per entity.
-  * Compute subsets (such as featured projects or recent highlights) dynamically using array methods rather than maintaining duplicate arrays.
+-   `title`: Tiêu đề bài viết.
+-   `description`: Mô tả ngắn dùng cho preview và SEO.
+-   `date`: Ngày xuất bản (`YYYY-MM-DD`).
+-   `tags`: Mảng các tag kỹ thuật liên quan.
+-   `published`: Cờ boolean xác định bài viết đã được xuất bản hay chưa.
 
----
+### Tùy chọn
 
-## 6. Routing & Static Site Generation (SSG)
+-   `category`: Danh mục chủ đề tổng quát.
+-   `coverImage`: Đường dẫn tới ảnh cover trong `public/`.
+-   `updatedAt`: Ngày chỉnh sửa gần nhất.
+-   `language`: Mã ngôn ngữ (`vi` hoặc `en`).
+-   `featured`: Cờ boolean xác định bài viết có được đánh dấu nổi bật
+    hay không.
 
-* **Route Hierarchy**:
-  * `/`: Homepage / Overview
-  * `/about`: About me, background, education, experience
-  * `/projects`: Curated project showcase
-  * `/projects/[slug]`: Project details
-  * `/blog`: Technical blog & notes listing
-  * `/blog/[slug]`: Article reader view
-  * Optional: `/contact`
-* **Static Generation**: Dynamic routes (`/blog/[slug]`, `/projects/[slug]`) must implement `generateStaticParams()` for full static pre-rendering.
-* **Static Route Safety**: Fully static dynamic routes should set `dynamicParams = false`; otherwise, every missing or unpublished slug must explicitly call `notFound()`.
-* **Error Handling**: Missing or unpublished slugs must immediately trigger `notFound()` from `next/navigation` to render a clean 404 page.
+### Pipeline xử lý phía Server
 
----
+-   Đọc file Markdown từ filesystem chỉ trong quá trình build/server.
+-   Trích xuất YAML frontmatter và chuyển Markdown thành HTML ở phía
+    server.
+-   Gửi HTML đã được render sẵn tới client để tránh chi phí bundle do
+    parse Markdown phía client.
+-   Kiểm tra các trường frontmatter bắt buộc và kiểu dữ liệu khi load
+    nội dung; nếu bài viết không hợp lệ thì phải làm build thất bại với
+    thông báo lỗi hữu ích.
+-   Sanitize HTML sau khi render nếu pipeline Markdown cho phép raw
+    HTML.
 
-## 7. SEO, Metadata & Search Engine Standards
+### Quy tắc đối với bài viết nháp
 
-* **Next.js Metadata API**:
-  * Static pages: Export a static `metadata` object.
-  * Dynamic pages: Export an async `generateMetadata()` function.
-* **Metadata Requirements**:
-  * Unique, page-specific `title` following the convention: `[Page Title] | Dat`
-  * Descriptive `description`
-  * OpenGraph (title, description, image, type)
-  * Twitter cards (summary_large_image)
-* **Search Engine Files**:
-  * `app/sitemap.ts`: Generate dynamic sitemap containing static pages, project detail routes, and published blog posts (excluding drafts).
-  * `app/robots.ts`: Allow public indexing and link to the sitemap.
+Bất kỳ bài viết nào có:
 
----
+``` yaml
+published: false
+```
 
-## 8. UI, Responsive Design & Typography
+**TUYỆT ĐỐI KHÔNG ĐƯỢC** xuất hiện trong:
 
-### Visual Direction
-* Modern, clean, minimal, technical, professional, premium, and content-first.
-* Avoid SaaS landing page cliches, admin dashboard widgets, crypto/gaming aesthetics, or gratuitous animations.
+-   Danh sách blog public và các view tìm kiếm.
+-   Quá trình tạo static path (`generateStaticParams`).
+-   Sitemap public (`app/sitemap.ts`).
+-   Bài viết liên quan hoặc các đề xuất bài viết.
 
-### Blog Typography & Long-Form Reading
-* Restrict article container width to an optimal reading measure (e.g., `max-w-3xl` / `prose`).
-* Comprehensive visual hierarchy for headings (`h1`–`h6`), paragraphs, blockquotes, lists, links, and tables.
-* Inline code must have subtle background contrast and monospaced font.
-* Code blocks must include syntax styling, proper padding, and horizontal scroll capability on mobile devices (`overflow-x-auto`).
-* Tables must be wrapped to support horizontal scrolling on smaller screens.
+------------------------------------------------------------------------
 
-### Responsive Standards
-* Fully responsive across mobile (360px–640px), tablet (768px–1024px), and desktop (1280px+).
-* Zero horizontal layout overflow or viewport clipping.
-* Navigation menu must adapt seamlessly to mobile viewports.
+## 5. Kiến trúc dữ liệu Portfolio
 
----
+-   **Vị trí**: Dữ liệu domain nằm trong các file TypeScript bên dưới
+    `data/`, ví dụ:
+    -   `profile.ts`
+    -   `projects.ts`
+    -   `skills.ts`
+    -   `experience.ts`
+    -   `education.ts`
+-   **Ưu tiên suy ra dữ liệu thay vì sao chép**:
+    -   Lưu dữ liệu trong một array đầy đủ duy nhất cho mỗi entity.
+    -   Tạo các tập con (ví dụ featured projects hoặc recent highlights)
+        bằng các array method thay vì duy trì các array bị trùng lặp.
 
-## 9. Accessibility (a11y) Standards
+------------------------------------------------------------------------
 
-* **Semantic HTML**: Utilize landmark elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
-* **Interactive Elements**:
-  * Use `<button>` for actions and triggers.
-  * Use `<a>` or Next.js `<Link>` for navigation.
-* **Keyboard Navigation & Focus**: Provide clear, visible focus rings (`focus-visible`) for all interactive elements.
-* **Accessible Images**: Every `next/image` must have a descriptive `alt` attribute (never generic placeholders like "image" or "img").
-* **Color Contrast**: Maintain WCAG AA compliant contrast ratios across light and dark themes.
+## 6. Routing và Static Site Generation (SSG)
 
----
+### Cấu trúc route
 
-## 10. Performance Optimization
+-   `/`: Trang chủ / Tổng quan.
+-   `/about`: Giới thiệu, nền tảng, học vấn, kinh nghiệm.
+-   `/projects`: Danh sách các dự án tiêu biểu.
+-   `/projects/[slug]`: Chi tiết dự án.
+-   `/blog`: Danh sách blog kỹ thuật và ghi chú.
+-   `/blog/[slug]`: Trang đọc bài viết.
+-   Có thể có thêm `/contact` nếu cần.
 
-* **Zero Unnecessary Client JS**: Keep Markdown rendering and static content strictly on the server.
-* **Next.js Image Optimization**: Use `next/image` with explicit dimensions or fill mode, and set `priority` for above-the-fold hero images to optimize Largest Contentful Paint (LCP).
-* **Next.js Font Optimization**: Use `next/font` for zero layout shifts (CLS).
-* **Subtle Transitions**: Use standard CSS/Tailwind transitions instead of bulky JavaScript animation libraries.
+### Static Generation
 
----
+Các dynamic route:
 
-## 11. Code Conventions & Project Structure
+``` text
+/blog/[slug]
+/projects/[slug]
+```
 
-* **Naming Conventions**:
-  * Component files: `PascalCase.tsx`
-  * Utility and data files: `camelCase.ts`
-  * Route folders: `kebab-case`
-  * Markdown post files: `kebab-case.md`
-* **Imports**: Use the `@/*` path alias for all internal imports.
-* **TypeScript**: Strict mode with explicit types for props, models, and helper return values. No `any` escapes.
+phải triển khai `generateStaticParams()` để pre-render hoàn toàn ở dạng
+static.
 
----
+### An toàn đối với static route
 
-## 12. Content Integrity (Zero Fabrication Rule)
+Các dynamic route hoàn toàn static nên đặt:
 
-* **Strict Prohibition**: Never invent, hallucinate, or fabricate work experience, company names, educational history, project details, skills, metrics, or external URLs.
-* **Placeholder Guidelines**: When personal details are not yet provided by the user, use clear developer placeholders (such as `TODO: Add LinkedIn URL`) or define fields as optional in TypeScript interfaces.
+``` ts
+dynamicParams = false
+```
 
----
+Nếu không sử dụng cách này thì mọi slug không tồn tại hoặc chưa publish
+phải gọi `notFound()` một cách rõ ràng.
 
-## 13. Dependency Management Policy
+### Xử lý lỗi
 
-Before installing any package:
-1. Inspect `package.json` to verify existing dependencies.
-2. Evaluate if native Next.js, React, or browser APIs already provide the solution.
-3. Only add minimal, specialized libraries when strictly necessary (e.g., standard Markdown frontmatter and transformation tools).
-4. Never install duplicate or competing packages for the same functionality.
+Slug không tồn tại hoặc chưa publish phải ngay lập tức gọi:
 
----
+``` ts
+notFound()
+```
 
-## 14. Step-by-Step AI Agent Workflow
+từ `next/navigation` để hiển thị trang 404 rõ ràng.
 
-1. **Inspect**: Read `package.json`, existing directory structure, routes, components, and data before making changes.
-2. **Understand**: Identify conventions, data flows, and reusable components without assuming or guessing.
-3. **Implement**: Apply focused, type-safe modifications adhering strictly to architectural boundaries.
-4. **Verify**: Test TypeScript types, run linting, and verify builds, responsiveness, and accessibility.
-5. **Report**: Provide a concise summary of changes, rationale, and verification results.
+------------------------------------------------------------------------
 
-Use `npm run typecheck`, `npm run lint`, and `npm run build` when these scripts are available. If the project is not yet bootstrapped or a check cannot run in the environment, report that limitation instead of claiming verification.
+## 7. SEO, Metadata và tiêu chuẩn công cụ tìm kiếm
 
----
+### Next.js Metadata API
 
-## 15. AI Agent Prohibitions ("Must NOT")
+-   Static page: export một object `metadata` tĩnh.
+-   Dynamic page: export một hàm async `generateMetadata()`.
 
-* **MUST NOT** create backends, databases, ORMs, authentication, admin panels, or CMS integrations.
-* **MUST NOT** convert Server Component pages into Client Components.
-* **MUST NOT** create API routes to serve local Markdown or TypeScript data.
-* **MUST NOT** parse Markdown in client-side bundles.
-* **MUST NOT** invent fake portfolio data or personal background.
-* **MUST NOT** install unneeded dependencies or migrate to MDX without explicit instruction.
-* **MUST NOT** leave incomplete implementation logic as TODOs.
+### Yêu cầu Metadata
 
----
+-   `title` phải duy nhất cho từng page và tuân theo quy ước:
+    `[Page Title] | Dat`
+-   `description` có nội dung mô tả rõ ràng.
+-   OpenGraph gồm:
+    -   title
+    -   description
+    -   image
+    -   type
+-   Twitter Card sử dụng: `summary_large_image`
+
+### File dành cho Search Engine
+
+-   `app/sitemap.ts`: Tạo sitemap động chứa static pages, project detail
+    routes và các bài blog đã publish; không đưa draft vào sitemap.
+-   `app/robots.ts`: Cho phép public indexing và liên kết tới sitemap.
+
+------------------------------------------------------------------------
+
+## 8. UI, Responsive Design và Typography
+
+### Định hướng giao diện
+
+-   Hiện đại.
+-   Sạch sẽ.
+-   Tối giản.
+-   Mang tính kỹ thuật.
+-   Chuyên nghiệp.
+-   Cao cấp.
+-   Ưu tiên nội dung.
+
+Tránh:
+
+-   Các kiểu SaaS landing page sáo rỗng.
+-   Widget kiểu admin dashboard.
+-   Phong cách crypto/gaming.
+-   Animation quá mức hoặc không cần thiết.
+
+### Typography cho Blog và nội dung dài
+
+-   Giới hạn chiều rộng container bài viết ở mức phù hợp để đọc, ví dụ:
+    `max-w-3xl` / `prose`.
+-   Xây dựng hệ thống phân cấp trực quan đầy đủ cho:
+    -   `h1`--`h6`
+    -   paragraph
+    -   blockquote
+    -   list
+    -   link
+    -   table
+-   Inline code phải có background tương phản nhẹ và font monospace.
+-   Code block phải có:
+    -   syntax styling
+    -   padding phù hợp
+    -   khả năng scroll ngang trên mobile (`overflow-x-auto`)
+-   Table phải được bọc trong container hỗ trợ scroll ngang trên màn
+    hình nhỏ.
+
+### Tiêu chuẩn Responsive
+
+Website phải responsive hoàn toàn trên:
+
+-   Mobile: `360px–640px`
+-   Tablet: `768px–1024px`
+-   Desktop: `1280px+`
+
+Không được có:
+
+-   horizontal layout overflow
+-   viewport clipping
+
+Navigation menu phải thích ứng mượt với màn hình mobile.
+
+------------------------------------------------------------------------
+
+## 9. Tiêu chuẩn Accessibility (a11y)
+
+### Semantic HTML
+
+Sử dụng các landmark element:
+
+``` html
+<header>
+<nav>
+<main>
+<section>
+<article>
+<footer>
+```
+
+### Element tương tác
+
+-   Sử dụng `<button>` cho action và trigger.
+-   Sử dụng `<a>` hoặc Next.js `<Link>` cho navigation.
+
+### Điều hướng bằng bàn phím và Focus
+
+Cung cấp focus ring rõ ràng và nhìn thấy được thông qua `focus-visible`
+cho tất cả interactive element.
+
+### Hình ảnh có khả năng truy cập
+
+Mọi `next/image` phải có `alt` mô tả đúng nội dung.
+
+Không sử dụng các placeholder chung chung như:
+
+``` text
+image
+img
+```
+
+### Độ tương phản màu
+
+Duy trì tỷ lệ tương phản đạt chuẩn WCAG AA trên cả light theme và dark
+theme.
+
+------------------------------------------------------------------------
+
+## 10. Tối ưu hiệu năng
+
+### Không có Client JS không cần thiết
+
+Giữ việc render Markdown và nội dung tĩnh hoàn toàn ở phía server.
+
+### Tối ưu hình ảnh bằng Next.js
+
+Sử dụng `next/image` với:
+
+-   kích thước rõ ràng,
+-   hoặc `fill`.
+
+Đặt `priority` cho hero image nằm above-the-fold để tối ưu Largest
+Contentful Paint (LCP).
+
+### Tối ưu Font bằng Next.js
+
+Sử dụng `next/font` để tránh layout shift và cải thiện Cumulative Layout
+Shift (CLS).
+
+### Transition nhẹ
+
+Sử dụng CSS/Tailwind transition tiêu chuẩn thay vì các thư viện
+animation JavaScript cồng kềnh.
+
+------------------------------------------------------------------------
+
+## 11. Quy ước code và cấu trúc project
+
+### Quy tắc đặt tên
+
+-   Component file: `PascalCase.tsx`
+-   Utility và data file: `camelCase.ts`
+-   Route folder: `kebab-case`
+-   Markdown post file: `kebab-case.md`
+
+### Import
+
+Sử dụng path alias `@/*` cho tất cả internal import.
+
+Ví dụ:
+
+``` ts
+import { profile } from "@/data/profile";
+```
+
+### TypeScript
+
+Sử dụng strict mode với type rõ ràng cho:
+
+-   props
+-   model
+-   helper return value
+
+Không được sử dụng `any` để né type checking.
+
+------------------------------------------------------------------------
+
+## 12. Tính toàn vẹn nội dung --- Không được bịa dữ liệu
+
+### Nghiêm cấm
+
+Không được tự tạo, hallucinate hoặc bịa:
+
+-   Kinh nghiệm làm việc.
+-   Tên công ty.
+-   Lịch sử học tập.
+-   Chi tiết dự án.
+-   Kỹ năng.
+-   Số liệu.
+-   URL bên ngoài.
+
+### Quy tắc Placeholder
+
+Khi người dùng chưa cung cấp thông tin cá nhân, sử dụng placeholder rõ
+ràng cho developer, ví dụ:
+
+``` text
+TODO: Add LinkedIn URL
+```
+
+hoặc định nghĩa field là optional trong TypeScript interface.
+
+------------------------------------------------------------------------
+
+## 13. Chính sách quản lý Dependency
+
+Trước khi cài bất kỳ package nào:
+
+1.  Kiểm tra `package.json` để xác nhận dependency hiện có.
+2.  Kiểm tra xem Next.js, React hoặc browser API native đã cung cấp giải
+    pháp hay chưa.
+3.  Chỉ thêm các thư viện chuyên biệt, tối thiểu khi thực sự cần thiết,
+    ví dụ công cụ xử lý frontmatter và Markdown chuẩn.
+4.  Không bao giờ cài các package trùng chức năng hoặc cạnh tranh cho
+    cùng một mục đích.
+
+------------------------------------------------------------------------
+
+## 14. Quy trình làm việc từng bước của AI Agent
+
+### 1. Inspect --- Kiểm tra
+
+Đọc:
+
+-   `package.json`
+-   cấu trúc thư mục hiện tại
+-   routes
+-   components
+-   data
+
+trước khi thay đổi code.
+
+### 2. Understand --- Hiểu
+
+Xác định:
+
+-   convention hiện tại
+-   data flow
+-   reusable components
+
+Không được tự giả định hoặc đoán.
+
+### 3. Implement --- Triển khai
+
+Thực hiện các thay đổi:
+
+-   tập trung
+-   type-safe
+-   tuân thủ nghiêm ngặt ranh giới kiến trúc.
+
+### 4. Verify --- Kiểm tra
+
+Kiểm tra:
+
+-   TypeScript types
+-   lint
+-   build
+-   responsive
+-   accessibility
+
+### 5. Report --- Báo cáo
+
+Cung cấp bản tóm tắt ngắn gọn về:
+
+-   thay đổi đã thực hiện
+-   lý do
+-   kết quả kiểm tra
+
+Khi các script tồn tại, sử dụng:
+
+``` bash
+npm run typecheck
+npm run lint
+npm run build
+```
+
+Nếu project chưa được bootstrap hoặc một bước kiểm tra không thể chạy
+trong môi trường hiện tại, phải báo rõ giới hạn đó thay vì tuyên bố rằng
+việc kiểm tra đã thành công.
+
+------------------------------------------------------------------------
+
+## 15. Các điều AI Agent TUYỆT ĐỐI KHÔNG ĐƯỢC làm
+
+-   **KHÔNG ĐƯỢC** tạo backend, database, ORM, authentication, admin
+    panel hoặc CMS integration.
+-   **KHÔNG ĐƯỢC** chuyển các page Server Component thành Client
+    Component.
+-   **KHÔNG ĐƯỢC** tạo API route để phục vụ dữ liệu Markdown hoặc
+    TypeScript local.
+-   **KHÔNG ĐƯỢC** parse Markdown trong client-side bundle.
+-   **KHÔNG ĐƯỢC** bịa dữ liệu portfolio hoặc thông tin cá nhân.
+-   **KHÔNG ĐƯỢC** cài dependency không cần thiết hoặc chuyển sang MDX
+    nếu chưa có chỉ dẫn rõ ràng.
+-   **KHÔNG ĐƯỢC** để lại implementation logic chưa hoàn thành dưới dạng
+    TODO.
+
+------------------------------------------------------------------------
 
 ## 16. Definition of Done (DoD)
 
-A task is complete only when:
-* [ ] Requirements are fully implemented without violating architecture constraints.
-* [ ] TypeScript compiles cleanly with strict types and zero errors.
-* [ ] `npm run lint` passes without errors.
-* [ ] `npm run build` succeeds (when runnable in the environment).
-* [ ] UI is fully responsive across mobile, tablet, and desktop with no horizontal scroll leaks.
-* [ ] SEO metadata is properly configured for public routes.
-* [ ] Semantic HTML and accessibility standards are respected.
-* [ ] No unnecessary dependencies, backends, or databases were introduced.
+Một task chỉ được xem là hoàn thành khi:
+
+-   [ ] Đã triển khai đầy đủ yêu cầu mà không vi phạm các ràng buộc kiến
+    trúc.
+-   [ ] TypeScript compile thành công với strict types và không có
+    error.
+-   [ ] `npm run lint` chạy thành công, không có error.
+-   [ ] `npm run build` thành công nếu môi trường cho phép chạy.
+-   [ ] UI responsive hoàn toàn trên mobile, tablet và desktop, không có
+    horizontal scroll không mong muốn.
+-   [ ] SEO metadata được cấu hình đúng cho các public route.
+-   [ ] Semantic HTML và các tiêu chuẩn accessibility được tuân thủ.
+-   [ ] Không thêm dependency, backend hoặc database không cần thiết.

@@ -10,6 +10,7 @@ interface CreateMetadataOptions {
   path: string;
   type?: "website" | "article";
   alternatePaths?: Partial<Record<Locale, string>>;
+  canonicalPath?: string;
 }
 
 export function getLocaleAlternatePaths(path = ""): Record<Locale, string> {
@@ -27,11 +28,12 @@ export function createMetadata({
   path,
   type = "website",
   alternatePaths = getLocaleAlternatePaths(path),
+  canonicalPath,
 }: CreateMetadataOptions): Metadata {
   const fullTitle = title.includes(siteConfig.name)
     ? title
     : `${title} | ${siteConfig.name}`;
-  const url = new URL(localePath(locale, path), getSiteUrl());
+  const url = new URL(canonicalPath ?? localePath(locale, path), getSiteUrl());
   const languages: Record<string, string> = {};
 
   for (const alternateLocale of locales) {
@@ -49,7 +51,7 @@ export function createMetadata({
     title,
     description,
     alternates: {
-      canonical: url,
+      canonical: url.toString(),
       languages,
     },
     openGraph: {
