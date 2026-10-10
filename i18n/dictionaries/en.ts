@@ -2,11 +2,12 @@ import type { Dictionary } from "@/i18n/types";
 
 export const en: Dictionary = {
   navigation: {
-    about: "About",
+    home: "Home",
     projects: "Projects",
-    blog: "Writing",
-    experience: "Experience",
+    blog: "Blog",
+    about: "About",
     contact: "Contact",
+    cv: "CV",
     menu: "Open menu",
     closeMenu: "Close menu",
   },
@@ -66,6 +67,19 @@ export const en: Dictionary = {
     title: "Notes and ideas",
     description: "Technical notes, concise guides, and lessons learned while building software.",
   },
+  cvPage: {
+    eyebrow: "05 / Curriculum Vitae",
+    title: "Curriculum Vitae",
+    description: "Comprehensive overview of Dat's background, skills, and professional experience.",
+    print: "Print CV",
+    downloadPdf: "Download PDF",
+    summary: "Professional Summary",
+    skills: "Technical Skills",
+    experience: "Work Experience",
+    education: "Education",
+    projects: "Featured Projects",
+    contact: "Contact Information",
+  },
   project: {
     viewProject: "View project",
     back: "All projects",
@@ -105,5 +119,7 @@ export const en: Dictionary = {
     projectsDescription: "Software projects designed and built by Dat.",
     blogTitle: "Writing",
     blogDescription: "Technical notes and lessons Dat learns while building software.",
+    cvTitle: "CV / Resume",
+    cvDescription: "Curriculum Vitae and professional profile of Dat.",
   },
 };

@@ -1,9 +1,10 @@
 export interface Dictionary {
   navigation: {
+    home: string; 
     about: string;
     projects: string;
     blog: string;
-    experience: string;
+    cv: string;
     contact: string;
     menu: string;
     closeMenu: string;
@@ -53,6 +54,19 @@ export interface Dictionary {
     title: string;
     description: string;
   };
+  cvPage: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    print: string;
+    downloadPdf: string;
+    summary: string;
+    skills: string;
+    experience: string;
+    education: string;
+    projects: string;
+    contact: string;
+  };
   project: {
     viewProject: string;
     back: string;
@@ -94,5 +108,7 @@ export interface Dictionary {
     projectsDescription: string;
     blogTitle: string;
     blogDescription: string;
+    cvTitle: string;
+    cvDescription: string;
   };
 }

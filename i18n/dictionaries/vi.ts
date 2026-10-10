@@ -2,11 +2,12 @@ import type { Dictionary } from "@/i18n/types";
 
 export const vi: Dictionary = {
   navigation: {
-    about: "Giới thiệu",
+    home: "Trang chủ",
     projects: "Dự án",
     blog: "Bài viết",
-    experience: "Kinh nghiệm",
+    about: "Giới thiệu",
     contact: "Liên hệ",
+    cv: "CV",
     menu: "Mở menu",
     closeMenu: "Đóng menu",
   },
@@ -14,7 +15,7 @@ export const vi: Dictionary = {
   theme: { label: "Giao diện", light: "Sáng", dark: "Tối", system: "Hệ thống" },
   hero: {
     greeting: "Xin chào, mình là",
-    headline: "Mình xây dựng những sản phẩm phần mềm hữu ích.",
+    headline: "Cảm ơn bạn đã ghé thăm portfolio của mình.",
     exploreWork: "Xem dự án",
     readWriting: "Đọc bài viết",
     visualLabel: "Kiến trúc hệ thống",
@@ -66,6 +67,19 @@ export const vi: Dictionary = {
     title: "Ghi chép và chia sẻ",
     description: "Technical notes, hướng dẫn ngắn và những bài học trong quá trình xây dựng sản phẩm.",
   },
+  cvPage: {
+    eyebrow: "05 / Sơ yếu lý lịch",
+    title: "Curriculum Vitae",
+    description: "Thông tin tổng hợp về kỹ năng, kinh nghiệm và quá trình làm việc của Dat.",
+    print: "In CV",
+    downloadPdf: "Tải bản PDF",
+    summary: "Tóm tắt chuyên môn",
+    skills: "Kỹ năng chuyên môn",
+    experience: "Kinh nghiệm làm việc",
+    education: "Học vấn",
+    projects: "Dự án tiêu biểu",
+    contact: "Thông tin liên hệ",
+  },
   project: {
     viewProject: "Xem dự án",
     back: "Tất cả dự án",
@@ -105,5 +119,7 @@ export const vi: Dictionary = {
     projectsDescription: "Những dự án phần mềm được Dat xây dựng và phát triển.",
     blogTitle: "Bài viết",
     blogDescription: "Technical notes và những điều Dat học được khi làm phần mềm.",
+    cvTitle: "CV / Resume",
+    cvDescription: "Curriculum Vitae và hồ sơ chuyên môn của Dat.",
   },
 };

@@ -2,11 +2,12 @@ import type { Dictionary } from "@/i18n/types";
 
 export const zhTW: Dictionary = {
   navigation: {
-    about: "關於我",
+    home: "首頁",
     projects: "專案",
-    blog: "技術文章",
-    experience: "經歷",
-    contact: "聯絡方式",
+    blog: "部落格",
+    about: "關於",
+    contact: "聯絡",
+    cv: "履歷",
     menu: "開啟選單",
     closeMenu: "關閉選單",
   },
@@ -66,6 +67,19 @@ export const zhTW: Dictionary = {
     title: "筆記與分享",
     description: "技術筆記、簡短教學，以及開發軟體時累積的心得。",
   },
+  cvPage: {
+    eyebrow: "05 / 個人簡歷",
+    title: "Curriculum Vitae",
+    description: "Dat 的專業技能、工作經歷與個人背景總覽。",
+    print: "列印簡歷",
+    downloadPdf: "下載 PDF",
+    summary: "專業簡介",
+    skills: "技術專長",
+    experience: "工作經歷",
+    education: "學歷背景",
+    projects: "精選專案",
+    contact: "聯絡資訊",
+  },
   project: {
     viewProject: "查看專案",
     back: "所有專案",
@@ -105,5 +119,7 @@ export const zhTW: Dictionary = {
     projectsDescription: "Dat 設計與開發的軟體專案。",
     blogTitle: "技術文章",
     blogDescription: "Dat 在開發軟體過程中整理的技術筆記與心得。",
+    cvTitle: "簡歷 / CV",
+    cvDescription: "Dat 的個人簡歷與專業經歷總覽。",
   },
 };
