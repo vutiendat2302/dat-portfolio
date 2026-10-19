@@ -1,9 +1,10 @@
 export interface Dictionary {
   navigation: {
+    home: string; 
     about: string;
     projects: string;
     blog: string;
-    experience: string;
+    cv: string;
     contact: string;
     menu: string;
     closeMenu: string;
@@ -53,6 +54,51 @@ export interface Dictionary {
     title: string;
     description: string;
   };
+  cvPage: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    print: string;
+    downloadPdf: string;
+    summary: string;
+    skills: string;
+    experience: string;
+    education: string;
+    projects: string;
+    contact: string;
+    activities: string;
+    coursework: string;
+    phone: string;
+  };
+  contactPage: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    directContact: string;
+    email: string;
+    phone: string;
+    location: string;
+    social: string;
+    availability: string;
+    availabilityStatus: string;
+    availabilityNotice: string;
+    responseTime: string;
+    responseTimeNotice: string;
+    sendMessage: string;
+    formDescription: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    subjectLabel: string;
+    subjectPlaceholder: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    sendButton: string;
+    copyEmail: string;
+    emailCopied: string;
+    openGmail: string;
+  };
   project: {
     viewProject: string;
     back: string;
@@ -67,6 +113,8 @@ export interface Dictionary {
     minuteRead: string;
     tagsLabel: string;
     readArticle: string;
+    aiTranslated: string;
+    missingTranslationNotice: string;
   };
   empty: {
     skills: string;
@@ -92,5 +140,9 @@ export interface Dictionary {
     projectsDescription: string;
     blogTitle: string;
     blogDescription: string;
+    cvTitle: string;
+    cvDescription: string;
+    contactTitle: string;
+    contactDescription: string;
   };
 }

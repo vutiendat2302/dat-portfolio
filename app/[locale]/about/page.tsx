@@ -28,7 +28,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
   const dictionary = getDictionary(locale);
 
   return (
-    <Container className="py-14 sm:py-20 lg:py-24">
+    <Container className="pt-6 pb-14 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-24">
       <SectionHeading eyebrow={dictionary.aboutPage.eyebrow} title={dictionary.aboutPage.title} description={dictionary.aboutPage.description} level={1} />
       <div className="mt-14 grid gap-12 border-t border-border pt-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
         <h2 id="story-title" className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-subtle">{dictionary.aboutPage.story}</h2>

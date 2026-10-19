@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
@@ -13,7 +14,7 @@ import type { BlogTranslationEntry } from "@/lib/posts";
 interface MobileMenuProps {
   locale: Locale;
   dictionary: Dictionary;
-  links: Array<{ label: string; href: string }>;
+  links: Array<{ label: string; href: string; external?: boolean }>;
   socialLinks: SocialLink[];
   blogTranslations: BlogTranslationEntry[];
 }
@@ -26,6 +27,18 @@ export function MobileMenu({
   blogTranslations,
 }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  function isItemActive(href: string): boolean {
+    const homePath = `/${locale}`;
+    if (href === homePath || href === `${homePath}/`) {
+      return pathname === homePath || pathname === `${homePath}/`;
+    }
+    if (href.includes("#")) {
+      return false;
+    }
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
 
   return (
     <div className="md:hidden">
@@ -49,17 +62,51 @@ export function MobileMenu({
       >
         <nav aria-label={dictionary.navigation.menu}>
           <ul className="grid">
-            {links.map((link) => (
-              <li key={link.href} className="border-b border-border last:border-0">
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block py-3 text-base font-medium text-foreground focus-visible:outline-2 focus-visible:outline-offset-2"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {links.map((link) => {
+              const active = !link.external && isItemActive(link.href);
+
+              if (link.external) {
+                return (
+                  <li key={link.href} className="border-b border-border last:border-0">
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => setOpen(false)}
+                      className="flex items-center justify-between py-3 text-base font-medium text-foreground transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2"
+                    >
+                      <span>{link.label}</span>
+                      <span className="text-xs text-muted" aria-hidden="true">
+                        ↗
+                      </span>
+                    </a>
+                  </li>
+                );
+              }
+
+              return (
+                <li key={link.href} className="border-b border-border last:border-0">
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`flex items-center justify-between py-3 text-base font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${
+                      active
+                        ? "font-semibold text-accent"
+                        : "text-foreground hover:text-accent"
+                    }`}
+                    aria-current={active ? "page" : undefined}
+                  >
+                    <span>{link.label}</span>
+                    {active && (
+                      <span
+                        className="size-2 rounded-full bg-accent"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -72,14 +119,14 @@ export function MobileMenu({
           <ThemeSwitcher labels={dictionary.theme} />
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-5 border-t border-border pt-5 text-sm text-muted">
+        <div className="mt-6 grid grid-cols-2 gap-2.5 border-t border-border pt-5 text-sm text-muted">
           {socialLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               target="_blank"
               rel="noreferrer"
-              className="link-underline rounded-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="link-underline rounded-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 truncate"
             >
               {link.label} ↗︎
             </a>

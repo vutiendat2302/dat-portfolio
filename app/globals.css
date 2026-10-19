@@ -1,6 +1,22 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Logo theme switching based on html.dark class */
+.header-logo-light {
+  display: block;
+}
+.header-logo-dark {
+  display: none;
+}
+html.dark .header-logo-light {
+  display: none !important;
+}
+html.dark .header-logo-dark {
+  display: block !important;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);

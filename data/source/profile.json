@@ -1,0 +1,49 @@
+{
+  "name": {
+    "vi": "Vũ Tiến Đạt",
+    "en": "Felix Vu",
+    "zh-TW": "五進達"
+  },
+  "initials": "D",
+  "role": "Kỹ sư phần mềm / Lập trình viên Fullstack",
+  "introduction": "Sinh viên năm thứ 4 chuyên ngành Toán - Tin học tại Đại học Khoa học Tự nhiên (ĐHQGHN) với định hướng phát triển phần mềm và hệ thống công nghệ có khả năng mở rộng cao.",
+  "about": [
+    "Sinh viên năm thứ 4 chuyên ngành Toán - Tin tại Trường Đại học Khoa học Tự nhiên, ĐHQGHN với niềm đam mê sâu sắc về phát triển phần mềm và các hệ thống công nghệ có khả năng mở rộng.",
+    "Có kinh nghiệm thực chiến trong phát triển web full-stack, kỹ thuật backend, xử lý dữ liệu và hệ thống cơ sở dữ liệu qua các dự án học thuật và doanh nghiệp.",
+    "Đam mê học hỏi công nghệ mới, giải quyết các bài toán thực tế và phát triển các hệ thống hiệu quả, có khả năng mở rộng cao."
+  ],
+  "location": "Hà Nội, Việt Nam",
+  "email": "vutiendat23022005@gmail.com",
+  "phone": "0962362615",
+  "socialLinks": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/vutiendat2302"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/dat-vu-tien-8b492b35b/"
+    },
+    {
+      "label": "Facebook",
+      "href": "https://www.facebook.com/vutiendat2302/"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/vutiendat2302/"
+    },
+    {
+      "label": "Threads",
+      "href": "https://www.threads.net/@vutiendat2302"
+    },
+    {
+      "label": "Locket",
+      "href": "https://locket.cam/vutiendat2302"
+    }
+  ],
+  "activities": [
+    "Được trao tặng danh hiệu “Sinh viên tiêu biểu Thủ đô Hà Nội”.",
+    "Tham gia ban tổ chức cuộc thi “DataFlow 2025” và các hoạt động chuyên môn kỹ thuật.",
+    "Tham gia “Chương trình hè về Mô hình hóa Toán học (SPMM 2026)“."
+  ]
+}

@@ -1,0 +1,31 @@
+[
+  {
+    "title": {
+      "vi": "Cử nhân Toán - Tin học",
+      "en": "B.S. in Mathematics and Computer Science",
+      "zh-TW": "數學與資訊科學學士"
+    },
+    "organization": {
+      "vi": "Trường Đại học Khoa học Tự nhiên, ĐHQGHN",
+      "en": "VNU, University of Science",
+      "zh-TW": "國立越南大學自然科學大學"
+    },
+    "period": "2023 – Present",
+    "location": {
+      "vi": "Hà Nội, Việt Nam",
+      "en": "Hanoi, Vietnam",
+      "zh-TW": "越南河內"
+    },
+    "gpa": "3.42",
+    "coursework": {
+      "vi": "Các môn học liên quan: Đại số tuyến tính, Xác suất và Thống kê, Tối ưu hóa, Toán rời rạc, Học máy, Hệ cơ sở dữ liệu.",
+      "en": "Relevant Coursework: Linear Algebra, Probability and Statistics, Optimization, Discrete Mathematics, Machine Learning, Database Systems.",
+      "zh-TW": "重點修習課程：線性代數、機率與統計、最佳化、離散數學、機器學習、資料庫系統。"
+    },
+    "description": {
+      "vi": "Cử nhân Toán - Tin học. GPA: 3.42. Các môn học liên quan: Đại số tuyến tính, Xác suất và Thống kê, Tối ưu hóa, Toán rời rạc, Học máy, Hệ cơ sở dữ liệu.",
+      "en": "B.S. in Mathematics and Computer Science. GPA: 3.42. Relevant Coursework: Linear Algebra, Probability and Statistics, Optimization, Discrete Mathematics, Machine Learning, Database Systems.",
+      "zh-TW": "數學與資訊科學學士。GPA: 3.42。重點修習課程：線性代數、機率與統計、最佳化、離散數學、機器學習、資料庫系統。"
+    }
+  }
+]
