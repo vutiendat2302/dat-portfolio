@@ -13,11 +13,11 @@ export function Footer({ locale, dictionary }: FooterProps) {
     <footer className="theme-surface border-t border-border bg-surface py-8 text-sm text-muted">
       <Container className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="font-semibold text-foreground">{profile.name}</p>
+          <p className="font-semibold text-foreground">{profile.name[locale]}</p>
           <p className="mt-1">{profile.role[locale]}</p>
         </div>
         <div className="flex flex-col gap-3 sm:items-end">
-          <div className="flex flex-wrap gap-5">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 sm:gap-5">
             {profile.socialLinks.map((link) => (
               <a
                 key={link.href}
@@ -31,7 +31,7 @@ export function Footer({ locale, dictionary }: FooterProps) {
             ))}
           </div>
           <p className="text-xs text-subtle">
-            {dictionary.footer.builtWith} · © {new Date().getUTCFullYear()} {profile.name}
+            {dictionary.footer.builtWith} · © {new Date().getUTCFullYear()} {profile.name[locale]}
           </p>
         </div>
       </Container>

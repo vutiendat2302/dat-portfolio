@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/common/Footer";
 import { Header } from "@/components/common/Header";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { profile } from "@/data/profile";
 import { getSiteUrl, siteConfig } from "@/data/site";
 import { isLocale, localeConfig, localePath, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -52,9 +53,16 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
     metadataBase: getSiteUrl(),
     title: {
       default: dictionary.metadata.homeTitle,
-      template: `%s | ${siteConfig.name}`,
+      template: `%s | ${profile.name[localeParam]}`,
     },
     description: dictionary.metadata.siteDescription,
+    icons: {
+      icon: [
+        { url: "/images/logo.png" },
+        { url: "/favicon.ico" },
+      ],
+      apple: "/images/logo.png",
+    },
     alternates: { canonical, languages },
     openGraph: {
       type: "website",

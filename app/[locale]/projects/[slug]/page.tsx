@@ -35,7 +35,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   const dictionary = getDictionary(locale);
 
   return (
-    <Container className="py-14 sm:py-20 lg:py-24">
+    <Container className="pt-6 pb-14 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-24">
       <Link href={localePath(locale, "/projects")} className="link-underline rounded-sm font-mono text-xs text-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4">
         ← {dictionary.project.back}
       </Link>
@@ -62,9 +62,9 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             {project.technologies.map((technology, index) => <li key={technology}>{technology}{index < project.technologies.length - 1 ? <span className="ml-4 text-border-strong">·</span> : null}</li>)}
           </ul>
         </section>
-        <div className="mt-12 flex flex-wrap gap-4 border-t border-border pt-10">
-          {project.repositoryUrl ? <a href={project.repositoryUrl} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-4">{dictionary.project.sourceCode} <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">↗︎</span></a> : null}
-          {project.liveUrl ? <a href={project.liveUrl} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 rounded-md border border-border-strong bg-surface px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-4">{dictionary.project.liveWebsite} <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">↗︎</span></a> : null}
+        <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4 border-t border-border pt-10">
+          {project.repositoryUrl ? <a href={project.repositoryUrl} target="_blank" rel="noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-4 w-full sm:w-auto">{dictionary.project.sourceCode} <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">↗︎</span></a> : null}
+          {project.liveUrl ? <a href={project.liveUrl} target="_blank" rel="noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-md border border-border-strong bg-surface px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-4 w-full sm:w-auto">{dictionary.project.liveWebsite} <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">↗︎</span></a> : null}
         </div>
       </article>
     </Container>

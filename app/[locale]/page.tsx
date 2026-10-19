@@ -97,9 +97,15 @@ export default async function HomePage({ params }: HomePageProps) {
         <div id="contact-title"><SectionHeading eyebrow={dictionary.sections.contact.eyebrow} title={dictionary.sections.contact.title} /></div>
         <div className="max-w-2xl">
           <p className="text-pretty text-base leading-8 text-muted sm:text-lg">{dictionary.sections.contact.description}</p>
-          <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
+          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Link
+              href={localePath(locale, "/contact")}
+              className="inline-flex items-center gap-1.5 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-4"
+            >
+              {dictionary.navigation.contact} →
+            </Link>
             {profile.socialLinks.map((link) => <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="link-underline rounded-sm text-sm font-medium text-foreground hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4">{link.label} ↗︎</a>)}
-            {profile.email ? <a href={`mailto:${profile.email}`} className="link-underline rounded-sm text-sm font-medium text-foreground hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4">Email ↗︎</a> : null}
+            {profile.email ? <a href={`mailto:${profile.email}`} className="link-underline rounded-sm text-sm font-medium text-foreground hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4">{dictionary.contactPage.email} ↗︎</a> : null}
           </div>
         </div>
       </section>

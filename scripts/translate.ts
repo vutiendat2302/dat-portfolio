@@ -59,7 +59,7 @@ const DATA_OUT_DIR = path.join(process.cwd(), "data", "translations");
 const DATA_HASHES_FILE = path.join(DATA_OUT_DIR, ".hashes.json");
 
 interface SourceProfile {
-  name: string;
+  name: string | Record<string, string>;
   initials: string;
   role: string;
   introduction: string;
@@ -343,8 +343,20 @@ async function translateDataFiles() {
           TARGETS["zh-TW"].jsonPrompt,
         );
 
+        const localizedName = typeof src.name === "object" && src.name !== null
+          ? {
+              vi: (src.name as Record<string, string>).vi || "Đạt",
+              en: (src.name as Record<string, string>).en || "Felix Vu",
+              "zh-TW": (src.name as Record<string, string>)["zh-TW"] || "五進達",
+            }
+          : {
+              vi: src.name || "Đạt",
+              en: "Felix Vu",
+              "zh-TW": "五進達",
+            };
+
         const translatedProfile = {
-          name: src.name,
+          name: localizedName,
           initials: src.initials,
           role: { vi: src.role, en: enTrans.role || src.role, "zh-TW": zhTrans.role || src.role },
           introduction: {

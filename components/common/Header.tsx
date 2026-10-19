@@ -24,7 +24,7 @@ export function Header({ locale, dictionary, blogTranslations }: HeaderProps) {
     { label: dictionary.navigation.projects, href: localePath(locale, "/projects") },
     { label: dictionary.navigation.blog, href: localePath(locale, "/blog") },
     { label: dictionary.navigation.about, href: localePath(locale, "/about") },
-    { label: dictionary.navigation.contact, href: localePath(locale, "/#contact") },
+    { label: dictionary.navigation.contact, href: localePath(locale, "/contact") },
     { label: dictionary.navigation.cv, href: localePath(locale, "/cv") },
   ];
 
@@ -35,25 +35,25 @@ export function Header({ locale, dictionary, blogTranslations }: HeaderProps) {
         <Link
           href={localePath(locale, "")}
           className="group flex items-center rounded-sm transition-transform duration-200 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4"
-          aria-label={`${profile.name} Portfolio`}
+          aria-label={`${profile.name[locale]} Portfolio`}
         >
-          {/* Logo nền trắng dùng cho Light Theme */}
+          {/* Logo chữ đen dùng cho Light Theme (nền trắng) */}
           <Image
-            src="/images/logo_text_ngang.png"
-            alt={`${profile.name} Logo`}
-            width={120}
-            height={40}
+            src="/images/logo_text_ngang_full.png"
+            alt={`${profile.name[locale]} Logo`}
+            width={130}
+            height={43}
             priority
-            className="h-8 w-auto object-contain dark:hidden sm:h-9"
+            className="header-logo-light h-8 w-auto object-contain sm:h-9"
           />
-          {/* Logo nền đen dùng cho Dark Theme */}
+          {/* Logo chữ trắng dùng cho Dark Theme (nền đen) */}
           <Image
-            src="/images/logo_text_nang_den.png"
-            alt={`${profile.name} Logo`}
-            width={120}
-            height={40}
+            src="/images/logo_text_nang_den_full.png"
+            alt={`${profile.name[locale]} Logo`}
+            width={130}
+            height={43}
             priority
-            className="hidden h-8 w-auto object-contain dark:block sm:h-9"
+            className="header-logo-dark h-8 w-auto object-contain sm:h-9"
           />
         </Link>
 

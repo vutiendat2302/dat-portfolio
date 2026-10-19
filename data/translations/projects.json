@@ -1,19 +1,152 @@
 [
   {
-    "slug": "dat-portfolio",
+    "slug": "inventory-sales-management",
     "title": {
-      "vi": "DAT Portfolio",
-      "en": "DAT Portfolio",
-      "zh-TW": "DAT Portfolio"
+      "vi": "Hệ thống Quản lý Bán hàng và Tồn kho",
+      "en": "Inventory and Sales Management System",
+      "zh-TW": "進銷存與銷售管理系統"
     },
     "summary": {
-      "vi": "Portfolio cá nhân và technical blog được xây dựng bằng Next.js, TypeScript và Markdown.",
-      "en": "A personal portfolio and technical blog built with Next.js, TypeScript, and Markdown.",
-      "zh-TW": "使用 Next.js、TypeScript 與 Markdown 打造的個人作品集與技術文章網站。"
+      "vi": "Ứng dụng web full-stack quản lý sản phẩm, đơn hàng và kho bãi.",
+      "en": "A full-stack web application for managing products, orders, and warehouse inventory.",
+      "zh-TW": "全端網頁應用程式，用於管理產品、訂單與倉儲庫存。"
     },
     "description": [
       {
-        "vi": "Website tập trung giới thiệu project, thông tin cá nhân và các bài viết kỹ thuật trong một trải nghiệm gọn gàng, content-first.",
+        "vi": "Phát triển ứng dụng web full-stack để quản lý sản phẩm, đơn hàng và kho bãi.",
+        "en": "Developed a full-stack web application for managing products, orders, and warehouse inventory.",
+        "zh-TW": "開發全端網頁應用程式，用於管理產品、訂單與倉儲庫存。"
+      },
+      {
+        "vi": "Xây dựng các RESTful API phục vụ thao tác CRUD và quy trình xử lý đơn hàng an toàn.",
+        "en": "Built RESTful APIs for CRUD operations and order processing.",
+        "zh-TW": "建立 RESTful API 以支援 CRUD 操作與訂單處理流程。"
+      },
+      {
+        "vi": "Thiết kế giao diện người dùng responsive tối ưu trên mọi thiết bị bằng ReactJS và TailwindCSS.",
+        "en": "Designed responsive user interfaces using ReactJS and TailwindCSS.",
+        "zh-TW": "使用 ReactJS 與 TailwindCSS 設計響應式使用者介面。"
+      },
+      {
+        "vi": "Thiết kế cấu trúc cơ sở dữ liệu và triển khai các tính năng theo dõi tồn kho theo thời gian thực.",
+        "en": "Implemented database schema and inventory tracking features.",
+        "zh-TW": "設計資料庫結構並實作即時庫存追蹤功能。"
+      }
+    ],
+    "highlights": [
+      {
+        "vi": "Phát triển ứng dụng web full-stack để quản lý sản phẩm, đơn hàng và kho bãi.",
+        "en": "Developed a full-stack web application for managing products, orders, and warehouse inventory.",
+        "zh-TW": "開發全端網頁應用程式，用於管理產品、訂單與倉儲庫存。"
+      },
+      {
+        "vi": "Xây dựng các RESTful API phục vụ thao tác CRUD và quy trình xử lý đơn hàng.",
+        "en": "Built RESTful APIs for CRUD operations and order processing.",
+        "zh-TW": "建立 RESTful API 以支援 CRUD 操作與訂單處理流程。"
+      },
+      {
+        "vi": "Thiết kế giao diện người dùng responsive bằng ReactJS và TailwindCSS.",
+        "en": "Designed responsive user interfaces using ReactJS and TailwindCSS.",
+        "zh-TW": "使用 ReactJS 與 TailwindCSS 設計響應式使用者介面。"
+      },
+      {
+        "vi": "Thiết kế cấu trúc cơ sở dữ liệu và triển khai các tính năng theo dõi tồn kho theo thời gian thực.",
+        "en": "Implemented database schema and inventory tracking features.",
+        "zh-TW": "設計資料庫結構並實作即時庫存追蹤功能。"
+      }
+    ],
+    "technologies": [
+      "ReactJS",
+      "Vite",
+      "TailwindCSS",
+      "Java Spring Boot",
+      "MySQL"
+    ],
+    "status": {
+      "vi": "Hoàn thành",
+      "en": "Completed",
+      "zh-TW": "已完成"
+    },
+    "featured": true,
+    "repositoryUrl": "https://github.com/vutiendat2302"
+  },
+  {
+    "slug": "traffic-forecasting-tgcn",
+    "title": {
+      "vi": "Mô hình T-GCN Cải tiến Dự báo Lưu lượng Giao thông",
+      "en": "Improved Temporal Graph Convolutional Network for Traffic Forecasting",
+      "zh-TW": "基於改進型時空圖卷積網路之交通流量預測 (T-GCN)"
+    },
+    "summary": {
+      "vi": "Mô hình mạng tích chập đồ thị thời gian cải tiến nhằm dự báo chính xác lưu lượng giao thông không gian - thời gian.",
+      "en": "An improved Temporal Graph Convolutional Network (T-GCN) for spatio-temporal traffic forecasting.",
+      "zh-TW": "改進型時空圖卷積網路（T-GCN），用於高精度時空交通流量預測。"
+    },
+    "description": [
+      {
+        "vi": "Phát triển mô hình Mạng Tích chập Đồ thị Thời gian (T-GCN) cải tiến nhằm dự báo lưu lượng giao thông không gian - thời gian.",
+        "en": "Developed an improved Temporal Graph Convolutional Network (T-GCN) for spatio-temporal traffic forecasting.",
+        "zh-TW": "開發改進型時空圖卷積網路（T-GCN），用於時空交通流量預測。"
+      },
+      {
+        "vi": "Kết hợp tích chập đồ thị (GCN), mạng nơ-ron hồi quy (GRU) và cơ chế Attention để mô hình hóa sự phụ thuộc không gian và thời gian trong dữ liệu giao thông.",
+        "en": "Combined graph convolution, recurrent neural networks, and attention mechanisms to model spatial and temporal dependencies in traffic data.",
+        "zh-TW": "結合圖卷積（GCN）、遞歸神經網路（GRU）與注意力機制（Attention），精準捕捉交通資料中的空間與時間相依性。"
+      },
+      {
+        "vi": "Tích hợp các đặc trưng chuỗi thời gian và biến ngoại sinh để tối ưu hóa biểu diễn mẫu hình giao thông trên toàn mạng lưới các nút giao.",
+        "en": "Integrated temporal and external features to improve the representation of traffic patterns across road-network nodes.",
+        "zh-TW": "整合時間特徵與外部特徵，提升路網節點交通模式的表徵能力。"
+      }
+    ],
+    "highlights": [
+      {
+        "vi": "Phát triển mô hình Mạng Tích chập Đồ thị Thời gian (T-GCN) cải tiến nhằm dự báo lưu lượng giao thông không gian - thời gian.",
+        "en": "Developed an improved Temporal Graph Convolutional Network (T-GCN) for spatio-temporal traffic forecasting.",
+        "zh-TW": "開發改進型時空圖卷積網路（T-GCN），用於時空交通流量預測。"
+      },
+      {
+        "vi": "Kết hợp tích chập đồ thị, mạng nơ-ron hồi quy và cơ chế Attention để mô hình hóa sự phụ thuộc không gian và thời gian.",
+        "en": "Combined graph convolution, recurrent neural networks, and attention mechanisms to model spatial and temporal dependencies in traffic data.",
+        "zh-TW": "結合圖卷積、遞歸神經網路與注意力機制，精準捕捉交通資料中的空間與時間相依性。"
+      },
+      {
+        "vi": "Tích hợp các đặc trưng chuỗi thời gian và biến ngoại sinh để nâng cao chất lượng biểu diễn mô hình giao thông.",
+        "en": "Integrated temporal and external features to improve the representation of traffic patterns across road-network nodes.",
+        "zh-TW": "整合時間特徵與外部特徵，提升路網節點交通模式的表徵能力。"
+      }
+    ],
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Graph Neural Networks",
+      "GCN",
+      "GRU",
+      "Attention"
+    ],
+    "status": {
+      "vi": "Nghiên cứu",
+      "en": "Research",
+      "zh-TW": "研究中"
+    },
+    "featured": true,
+    "repositoryUrl": "https://github.com/vutiendat2302"
+  },
+  {
+    "slug": "dat-portfolio",
+    "title": {
+      "vi": "DAT Portfolio - Trang cá nhân & Blog Kỹ thuật",
+      "en": "DAT Portfolio - Personal Portfolio & Technical Blog",
+      "zh-TW": "DAT Portfolio - 個人作品集與技術部落格"
+    },
+    "summary": {
+      "vi": "Portfolio cá nhân và blog kỹ thuật được xây dựng bằng Next.js, TypeScript và Markdown.",
+      "en": "A personal portfolio and technical blog built with Next.js, TypeScript, and Markdown.",
+      "zh-TW": "使用 Next.js、TypeScript 與 Markdown 打造的個人作品集與技術部落格。"
+    },
+    "description": [
+      {
+        "vi": "Website tập trung giới thiệu dự án, thông tin cá nhân và các bài viết kỹ thuật trong một giao diện gọn gàng, ưu tiên nội dung.",
         "en": "The website presents projects, personal information, and technical writing through a clean, content-first experience.",
         "zh-TW": "網站以乾淨、內容優先的方式呈現專案、個人資訊與技術文章。"
       },
@@ -21,6 +154,18 @@
         "vi": "Nội dung được quản lý trực tiếp bằng Git: dữ liệu portfolio nằm trong TypeScript và bài viết nằm trong các file Markdown.",
         "en": "Content is managed directly through Git: portfolio data lives in TypeScript and articles live in Markdown files.",
         "zh-TW": "內容直接透過 Git 管理：作品集資料使用 TypeScript，文章則存放於 Markdown 檔案。"
+      }
+    ],
+    "highlights": [
+      {
+        "vi": "Xây dựng giao diện portfolio hiện đại, tối ưu hiệu năng và hỗ trợ 3 ngôn ngữ (vi, en, zh-TW).",
+        "en": "Modern portfolio UI built with performance focus and 3 supported languages (vi, en, zh-TW).",
+        "zh-TW": "打造現代化個人作品集介面，兼顧效能與三種語系支援（vi, en, zh-TW）。"
+      },
+      {
+        "vi": "Tích hợp tạo trang tĩnh chuẩn SEO, hỗ trợ in ấn hồ sơ chuẩn A4.",
+        "en": "SEO-friendly static generation with print-optimized A4 resume support.",
+        "zh-TW": "整合符合 SEO 標準的靜態生成，支援列印排版優化的 A4 履歷。"
       }
     ],
     "technologies": [
@@ -38,8 +183,8 @@
     "image": "/projects/dat-portfolio.svg",
     "imageAlt": {
       "vi": "Minh họa giao diện sáng của DAT Portfolio",
-      "en": "Light interface preview of DAT Portfolio",
-      "zh-TW": "DAT Portfolio 淺色介面預覽"
+      "en": "Light mode preview of DAT Portfolio",
+      "zh-TW": "DAT Portfolio 淺色模式預覽"
     },
     "repositoryUrl": "https://github.com/vutiendat2302/dat-portfolio"
   }

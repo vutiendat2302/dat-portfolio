@@ -1,1 +1,25 @@
-[]
+[
+  {
+    "title": "Thực tập sinh Lập trình Fullstack",
+    "organization": "JVB (Japan Vietnam Business)",
+    "period": "06/2026 – 08/2026",
+    "projectName": "Hệ thống Quản lý Học tập Tích hợp AI (LMS)",
+    "projectUrl": "https://github.com/vutiendat2302",
+    "technologies": [
+      "ReactJS",
+      "TypeScript",
+      "Java Spring Boot",
+      "FastAPI",
+      "MySQL",
+      "Redis",
+      "Qdrant",
+      "Docker"
+    ],
+    "highlights": [
+      "Phát triển các dịch vụ backend sử dụng Java Spring Boot và MySQL, xây dựng RESTful API và logic nghiệp vụ cốt lõi.",
+      "Tích hợp dịch vụ AI riêng biệt bằng Python để cá nhân hóa việc học tập và xử lý nội dung hỗ trợ bởi AI.",
+      "Sử dụng Docker, Redis và MinIO để tích hợp microservices, quản lý dữ liệu và triển khai ứng dụng."
+    ],
+    "description": "Phát triển các dịch vụ backend sử dụng Java Spring Boot và MySQL; tích hợp dịch vụ AI bằng Python; sử dụng Docker, Redis và MinIO để triển khai hệ thống."
+  }
+]

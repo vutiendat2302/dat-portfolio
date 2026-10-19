@@ -119,14 +119,14 @@ export function MobileMenu({
           <ThemeSwitcher labels={dictionary.theme} />
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-5 border-t border-border pt-5 text-sm text-muted">
+        <div className="mt-6 grid grid-cols-2 gap-2.5 border-t border-border pt-5 text-sm text-muted">
           {socialLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               target="_blank"
               rel="noreferrer"
-              className="link-underline rounded-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="link-underline rounded-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 truncate"
             >
               {link.label} ↗︎
             </a>

@@ -32,7 +32,7 @@ function localizedPaths(path = ""): Record<Locale, string> {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/about", "/projects", "/blog", "/cv"];
+  const staticRoutes = ["", "/about", "/projects", "/blog", "/cv", "/contact"];
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.flatMap((route) => {
     const paths = localizedPaths(route);
     return locales.map((locale) => ({

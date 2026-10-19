@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "category": {
+      "vi": "Ngôn ngữ lập trình",
+      "en": "Programming Languages",
+      "zh-TW": "程式語言"
+    },
+    "skills": ["Java", "Python", "SQL", "TypeScript"]
+  },
+  {
+    "category": {
+      "vi": "Phát triển Giao diện (Frontend)",
+      "en": "Frontend",
+      "zh-TW": "前端技術"
+    },
+    "skills": ["ReactJS", "Vite", "TailwindCSS", "HTML", "CSS"]
+  },
+  {
+    "category": {
+      "vi": "Hệ thống Máy chủ (Backend)",
+      "en": "Backend",
+      "zh-TW": "後端技術"
+    },
+    "skills": ["Spring Boot", "FastAPI", "RESTful APIs", "Spring Security", "JWT"]
+  },
+  {
+    "category": {
+      "vi": "Cơ sở dữ liệu & Lưu trữ",
+      "en": "Databases & Storage",
+      "zh-TW": "資料庫與儲存"
+    },
+    "skills": ["MySQL", "Redis", "MinIO", "Qdrant"]
+  },
+  {
+    "category": {
+      "vi": "AI & Tìm kiếm",
+      "en": "AI & Search",
+      "zh-TW": "AI 與搜尋"
+    },
+    "skills": ["RAG", "Vector Search", "Vector Embeddings"]
+  },
+  {
+    "category": {
+      "vi": "Công cụ & Nền tảng",
+      "en": "Tools & Platforms",
+      "zh-TW": "工具與平台"
+    },
+    "skills": ["Git", "GitHub", "Docker", "Gurobi"]
+  }
+]

@@ -66,6 +66,38 @@ export interface Dictionary {
     education: string;
     projects: string;
     contact: string;
+    activities: string;
+    coursework: string;
+    phone: string;
+  };
+  contactPage: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    directContact: string;
+    email: string;
+    phone: string;
+    location: string;
+    social: string;
+    availability: string;
+    availabilityStatus: string;
+    availabilityNotice: string;
+    responseTime: string;
+    responseTimeNotice: string;
+    sendMessage: string;
+    formDescription: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    subjectLabel: string;
+    subjectPlaceholder: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    sendButton: string;
+    copyEmail: string;
+    emailCopied: string;
+    openGmail: string;
   };
   project: {
     viewProject: string;
@@ -110,5 +142,7 @@ export interface Dictionary {
     blogDescription: string;
     cvTitle: string;
     cvDescription: string;
+    contactTitle: string;
+    contactDescription: string;
   };
 }

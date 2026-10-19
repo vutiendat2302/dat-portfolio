@@ -52,7 +52,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const dictionary = getDictionary(locale);
 
   return (
-    <Container className="py-14 sm:py-20 lg:py-24">
+    <Container className="pt-6 pb-14 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-24">
       <article className="mx-auto max-w-3xl">
         <Link
           href={localePath(locale, "/blog")}
@@ -84,7 +84,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </span>
             ) : null}
           </div>
-          <h1 className="mt-5 text-balance text-4xl font-medium leading-[1.12] tracking-[-0.04em] text-foreground sm:text-6xl">
+          <h1 className="mt-5 text-balance text-3xl font-medium leading-[1.18] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-6xl">
             {post.title}
           </h1>
           <p className="mt-6 text-pretty text-lg leading-8 text-muted">{post.description}</p>

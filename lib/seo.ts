@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { profile } from "@/data/profile";
 import { getSiteUrl, siteConfig } from "@/data/site";
 import { localeConfig, localePath, locales, type Locale } from "@/i18n/config";
 
@@ -30,9 +31,10 @@ export function createMetadata({
   alternatePaths = getLocaleAlternatePaths(path),
   canonicalPath,
 }: CreateMetadataOptions): Metadata {
-  const fullTitle = title.includes(siteConfig.name)
+  const localName = profile.name[locale] ?? siteConfig.name;
+  const fullTitle = title.includes(localName)
     ? title
-    : `${title} | ${siteConfig.name}`;
+    : `${title} | ${localName}`;
   const url = new URL(canonicalPath ?? localePath(locale, path), getSiteUrl());
   const languages: Record<string, string> = {};
 
