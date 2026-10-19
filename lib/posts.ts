@@ -9,7 +9,7 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 
-import { locales, type Locale } from "@/i18n/config";
+import { defaultLocale, locales, type Locale } from "@/i18n/config";
 
 const postsRootDirectory = path.join(process.cwd(), "content", "posts");
 const isoDatePattern = /^\d{4}-\d{2}-\d{2}$/;
@@ -28,6 +28,10 @@ export interface PostMetadata {
   updatedAt?: string;
   featured?: boolean;
   readingTimeMinutes: number;
+  sourceHash?: string;
+  autoTranslated?: boolean;
+  isFallback?: boolean;
+  originalLocale?: Locale;
 }
 
 export interface Post extends PostMetadata {
@@ -138,9 +142,23 @@ function parseMetadata(
           : validateDate(data.updatedAt, "updatedAt", fileName),
       featured: data.featured,
       readingTimeMinutes: Math.max(1, Math.ceil(wordCount / 200)),
+      sourceHash: optionalString(data.sourceHash, "sourceHash", fileName),
+      autoTranslated: typeof data.autoTranslated === "boolean" ? data.autoTranslated : undefined,
     },
     content,
   };
+}
+
+async function renderMarkdown(content: string): Promise<string> {
+  const processedContent = await unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypeSanitize)
+    .use(rehypeStringify)
+    .process(content);
+
+  return processedContent.toString();
 }
 
 export function getPublishedPosts(locale: Locale): PostMetadata[] {
@@ -156,28 +174,40 @@ export async function getPublishedPostBySlug(
 ): Promise<Post | undefined> {
   const fileName = `${slug}.md`;
 
-  if (!getMarkdownFiles(locale).includes(fileName)) {
-    return undefined;
+  if (getMarkdownFiles(locale).includes(fileName)) {
+    const { metadata, content } = parseMetadata(locale, fileName);
+
+    if (!metadata.published) {
+      return undefined;
+    }
+
+    return {
+      ...metadata,
+      contentHtml: await renderMarkdown(content),
+    };
   }
 
-  const { metadata, content } = parseMetadata(locale, fileName);
+  // Fallback to defaultLocale (vi) if translation does not exist in requested locale
+  if (locale !== defaultLocale) {
+    const translations = getBlogTranslations();
+    const entry = translations.find((item) => item.slugs[locale] === slug);
+    const defaultSlug = entry?.slugs[defaultLocale] ?? slug;
+    const defaultFileName = `${defaultSlug}.md`;
 
-  if (!metadata.published) {
-    return undefined;
+    if (getMarkdownFiles(defaultLocale).includes(defaultFileName)) {
+      const { metadata, content } = parseMetadata(defaultLocale, defaultFileName);
+      if (metadata.published) {
+        return {
+          ...metadata,
+          isFallback: true,
+          originalLocale: defaultLocale,
+          contentHtml: await renderMarkdown(content),
+        };
+      }
+    }
   }
 
-  const processedContent = await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeSanitize)
-    .use(rehypeStringify)
-    .process(content);
-
-  return {
-    ...metadata,
-    contentHtml: processedContent.toString(),
-  };
+  return undefined;
 }
 
 export function getBlogTranslations(): BlogTranslationEntry[] {
@@ -203,8 +233,10 @@ export function getBlogTranslations(): BlogTranslationEntry[] {
 }
 
 export function getPostAlternatePaths(post: PostMetadata): Partial<Record<Locale, string>> {
+  const actualLocale = post.originalLocale ?? post.locale;
+
   if (!post.translationKey) {
-    return { [post.locale]: `/${post.locale}/blog/${post.slug}` };
+    return { [actualLocale]: `/${actualLocale}/blog/${post.slug}` };
   }
 
   const translation = getBlogTranslations().find(
@@ -212,7 +244,7 @@ export function getPostAlternatePaths(post: PostMetadata): Partial<Record<Locale
   );
 
   if (!translation) {
-    return { [post.locale]: `/${post.locale}/blog/${post.slug}` };
+    return { [actualLocale]: `/${actualLocale}/blog/${post.slug}` };
   }
 
   const alternatePaths: Partial<Record<Locale, string>> = {};
@@ -226,4 +258,33 @@ export function getPostAlternatePaths(post: PostMetadata): Partial<Record<Locale
   }
 
   return alternatePaths;
+}
+
+export function getAllBlogRouteParams(): Array<{ locale: Locale; slug: string }> {
+  const params: Array<{ locale: Locale; slug: string }> = [];
+  const defaultPosts = getPublishedPosts(defaultLocale);
+  const translations = getBlogTranslations();
+
+  for (const locale of locales) {
+    const localePosts = getPublishedPosts(locale);
+    const visitedSlugs = new Set<string>();
+
+    for (const post of localePosts) {
+      params.push({ locale, slug: post.slug });
+      visitedSlugs.add(post.slug);
+    }
+
+    if (locale !== defaultLocale) {
+      for (const defPost of defaultPosts) {
+        const translation = translations.find((t) => t.translationKey === defPost.translationKey);
+        const translatedSlug = translation?.slugs[locale];
+        if (!translatedSlug && !visitedSlugs.has(defPost.slug)) {
+          params.push({ locale, slug: defPost.slug });
+          visitedSlugs.add(defPost.slug);
+        }
+      }
+    }
+  }
+
+  return params;
 }

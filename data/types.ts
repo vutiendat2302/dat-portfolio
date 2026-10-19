@@ -8,14 +8,16 @@ export interface SocialLink {
 }
 
 export interface Profile {
-  name: string;
+  name: LocalizedText;
   initials: string;
   role: LocalizedText;
   introduction: LocalizedText;
   about: LocalizedText[];
-  location?: string;
+  location?: LocalizedText | string;
   email?: string;
+  phone?: string;
   socialLinks: SocialLink[];
+  activities?: LocalizedText[];
 }
 
 export interface Project {
@@ -30,6 +32,7 @@ export interface Project {
   imageAlt?: LocalizedText;
   repositoryUrl?: string;
   liveUrl?: string;
+  highlights?: LocalizedText[];
 }
 
 export interface SkillGroup {
@@ -41,5 +44,12 @@ export interface TimelineItem {
   title: LocalizedText;
   organization: LocalizedText;
   period: string;
+  location?: LocalizedText | string;
+  gpa?: string;
+  coursework?: LocalizedText;
+  projectName?: LocalizedText;
+  projectUrl?: string;
+  technologies?: string[];
   description?: LocalizedText;
+  highlights?: LocalizedText[];
 }

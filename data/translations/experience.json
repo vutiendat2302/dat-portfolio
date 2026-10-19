@@ -1,0 +1,53 @@
+[
+  {
+    "title": {
+      "vi": "Thực tập sinh Lập trình Fullstack",
+      "en": "Fullstack Developer Intern",
+      "zh-TW": "全端開發實習生"
+    },
+    "organization": {
+      "vi": "JVB (Japan Vietnam Business)",
+      "en": "JVB (Japan Vietnam Business)",
+      "zh-TW": "JVB (Japan Vietnam Business)"
+    },
+    "period": "Jun 2026 – Aug 2026",
+    "projectName": {
+      "vi": "Hệ thống Quản lý Học tập Tích hợp AI (LMS)",
+      "en": "AI-powered Learning Management System (LMS)",
+      "zh-TW": "AI 驅動學習管理系統 (LMS)"
+    },
+    "projectUrl": "https://github.com/vutiendat2302",
+    "technologies": [
+      "ReactJS",
+      "TypeScript",
+      "Java Spring Boot",
+      "FastAPI",
+      "MySQL",
+      "Redis",
+      "Qdrant",
+      "Docker"
+    ],
+    "highlights": [
+      {
+        "vi": "Phát triển các dịch vụ backend sử dụng Java Spring Boot và MySQL, xây dựng RESTful API và logic nghiệp vụ cốt lõi.",
+        "en": "Developed backend services using Java Spring Boot and MySQL, implementing RESTful APIs and core business logic.",
+        "zh-TW": "使用 Java Spring Boot 與 MySQL 開發後端服務，實作 RESTful API 與核心業務邏輯。"
+      },
+      {
+        "vi": "Tích hợp dịch vụ AI riêng biệt bằng Python để cá nhân hóa việc học tập và xử lý nội dung hỗ trợ bởi AI.",
+        "en": "Integrated a separate Python AI service for AI-powered learning personalization and content processing.",
+        "zh-TW": "整合獨立的 Python AI 服務，實現 AI 驅動的個人化學習與內容處理。"
+      },
+      {
+        "vi": "Sử dụng Docker, Redis và MinIO để tích hợp microservices, quản lý dữ liệu và triển khai ứng dụng.",
+        "en": "Used Docker, Redis, and MinIO for service integration, data management, and application deployment.",
+        "zh-TW": "運用 Docker、Redis 與 MinIO 進行服務整合、資料管理與應用程式部署。"
+      }
+    ],
+    "description": {
+      "vi": "Phát triển dịch vụ backend bằng Java Spring Boot, MySQL; tích hợp dịch vụ AI bằng Python; sử dụng Docker, Redis và MinIO để quản lý và triển khai.",
+      "en": "Developed backend services with Java Spring Boot and MySQL; integrated Python AI service; used Docker, Redis, and MinIO for deployment.",
+      "zh-TW": "使用 Java Spring Boot 與 MySQL 開發後端服務，整合 Python AI 服務，並運用 Docker、Redis 與 MinIO 進行部署。"
+    }
+  }
+]

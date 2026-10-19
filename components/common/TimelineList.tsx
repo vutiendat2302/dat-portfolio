@@ -1,6 +1,7 @@
 import { EmptyState } from "@/components/common/EmptyState";
 import type { TimelineItem } from "@/data/types";
 import type { Locale } from "@/i18n/config";
+import { formatPeriod } from "@/lib/formatDate";
 
 interface TimelineListProps {
   items: TimelineItem[];
@@ -20,7 +21,7 @@ export function TimelineList({ items, emptyMessage, locale }: TimelineListProps)
           key={`${item.organization[locale]}-${item.period}`}
           className="grid gap-3 border-b border-border py-6 sm:grid-cols-[150px_minmax(0,1fr)] sm:gap-8"
         >
-          <p className="font-mono text-xs text-subtle">{item.period}</p>
+          <p className="font-mono text-xs text-subtle">{formatPeriod(item.period, locale)}</p>
           <div>
             <h3 className="text-lg font-medium tracking-tight text-foreground">{item.title[locale]}</h3>
             <p className="mt-1 text-sm text-muted">{item.organization[locale]}</p>

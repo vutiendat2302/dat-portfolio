@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { profile } from "@/data/profile";
 import { getSiteUrl, siteConfig } from "@/data/site";
 import { localeConfig, localePath, locales, type Locale } from "@/i18n/config";
 
@@ -10,6 +11,7 @@ interface CreateMetadataOptions {
   path: string;
   type?: "website" | "article";
   alternatePaths?: Partial<Record<Locale, string>>;
+  canonicalPath?: string;
 }
 
 export function getLocaleAlternatePaths(path = ""): Record<Locale, string> {
@@ -27,11 +29,13 @@ export function createMetadata({
   path,
   type = "website",
   alternatePaths = getLocaleAlternatePaths(path),
+  canonicalPath,
 }: CreateMetadataOptions): Metadata {
-  const fullTitle = title.includes(siteConfig.name)
+  const localName = profile.name[locale] ?? siteConfig.name;
+  const fullTitle = title.includes(localName)
     ? title
-    : `${title} | ${siteConfig.name}`;
-  const url = new URL(localePath(locale, path), getSiteUrl());
+    : `${title} | ${localName}`;
+  const url = new URL(canonicalPath ?? localePath(locale, path), getSiteUrl());
   const languages: Record<string, string> = {};
 
   for (const alternateLocale of locales) {
@@ -49,7 +53,7 @@ export function createMetadata({
     title,
     description,
     alternates: {
-      canonical: url,
+      canonical: url.toString(),
       languages,
     },
     openGraph: {

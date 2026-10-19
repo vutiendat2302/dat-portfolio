@@ -23,7 +23,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
   if (!isLocale(locale)) notFound();
   const dictionary = getDictionary(locale);
   return (
-    <Container className="py-14 sm:py-20 lg:py-24">
+    <Container className="pt-6 pb-14 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-24">
       <SectionHeading eyebrow={dictionary.projectsPage.eyebrow} title={dictionary.projectsPage.title} description={dictionary.projectsPage.description} level={1} />
       <div className="mt-14 border-b border-border">
         {projects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} locale={locale} dictionary={dictionary} />)}

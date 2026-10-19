@@ -1,0 +1,79 @@
+[
+  {
+    "slug": "inventory-sales-management",
+    "title": "Hệ thống Quản lý Bán hàng và Tồn kho",
+    "summary": "Ứng dụng web full-stack quản lý sản phẩm, đơn hàng và kho bãi.",
+    "description": [
+      "Phát triển ứng dụng web full-stack để quản lý sản phẩm, đơn hàng và kho bãi.",
+      "Xây dựng các RESTful API phục vụ thao tác CRUD và quy trình xử lý đơn hàng an toàn.",
+      "Thiết kế giao diện người dùng responsive tối ưu trên mọi thiết bị bằng ReactJS và TailwindCSS.",
+      "Thiết kế cấu trúc cơ sở dữ liệu và triển khai các tính năng theo dõi tồn kho theo thời gian thực."
+    ],
+    "highlights": [
+      "Phát triển ứng dụng web full-stack để quản lý sản phẩm, đơn hàng và kho bãi.",
+      "Xây dựng các RESTful API phục vụ thao tác CRUD và quy trình xử lý đơn hàng.",
+      "Thiết kế giao diện người dùng responsive bằng ReactJS và TailwindCSS.",
+      "Thiết kế cấu trúc cơ sở dữ liệu và triển khai các tính năng theo dõi tồn kho theo thời gian thực."
+    ],
+    "technologies": [
+      "ReactJS",
+      "Vite",
+      "TailwindCSS",
+      "Java Spring Boot",
+      "MySQL"
+    ],
+    "status": "Hoàn thành",
+    "featured": true,
+    "repositoryUrl": "https://github.com/vutiendat2302"
+  },
+  {
+    "slug": "traffic-forecasting-tgcn",
+    "title": "Mô hình T-GCN Cải tiến Dự báo Lưu lượng Giao thông",
+    "summary": "Mô hình mạng tích chập đồ thị thời gian cải tiến nhằm dự báo chính xác lưu lượng giao thông không gian - thời gian.",
+    "description": [
+      "Phát triển mô hình Mạng Tích chập Đồ thị Thời gian (T-GCN) cải tiến nhằm dự báo lưu lượng giao thông không gian - thời gian.",
+      "Kết hợp tích chập đồ thị (GCN), mạng nơ-ron hồi quy (GRU) và cơ chế Attention để mô hình hóa sự phụ thuộc không gian và thời gian trong dữ liệu giao thông.",
+      "Tích hợp các đặc trưng chuỗi thời gian và biến ngoại sinh để tối ưu hóa biểu diễn mẫu hình giao thông trên toàn mạng lưới các nút giao."
+    ],
+    "highlights": [
+      "Phát triển mô hình Mạng Tích chập Đồ thị Thời gian (T-GCN) cải tiến nhằm dự báo lưu lượng giao thông không gian - thời gian.",
+      "Kết hợp tích chập đồ thị, mạng nơ-ron hồi quy và cơ chế Attention để mô hình hóa sự phụ thuộc không gian và thời gian.",
+      "Tích hợp các đặc trưng chuỗi thời gian và biến ngoại sinh để nâng cao chất lượng biểu diễn mô hình giao thông."
+    ],
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Graph Neural Networks",
+      "GCN",
+      "GRU",
+      "Attention"
+    ],
+    "status": "Nghiên cứu",
+    "featured": true,
+    "repositoryUrl": "https://github.com/vutiendat2302"
+  },
+  {
+    "slug": "dat-portfolio",
+    "title": "DAT Portfolio - Trang cá nhân & Blog Kỹ thuật",
+    "summary": "Portfolio cá nhân và blog kỹ thuật được xây dựng bằng Next.js, TypeScript và Markdown.",
+    "description": [
+      "Website tập trung giới thiệu dự án, thông tin cá nhân và các bài viết kỹ thuật trong một giao diện gọn gàng, ưu tiên nội dung.",
+      "Nội dung được quản lý trực tiếp bằng Git: dữ liệu portfolio nằm trong TypeScript và bài viết nằm trong các file Markdown."
+    ],
+    "highlights": [
+      "Xây dựng giao diện portfolio hiện đại, tối ưu hiệu năng và hỗ trợ 3 ngôn ngữ (vi, en, zh-TW).",
+      "Tích hợp tạo trang tĩnh chuẩn SEO, hỗ trợ in ấn hồ sơ chuẩn A4."
+    ],
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Markdown"
+    ],
+    "status": "Đang phát triển",
+    "featured": true,
+    "image": "/projects/dat-portfolio.svg",
+    "imageAlt": "Minh họa giao diện sáng của DAT Portfolio",
+    "repositoryUrl": "https://github.com/vutiendat2302/dat-portfolio"
+  }
+]

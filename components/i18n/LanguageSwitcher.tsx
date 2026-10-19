@@ -31,9 +31,9 @@ function getLocalizedPath(
     const translation = blogTranslations.find(
       (entry) => entry.slugs[currentLocale] === currentSlug,
     );
-    const nextSlug = translation?.slugs[nextLocale];
+    const nextSlug = translation?.slugs[nextLocale] ?? currentSlug;
 
-    return nextSlug ? `/${nextLocale}/blog/${nextSlug}` : `/${nextLocale}/blog`;
+    return `/${nextLocale}/blog/${nextSlug}`;
   }
 
   if (segments.length === 0) {
