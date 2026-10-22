@@ -43,7 +43,7 @@ export function Hero({ locale, dictionary }: HeroProps) {
               href={localePath(locale, "/blog")}
               className="inline-flex items-center justify-center gap-1 rounded-md border border-foreground/30 px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 dark:border-white"
             >
-              {dictionary.hero.readWriting} →
+              {dictionary.hero.readWriting}
             </Link>
           </div>
         </div>

@@ -43,6 +43,11 @@ export interface Dictionary {
     skills: string;
     experience: string;
     education: string;
+    context: string;
+    perspective: string;
+    principles: string;
+    focusAreas: string;
+    interests: string;
   };
   projectsPage: {
     eyebrow: string;
@@ -130,6 +135,8 @@ export interface Dictionary {
   };
   footer: {
     builtWith: string;
+    privacyPolicy: string;
+    githubRepo: string;
   };
   metadata: {
     siteDescription: string;
@@ -144,5 +151,7 @@ export interface Dictionary {
     cvDescription: string;
     contactTitle: string;
     contactDescription: string;
+    privacyTitle: string;
+    privacyDescription: string;
   };
 }

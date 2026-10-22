@@ -26,7 +26,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
   const posts = getPublishedPosts(locale);
   return (
     <Container className="pt-6 pb-14 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-24">
-      <SectionHeading eyebrow={dictionary.blogPage.eyebrow} title={dictionary.blogPage.title} description={dictionary.blogPage.description} level={1} />
+      <SectionHeading title={dictionary.blogPage.title} description={dictionary.blogPage.description} level={1} />
       <div className="mt-14 border-b border-border">
         {posts.length > 0 ? posts.map((post) => <PostCard key={post.slug} post={post} locale={locale} dictionary={dictionary} />) : <EmptyState>{dictionary.empty.posts}</EmptyState>}
       </div>
