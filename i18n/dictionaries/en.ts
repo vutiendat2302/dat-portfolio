@@ -15,7 +15,7 @@ export const en: Dictionary = {
   theme: { label: "Theme", light: "Light", dark: "Dark", system: "System" },
   hero: {
     greeting: "Hi, I'm",
-    headline: "Thank you for visiting my portfolio.",
+    headline: "Thank you for visiting my blog.",
     exploreWork: "Explore my work",
     readWriting: "Read my writing",
     visualLabel: "System architecture",
@@ -50,12 +50,17 @@ export const en: Dictionary = {
   },
   aboutPage: {
     eyebrow: "01 / About",
-    title: "A little about Felix Vu",
+    title: "Personal Information",
     description: "Background, engineering interests, and the technologies I use.",
     story: "Story",
     skills: "Skills",
     experience: "Experience",
     education: "Education",
+    context: "Background",
+    perspective: "Perspective",
+    principles: "Principles",
+    focusAreas: "Areas of Interest",
+    interests: "Interests",
   },
   projectsPage: {
     eyebrow: "02 / Projects",
@@ -141,10 +146,14 @@ export const en: Dictionary = {
     description: "This route does not exist or the content has not been published.",
     home: "Back home",
   },
-  footer: { builtWith: "Built with Next.js & TypeScript" },
+  footer: {
+    builtWith: "vutiendat23022005@gmail.com",
+    privacyPolicy: "Privacy Policy",
+    githubRepo: "GitHub Repository",
+  },
   metadata: {
     siteDescription: "Felix Vu's personal portfolio and technical blog.",
-    homeTitle: "Felix Vu | Software Engineer",
+    homeTitle: "Felix Vu",
     aboutTitle: "About",
     aboutDescription: "Felix Vu's background, skills, experience, and learning journey.",
     projectsTitle: "Projects",
@@ -155,5 +164,7 @@ export const en: Dictionary = {
     cvDescription: "Curriculum Vitae and professional profile of Felix Vu (Vu Tien Dat).",
     contactTitle: "Contact",
     contactDescription: "Get in touch with Felix Vu for collaborations, technical discussions, and opportunities.",
+    privacyTitle: "Privacy Policy",
+    privacyDescription: "Privacy policy and data handling information for Felix Vu's personal website.",
   },
 };

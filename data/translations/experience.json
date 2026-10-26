@@ -10,7 +10,7 @@
       "en": "JVB (Japan Vietnam Business)",
       "zh-TW": "JVB (Japan Vietnam Business)"
     },
-    "period": "Jun 2026 – Aug 2026",
+    "period": "06/2026 – 08/2026",
     "projectName": {
       "vi": "Hệ thống Quản lý Học tập Tích hợp AI (LMS)",
       "en": "AI-powered Learning Management System (LMS)",
@@ -45,9 +45,9 @@
       }
     ],
     "description": {
-      "vi": "Phát triển dịch vụ backend bằng Java Spring Boot, MySQL; tích hợp dịch vụ AI bằng Python; sử dụng Docker, Redis và MinIO để quản lý và triển khai.",
-      "en": "Developed backend services with Java Spring Boot and MySQL; integrated Python AI service; used Docker, Redis, and MinIO for deployment.",
-      "zh-TW": "使用 Java Spring Boot 與 MySQL 開發後端服務，整合 Python AI 服務，並運用 Docker、Redis 與 MinIO 進行部署。"
+      "vi": "Phát triển các dịch vụ backend sử dụng Java Spring Boot và MySQL; tích hợp dịch vụ AI bằng Python; sử dụng Docker, Redis và MinIO để triển khai hệ thống.",
+      "en": "Developed backend services using Java Spring Boot and MySQL; integrated AI services using Python; utilized Docker, Redis, and MinIO for system deployment.",
+      "zh-TW": "使用 Java Spring Boot 與 MySQL 開發後端服務；使用 Python 整合 AI 服務；使用 Docker、Redis 與 MinIO 進行系統佈署。"
     }
   }
 ]

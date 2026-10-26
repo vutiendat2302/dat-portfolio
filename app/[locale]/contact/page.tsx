@@ -36,7 +36,6 @@ export default async function ContactPage({ params }: ContactPageProps) {
   return (
     <Container className="pt-6 pb-14 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-24">
       <SectionHeading
-        eyebrow={labels.eyebrow}
         title={labels.title}
         description={labels.description}
         level={1}

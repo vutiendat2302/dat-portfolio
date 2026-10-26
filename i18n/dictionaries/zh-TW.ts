@@ -15,7 +15,7 @@ export const zhTW: Dictionary = {
   theme: { label: "外觀", light: "淺色", dark: "深色", system: "系統設定" },
   hero: {
     greeting: "你好，我是",
-    headline: "感謝你造訪我的作品集。",
+    headline: "感謝你造訪我的部落格。",
     exploreWork: "瀏覽我的專案",
     readWriting: "閱讀技術文章",
     visualLabel: "系統架構",
@@ -50,12 +50,17 @@ export const zhTW: Dictionary = {
   },
   aboutPage: {
     eyebrow: "01 / 關於我",
-    title: "關於五進達",
-    description: "個人背景、工程興趣，以及我所使用的技術。",
+    title: "個人資訊",
+    description: "個人專業背景、研究興趣與技術實踐。",
     story: "我的故事",
     skills: "技術能力",
     experience: "經歷",
     education: "學歷",
+    context: "背景",
+    perspective: "觀點",
+    principles: "原則",
+    focusAreas: "關注主題",
+    interests: "個人興趣",
   },
   projectsPage: {
     eyebrow: "02 / 專案",
@@ -141,10 +146,14 @@ export const zhTW: Dictionary = {
     description: "此網址不存在，或內容尚未發布。",
     home: "返回首頁",
   },
-  footer: { builtWith: "使用 Next.js 與 TypeScript 打造" },
+  footer: {
+    builtWith: "vutiendat23022005@gmail.com",
+    privacyPolicy: "隱私權政策",
+    githubRepo: "GitHub 專案庫",
+  },
   metadata: {
     siteDescription: "五進達的個人作品集與技術部落格。",
-    homeTitle: "五進達 | 軟體工程師",
+    homeTitle: "五進達",
     aboutTitle: "關於我",
     aboutDescription: "瞭解五進達的背景、技術能力、經歷與學習歷程。",
     projectsTitle: "專案",
@@ -155,5 +164,7 @@ export const zhTW: Dictionary = {
     cvDescription: "五進達的個人專業履歷與背景總覽。",
     contactTitle: "聯絡我",
     contactDescription: "與五進達取得聯繫，探討技術合作、專案機會與交流。",
+    privacyTitle: "隱私權政策",
+    privacyDescription: "五進達個人網站的隱私權政策與資訊處理原則。",
   },
 };

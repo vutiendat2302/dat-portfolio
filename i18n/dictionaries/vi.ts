@@ -15,7 +15,7 @@ export const vi: Dictionary = {
   theme: { label: "Giao diện", light: "Sáng", dark: "Tối", system: "Hệ thống" },
   hero: {
     greeting: "Xin chào, mình là",
-    headline: "Cảm ơn bạn đã ghé thăm portfolio của mình.",
+    headline: "Cảm ơn bạn đã ghé thăm blog của mình.",
     exploreWork: "Xem dự án",
     readWriting: "Đọc bài viết",
     visualLabel: "Kiến trúc hệ thống",
@@ -50,12 +50,17 @@ export const vi: Dictionary = {
   },
   aboutPage: {
     eyebrow: "01 / Giới thiệu",
-    title: "Một chút về Đạt",
-    description: "Thông tin cá nhân, nền tảng và những công nghệ mình sử dụng.",
+    title: "Thông tin cá nhân",
+    description: "Nền tảng chuyên môn, lĩnh vực quan tâm và kinh nghiệm thực tiễn.",
     story: "Câu chuyện",
     skills: "Kỹ năng",
     experience: "Kinh nghiệm",
     education: "Học vấn",
+    context: "Bối cảnh",
+    perspective: "Góc nhìn",
+    principles: "Quan điểm",
+    focusAreas: "Chủ đề quan tâm",
+    interests: "Sở thích",
   },
   projectsPage: {
     eyebrow: "02 / Dự án",
@@ -141,10 +146,14 @@ export const vi: Dictionary = {
     description: "Đường dẫn này không tồn tại hoặc nội dung chưa được xuất bản.",
     home: "Về trang chủ",
   },
-  footer: { builtWith: "Xây dựng bằng Next.js & TypeScript" },
+  footer: {
+    builtWith: "vutiendat23022005@gmail.com",
+    privacyPolicy: "Chính sách quyền riêng tư",
+    githubRepo: "Github Repository",
+  },
   metadata: {
     siteDescription: "Portfolio cá nhân và blog kỹ thuật của Vũ Tiến Đạt.",
-    homeTitle: "Vũ Tiến Đạt | Kỹ sư phần mềm",
+    homeTitle: "Vũ Tiến Đạt",
     aboutTitle: "Giới thiệu",
     aboutDescription: "Thông tin về Vũ Tiến Đạt, kỹ năng, kinh nghiệm và quá trình học tập.",
     projectsTitle: "Dự án",
@@ -155,5 +164,7 @@ export const vi: Dictionary = {
     cvDescription: "Sơ yếu lý lịch và hồ sơ chuyên môn của Vũ Tiến Đạt.",
     contactTitle: "Liên hệ",
     contactDescription: "Thông tin liên hệ, kết nối hợp tác và trao đổi kỹ thuật cùng Vũ Tiến Đạt.",
+    privacyTitle: "Chính sách quyền riêng tư",
+    privacyDescription: "Chính sách bảo mật và quyền riêng tư của website cá nhân Vũ Tiến Đạt.",
   },
 };
