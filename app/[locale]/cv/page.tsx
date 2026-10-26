@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Container } from "@/components/common/Container";
+import { FormattedText } from "@/components/common/FormattedText";
 import { CvActions } from "@/components/cv/CvActions";
 import { education } from "@/data/education";
 import { experiences } from "@/data/experience";
@@ -57,10 +58,7 @@ export default async function CvPage({ params }: CvPageProps) {
       {/* Top Bar with Title and Actions (hidden on print) */}
       <div className="mb-6 flex flex-col gap-4 border-b border-border pb-5 sm:flex-row sm:items-center sm:justify-between print:hidden">
         <div>
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-subtle">
-            {dictionary.cvPage.eyebrow}
-          </p>
-          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+          <h1 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
             {dictionary.cvPage.title}
           </h1>
           <p className="mt-1 text-sm text-muted">
@@ -198,7 +196,9 @@ export default async function CvPage({ params }: CvPageProps) {
           </div>
           <ul className="mt-2.5 list-disc ml-5 space-y-1.5 text-xs sm:text-sm text-foreground/90 leading-relaxed marker:text-foreground/60">
             {profile.about.map((paragraph, index) => (
-              <li key={index}>{paragraph[locale]}</li>
+              <li key={index}>
+                <FormattedText text={paragraph[locale]} />
+              </li>
             ))}
           </ul>
         </section>
