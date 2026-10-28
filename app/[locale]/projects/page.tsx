@@ -24,9 +24,17 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
   const dictionary = getDictionary(locale);
   return (
     <Container className="pt-6 pb-14 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-24">
-      <SectionHeading title={dictionary.projectsPage.title} description={dictionary.projectsPage.description} level={1} />
-      <div className="mt-14 border-b border-border">
-        {projects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} locale={locale} dictionary={dictionary} />)}
+      <SectionHeading title={dictionary.projectsPage.title} level={1} />
+      <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
+        {projects.map((project, index) => (
+          <ProjectCard
+            key={project.slug}
+            project={project}
+            index={index}
+            locale={locale}
+            dictionary={dictionary}
+          />
+        ))}
       </div>
     </Container>
   );

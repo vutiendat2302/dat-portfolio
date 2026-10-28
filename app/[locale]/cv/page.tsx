@@ -2,16 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Container } from "@/components/common/Container";
-import { FormattedText } from "@/components/common/FormattedText";
 import { CvActions } from "@/components/cv/CvActions";
-import { education } from "@/data/education";
-import { experiences } from "@/data/experience";
-import { profile } from "@/data/profile";
-import { projects } from "@/data/projects";
-import { skillGroups } from "@/data/skills";
-import { isLocale, type Locale } from "@/i18n/config";
+import { cv } from "@/data/cv";
+import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
-import { formatPeriod } from "@/lib/formatDate";
 import { createMetadata } from "@/lib/seo";
 
 interface CvPageProps {
@@ -35,12 +29,6 @@ export async function generateMetadata({ params }: CvPageProps): Promise<Metadat
   });
 }
 
-function resolveText(text: string | Record<Locale, string> | undefined, locale: Locale): string {
-  if (!text) return "";
-  if (typeof text === "string") return text;
-  return text[locale] || text.vi || "";
-}
-
 export default async function CvPage({ params }: CvPageProps) {
   const { locale } = await params;
 
@@ -50,9 +38,6 @@ export default async function CvPage({ params }: CvPageProps) {
 
   const dictionary = getDictionary(locale);
 
-  // Technical projects from data
-  const technicalProjects = projects.filter((p) => p.slug !== "dat-portfolio");
-
   return (
     <Container className="pt-6 pb-14 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-24">
       {/* Top Bar with Title and Actions (hidden on print) */}
@@ -61,9 +46,6 @@ export default async function CvPage({ params }: CvPageProps) {
           <h1 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
             {dictionary.cvPage.title}
           </h1>
-          <p className="mt-1 text-sm text-muted">
-            {dictionary.cvPage.description}
-          </p>
         </div>
 
         <CvActions
@@ -72,36 +54,20 @@ export default async function CvPage({ params }: CvPageProps) {
         />
       </div>
 
-      {/* Printable Resume Sheet - Formatted to match CV_example.pdf */}
-      <article className="mx-auto max-w-4xl rounded-xl border border-border bg-surface p-4 sm:p-8 lg:p-12 shadow-xs print:max-w-none print:border-none print:bg-transparent print:p-0 print:shadow-none text-foreground font-sans">
+      {/* Printable Resume Sheet - Formatted to exactly match CV_example.pdf */}
+      <article className="mx-auto max-w-4xl rounded-xl border border-border bg-surface p-6 sm:p-10 lg:p-12 shadow-xs print:max-w-none print:border-none print:bg-transparent print:p-0 print:shadow-none text-foreground font-sans">
         
         {/* Header: Centered Name & Contact Info */}
         <header className="text-center border-b border-border/60 pb-5">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wider text-foreground">
-            {locale === "vi" ? (
-              profile.name.vi.toUpperCase()
-            ) : locale === "en" ? (
-              <>
-                VU TIEN DAT{" "}
-                <span className="block sm:inline sm:ml-2 text-base sm:text-xl font-medium text-muted">
-                  ({profile.name.en})
-                </span>
-              </>
-            ) : (
-              <>
-                {profile.name["zh-TW"]}{" "}
-                <span className="block sm:inline sm:ml-2 text-base sm:text-xl font-medium text-muted">
-                  (VU TIEN DAT)
-                </span>
-              </>
-            )}
+            {cv.name[locale]}
           </h2>
 
           <div className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-xs sm:text-sm text-muted">
             {/* GitHub */}
-            {profile.socialLinks.find((l) => l.label.toLowerCase().includes("github")) ? (
+            {cv.contact.github ? (
               <a
-                href={profile.socialLinks.find((l) => l.label.toLowerCase().includes("github"))?.href}
+                href={cv.contact.github}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 text-foreground hover:text-accent hover:underline transition-colors"
@@ -120,9 +86,9 @@ export default async function CvPage({ params }: CvPageProps) {
             <span className="hidden sm:inline text-border-strong font-mono">|</span>
 
             {/* LinkedIn */}
-            {profile.socialLinks.find((l) => l.label.toLowerCase().includes("linkedin")) ? (
+            {cv.contact.linkedin ? (
               <a
-                href={profile.socialLinks.find((l) => l.label.toLowerCase().includes("linkedin"))?.href}
+                href={cv.contact.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 text-foreground hover:text-accent hover:underline transition-colors"
@@ -138,11 +104,11 @@ export default async function CvPage({ params }: CvPageProps) {
               </a>
             ) : null}
 
-            {profile.email ? (
+            {cv.contact.email ? (
               <>
                 <span className="hidden sm:inline text-border-strong font-mono">|</span>
                 <a
-                  href={`mailto:${profile.email}`}
+                  href={`mailto:${cv.contact.email}`}
                   className="inline-flex items-center gap-1.5 text-foreground hover:text-accent hover:underline transition-colors"
                 >
                   <svg
@@ -155,16 +121,16 @@ export default async function CvPage({ params }: CvPageProps) {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <span>{profile.email}</span>
+                  <span>{cv.contact.email}</span>
                 </a>
               </>
             ) : null}
 
-            {profile.phone ? (
+            {cv.contact.phone ? (
               <>
                 <span className="hidden sm:inline text-border-strong font-mono">|</span>
                 <a
-                  href={`tel:${profile.phone}`}
+                  href={`tel:${cv.contact.phone}`}
                   className="inline-flex items-center gap-1.5 text-foreground hover:text-accent hover:underline transition-colors"
                 >
                   <svg
@@ -177,7 +143,7 @@ export default async function CvPage({ params }: CvPageProps) {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  <span>{profile.phone}</span>
+                  <span>{cv.contact.phone}</span>
                 </a>
               </>
             ) : null}
@@ -195,9 +161,9 @@ export default async function CvPage({ params }: CvPageProps) {
             </h3>
           </div>
           <ul className="mt-2.5 list-disc ml-5 space-y-1.5 text-xs sm:text-sm text-foreground/90 leading-relaxed marker:text-foreground/60">
-            {profile.about.map((paragraph, index) => (
+            {cv.profile.map((paragraph, index) => (
               <li key={index}>
-                <FormattedText text={paragraph[locale]} />
+                {paragraph[locale]}
               </li>
             ))}
           </ul>
@@ -214,32 +180,24 @@ export default async function CvPage({ params }: CvPageProps) {
             </h3>
           </div>
 
-          <div className="mt-2.5 space-y-4">
-            {education.map((item, index) => (
-              <div key={index} className="text-xs sm:text-sm">
-                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-y-0.5 gap-x-4">
-                  <span className="font-bold text-foreground">
-                    {item.organization[locale]}
-                  </span>
-                  <span className="text-xs sm:text-sm text-muted">
-                    {resolveText(item.location, locale)}
-                  </span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-y-0.5 gap-x-4 mt-0.5">
-                  <span className="italic font-medium text-foreground/90">
-                    {item.title[locale]}{item.gpa ? `. GPA: [${item.gpa}]` : ""}
-                  </span>
-                  <span className="text-xs sm:text-sm font-medium text-foreground/90 font-mono">
-                    {formatPeriod(item.period, locale)}
-                  </span>
-                </div>
-                {item.coursework ? (
-                  <ul className="mt-1.5 list-disc ml-5 text-xs sm:text-sm text-foreground/85 leading-relaxed marker:text-foreground/60">
-                    <li>{item.coursework[locale]}</li>
-                  </ul>
-                ) : null}
-              </div>
-            ))}
+          <div className="mt-2.5 text-xs sm:text-sm">
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-y-0.5 gap-x-4">
+              <span className="font-bold text-foreground">
+                {cv.education.institution[locale]}
+              </span>
+              <span className="text-xs sm:text-sm text-muted">
+                {cv.education.location[locale]}
+              </span>
+            </div>
+            <div className="flex justify-end mt-0.5">
+              <span className="text-xs sm:text-sm font-medium text-foreground/90 font-mono">
+                {cv.education.period[locale]}
+              </span>
+            </div>
+            <ul className="mt-1 list-disc ml-5 space-y-1 text-xs sm:text-sm text-foreground/85 leading-relaxed marker:text-foreground/60">
+              <li>{cv.education.degree[locale]}</li>
+              <li>{cv.education.coursework[locale]}</li>
+            </ul>
           </div>
         </section>
 
@@ -255,28 +213,28 @@ export default async function CvPage({ params }: CvPageProps) {
           </div>
 
           <div className="mt-2.5 space-y-4">
-            {experiences.map((item, index) => (
+            {cv.experience.map((item, index) => (
               <div key={index} className="text-xs sm:text-sm">
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-y-0.5 gap-x-4">
                   <span className="font-bold text-foreground">
-                    {item.title[locale]}
+                    {item.role[locale]}
                   </span>
                   <span className="text-xs sm:text-sm font-medium text-foreground/90 font-mono">
-                    {formatPeriod(item.period, locale)}
+                    {item.period[locale]}
                   </span>
                 </div>
                 <p className="font-medium text-muted mt-0.5">
-                  {item.organization[locale]}
+                  {item.company[locale]}
                 </p>
 
-                {item.projectName ? (
+                {item.project ? (
                   <div className="mt-2">
                     <p className="font-semibold text-foreground flex items-center gap-1.5">
                       <span className="text-foreground/60">•</span>
-                      <span>{item.projectName[locale]}</span>
-                      {item.projectUrl ? (
+                      <span>{item.project.name[locale]}</span>
+                      {item.project.githubUrl ? (
                         <a
-                          href={item.projectUrl}
+                          href={item.project.githubUrl}
                           target="_blank"
                           rel="noreferrer"
                           className="text-xs text-accent hover:underline font-mono ml-1 print:hidden"
@@ -286,15 +244,15 @@ export default async function CvPage({ params }: CvPageProps) {
                       ) : null}
                     </p>
 
-                    {item.technologies && item.technologies.length > 0 ? (
+                    {item.project.technologies ? (
                       <p className="mt-0.5 ml-4 text-xs text-muted italic">
-                        {item.technologies.join(", ")}
+                        {item.project.technologies}
                       </p>
                     ) : null}
 
-                    {item.highlights && item.highlights.length > 0 ? (
+                    {item.project.highlights && item.project.highlights.length > 0 ? (
                       <ul className="mt-1.5 ml-4 space-y-1 text-xs sm:text-sm text-foreground/85 leading-relaxed">
-                        {item.highlights.map((highlight, hIndex) => (
+                        {item.project.highlights.map((highlight, hIndex) => (
                           <li
                             key={hIndex}
                             className="relative pl-3.5 before:content-['–'] before:absolute before:left-0 before:text-foreground/60"
@@ -322,16 +280,20 @@ export default async function CvPage({ params }: CvPageProps) {
             </h3>
           </div>
 
-          <div className="mt-2.5 space-y-4">
-            {technicalProjects.map((project) => (
-              <div key={project.slug} className="text-xs sm:text-sm">
+          <div className="mt-2 font-semibold text-xs sm:text-sm text-foreground">
+            {locale === "vi" ? "Dự án" : locale === "en" ? "Projects" : "專案 (Projects)"}
+          </div>
+
+          <div className="mt-1.5 space-y-4">
+            {cv.projects.map((project, index) => (
+              <div key={index} className="text-xs sm:text-sm">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <p className="font-semibold text-foreground flex items-center gap-1.5">
                     <span className="text-foreground/60">•</span>
-                    <span>{project.title[locale]}</span>
-                    {project.repositoryUrl ? (
+                    <span>{project.name[locale]}</span>
+                    {project.githubUrl ? (
                       <a
-                        href={project.repositoryUrl}
+                        href={project.githubUrl}
                         target="_blank"
                         rel="noreferrer"
                         className="text-xs text-accent hover:underline font-mono ml-1 print:hidden"
@@ -342,9 +304,9 @@ export default async function CvPage({ params }: CvPageProps) {
                   </p>
                 </div>
 
-                {project.technologies && project.technologies.length > 0 ? (
+                {project.technologies ? (
                   <p className="mt-0.5 ml-4 text-xs text-muted italic">
-                    {project.technologies.join(", ")}
+                    {project.technologies}
                   </p>
                 ) : null}
 
@@ -359,18 +321,7 @@ export default async function CvPage({ params }: CvPageProps) {
                       </li>
                     ))}
                   </ul>
-                ) : (
-                  <ul className="mt-1.5 ml-4 space-y-1 text-xs sm:text-sm text-foreground/85 leading-relaxed">
-                    {project.description.map((desc, dIndex) => (
-                      <li
-                        key={dIndex}
-                        className="relative pl-3.5 before:content-['–'] before:absolute before:left-0 before:text-foreground/60"
-                      >
-                        {desc[locale]}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                ) : null}
               </div>
             ))}
           </div>
@@ -388,13 +339,13 @@ export default async function CvPage({ params }: CvPageProps) {
           </div>
 
           <ul className="mt-2.5 list-disc ml-5 space-y-1.5 text-xs sm:text-sm text-foreground/90 leading-relaxed marker:text-foreground/60">
-            {skillGroups.map((group, index) => (
+            {cv.skills.map((group, index) => (
               <li key={index}>
                 <span className="font-semibold text-foreground">
                   {group.category[locale]}:
                 </span>{" "}
                 <span className="text-foreground/85">
-                  {group.skills.join(", ")}
+                  {group.skills}
                 </span>
               </li>
             ))}
@@ -402,7 +353,7 @@ export default async function CvPage({ params }: CvPageProps) {
         </section>
 
         {/* 6. Activities & Awards */}
-        {profile.activities && profile.activities.length > 0 ? (
+        {cv.activities && cv.activities.length > 0 ? (
           <section className="mt-6" aria-labelledby="section-activities">
             <div className="border-b border-foreground/35 pb-1">
               <h3
@@ -414,7 +365,7 @@ export default async function CvPage({ params }: CvPageProps) {
             </div>
 
             <ul className="mt-2.5 list-disc ml-5 space-y-1.5 text-xs sm:text-sm text-foreground/90 leading-relaxed marker:text-foreground/60">
-              {profile.activities.map((activity, index) => (
+              {cv.activities.map((activity, index) => (
                 <li key={index}>{activity[locale]}</li>
               ))}
             </ul>

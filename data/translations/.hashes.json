@@ -1,7 +1,10 @@
 {
-  "education.json": "a6d2d9d7",
+  "profile.json": "261dfbc9",
+  "projects.json": "b22d43e3",
+  "skills.json": "759caff3",
   "experience.json": "5667ddd0",
-  "profile.json": "dc40a5b2",
-  "projects.json": "0f498e84",
-  "skills.json": "0dc8e276"
+  "education.json": "a6d2d9d7",
+  "about.json": "75639f26",
+  "privacy.json": "13ffeb7a",
+  "cv.json": "89884c1a"
 }

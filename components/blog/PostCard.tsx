@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import type { PostMetadata } from "@/lib/posts";
 import { formatDate } from "@/lib/formatDate";
@@ -15,46 +16,75 @@ export function PostCard({ post, locale, dictionary }: PostCardProps) {
   const postPath = localePath(locale, `/blog/${post.slug}`);
 
   return (
-    <article className="group border-t border-border py-7 sm:py-8">
-      <div className="grid gap-4 sm:grid-cols-[150px_minmax(0,1fr)_auto] sm:gap-7">
+    <article className="h-full">
+      <Link
+        href={postPath}
+        className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border/80 bg-surface p-4 sm:p-4.5 transition-all duration-300 ease-out hover:-translate-y-4 hover:border-accent/40 hover:bg-surface-soft/40 hover:shadow-xl hover:shadow-accent/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent cursor-pointer"
+      >
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-subtle sm:text-xs">
-            <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
-          </p>
-          {post.category ? (
-            <p className="mt-2 font-mono text-[11px] text-subtle">{post.category}</p>
-          ) : null}
-          {post.autoTranslated ? (
-            <span className="mt-2 inline-flex items-center rounded border border-border px-1.5 py-0.5 font-mono text-[10px] text-muted">
-              🤖 {dictionary.blog.aiTranslated}
-            </span>
-          ) : null}
-        </div>
-        <div className="max-w-2xl">
-          <h3 className="text-xl font-medium tracking-[-0.025em] text-foreground sm:text-2xl">
-            <Link
-              href={postPath}
-              className="rounded-sm text-foreground transition-colors duration-200 group-hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4"
-            >
+          {/* Thumbnail / Cover Container */}
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-border/60 bg-surface-soft flex items-center justify-center">
+            {post.coverImage ? (
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                fill
+                unoptimized
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              />
+            ) : (
+              <div className="relative flex size-full items-center justify-center bg-gradient-to-br from-surface to-surface-soft">
+                {/* Subtle radial glow */}
+                <div
+                  className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.08)_0%,transparent_70%)]"
+                  aria-hidden="true"
+                />
+                {/* Center icon emblem */}
+                <div className="relative flex size-12 items-center justify-center rounded-2xl border border-border/80 bg-surface/90 text-muted shadow-2xs transition-all duration-300 group-hover:scale-110 group-hover:border-accent/40 group-hover:text-accent">
+                  <svg
+                    className="size-6 fill-none stroke-current"
+                    strokeWidth="1.75"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                    />
+                  </svg>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Title & Description */}
+          <div className="mt-3.5">
+            <h3 className="text-base sm:text-lg font-semibold tracking-tight text-foreground leading-snug transition-colors duration-200 group-hover:text-accent line-clamp-2">
               {post.title}
-            </Link>
-          </h3>
-          <p className="mt-3 leading-7 text-muted">{post.description}</p>
-          <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-2 font-mono text-xs text-subtle" aria-label={dictionary.blog.tagsLabel}>
-            {post.tags.map((tag) => (
-              <li key={tag}>#{tag}</li>
-            ))}
-          </ul>
+            </h3>
+            <p className="mt-2 text-sm text-muted leading-relaxed line-clamp-2">
+              {post.description}
+            </p>
+          </div>
         </div>
-        <Link
-          href={postPath}
-          className="flex w-fit items-center gap-2 self-start rounded-sm text-sm text-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 sm:justify-self-end"
-          aria-label={`${dictionary.blog.readArticle}: ${post.title}`}
-        >
-          {post.readingTimeMinutes} {dictionary.blog.minuteRead}
-          <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">→</span>
-        </Link>
-      </div>
+
+        {/* Date & Reading time with arrow */}
+        <div className="mt-4 flex items-center justify-between border-t border-border/50 pt-3 text-xs sm:text-sm text-subtle font-normal">
+          <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
+          <span className="inline-flex items-center gap-1 shrink-0 font-medium text-foreground transition-colors group-hover:text-accent">
+            <span>
+              {post.readingTimeMinutes} {dictionary.blog.minuteRead}
+            </span>
+            <span
+              className="transition-transform duration-200 group-hover:translate-x-1"
+              aria-hidden="true"
+            >
+              →
+            </span>
+          </span>
+        </div>
+      </Link>
     </article>
   );
 }

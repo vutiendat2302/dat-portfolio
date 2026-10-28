@@ -108,9 +108,11 @@ function parseMetadata(
   assertString(data.title, "title", fileName);
   assertString(data.description, "description", fileName);
 
-  if (!Array.isArray(data.tags) || !data.tags.every((tag) => typeof tag === "string")) {
-    throw new Error(`Invalid frontmatter field "tags" in ${fileName}`);
-  }
+  const tags: string[] = Array.isArray(data.tags)
+    ? data.tags.filter((tag): tag is string => typeof tag === "string" && tag.trim().length > 0)
+    : typeof data.tags === "string" && data.tags.trim().length > 0
+      ? [data.tags.trim()]
+      : [];
 
   if (typeof data.published !== "boolean") {
     throw new Error(`Invalid frontmatter field "published" in ${fileName}`);
@@ -130,7 +132,7 @@ function parseMetadata(
       title: data.title,
       description: data.description,
       date: validateDate(data.date, "date", fileName),
-      tags: data.tags,
+      tags,
       published: data.published,
       locale,
       translationKey: optionalString(data.translationKey, "translationKey", fileName),

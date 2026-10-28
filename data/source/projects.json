@@ -23,6 +23,7 @@
       "MySQL"
     ],
     "status": "Hoàn thành",
+    "period": "2024",
     "featured": true,
     "repositoryUrl": "https://github.com/vutiendat2302"
   },
@@ -49,6 +50,7 @@
       "Attention"
     ],
     "status": "Nghiên cứu",
+    "period": "2024 - 2025",
     "featured": true,
     "repositoryUrl": "https://github.com/vutiendat2302"
   },
@@ -71,6 +73,7 @@
       "Markdown"
     ],
     "status": "Đang phát triển",
+    "period": "2026",
     "featured": true,
     "image": "/projects/dat-portfolio.svg",
     "imageAlt": "Minh họa giao diện sáng của DAT Portfolio",
