@@ -339,6 +339,7 @@ Tác giả chỉ cần viết tiếng Việt đơn thuần tại thư mục này
 - `data/source/skills.json`
 - `data/source/experience.json`
 - `data/source/education.json`
+- `data/source/about.json`
 
 ### 6.2. Tầng dịch tự động (`data/translations/*.json`)
 Script `npm run translate` sẽ dịch nội dung tiếng Việt sang `en` và `zh-TW` (sử dụng thuật ngữ IT chuẩn Đài Loan), so sánh hash qua `.hashes.json` để tránh gọi API trùng lặp, và xuất ra file JSON đa ngôn ngữ đầy đủ.
@@ -348,6 +349,9 @@ Cung cấp typed interface cho các Server Component của ứng dụng:
 - `data/profile.ts`
 - `data/projects.ts`
 - `data/skills.ts`
+- `data/experience.ts`
+- `data/education.ts`
+- `data/about.ts`
 - `data/experience.ts`
 - `data/education.ts`
 

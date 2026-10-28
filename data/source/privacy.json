@@ -1,0 +1,31 @@
+{
+  "updatedAt": "Cập nhật lần cuối: Tháng 10, 2026",
+  "sections": [
+    {
+      "title": "1. Mục đích và Phạm vi",
+      "paragraphs": [
+        "Website này là portfolio cá nhân và blog phi thương mại của Vũ Tiến Đạt, được xây dựng nhằm mục đích giới thiệu, chia sẻ các dự án mã nguồn mở và ghi chép kinh nghiệm.",
+        "Mình tôn trọng quyền riêng tư của mọi khách truy cập và cam kết minh bạch tuyệt đối về cách website hoạt động."
+      ]
+    },
+    {
+      "title": "2. Thu thập và Xử lý Dữ liệu",
+      "paragraphs": [
+        "Website là trang web tĩnh hoàn toàn không sử dụng cơ sở dữ liệu để lưu trữ thông tin người dùng ẩn danh.",
+        "Website không sử dụng cơ sở dữ liệu để lưu trữ thông tin cá nhân của khách truy cập và không sử dụng công cụ theo dõi quảng cáo hoặc theo dõi chéo giữa các website. Tuy nhiên, nhà cung cấp dịch vụ hosting có thể xử lý dữ liệu kỹ thuật như địa chỉ IP và nhật ký truy cập để vận hành, bảo mật hệ thống."
+      ]
+    },
+    {
+      "title": "3. Liên kết đến Bên thứ ba",
+      "paragraphs": [
+        "Website có chứa các liên kết dẫn tới các nền tảng bên ngoài (chẳng hạn như GitHub, LinkedIn, Facebook, Instagram, v.v.). Khi bạn nhấp vào các liên kết này, bạn sẽ chịu sự quản lý của chính sách quyền riêng tư và điều khoản sử dụng riêng của từng nền tảng tương ứng."
+      ]
+    },
+    {
+      "title": "4. Quyền của Bạn và Thông tin Liên hệ",
+      "paragraphs": [
+        "Nếu bạn có bất kỳ câu hỏi hoặc góp ý nào liên quan đến chính sách quyền riêng tư của website, bạn luôn có thể liên hệ trực tiếp với mình qua email: vutiendat23022005@gmail.com."
+      ]
+    }
+  ]
+}

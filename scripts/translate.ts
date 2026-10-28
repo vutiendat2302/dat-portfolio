@@ -23,7 +23,7 @@ if (!apiKey) {
   process.exit(1);
 }
 
-const MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
+const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 
 const TARGETS: Record<string, { label: string; markdownPrompt: string; jsonPrompt: string }> = {
   en: {
@@ -66,6 +66,7 @@ interface SourceProfile {
   about: string[];
   location?: string;
   email?: string;
+  phone?: string;
   socialLinks?: Array<{ label: string; href: string }>;
 }
 
@@ -87,6 +88,7 @@ interface SourceProject {
   imageAlt?: string;
   repositoryUrl?: string;
   liveUrl?: string;
+  period?: string;
 }
 
 interface TranslatedProjectItem {
@@ -117,6 +119,118 @@ interface TranslatedTimelineItem {
   title?: string;
   organization?: string;
   description?: string;
+}
+
+interface SourceAchievement {
+  id: string;
+  title: string;
+  issuer: string;
+  year?: string;
+  category: string;
+  file: string;
+  fileType: "image" | "pdf";
+}
+
+interface SourceAbout {
+  principles: string[];
+  focusAreas: Array<{ name: string; emoji?: string }>;
+  achievements?: SourceAchievement[];
+}
+
+interface TranslatedAboutPayload {
+  principles?: string[];
+  focusAreas?: Array<{ name?: string }>;
+  achievements?: Array<{
+    title?: string;
+    issuer?: string;
+    category?: string;
+  }>;
+}
+
+interface SourcePrivacySection {
+  title: string;
+  paragraphs: string[];
+}
+
+interface SourcePrivacy {
+  updatedAt: string;
+  sections: SourcePrivacySection[];
+}
+
+interface TranslatedPrivacyPayload {
+  updatedAt?: string;
+  sections?: Array<{
+    title?: string;
+    paragraphs?: string[];
+  }>;
+}
+
+interface SourceCvData {
+  name: string;
+  contact: {
+    github: string;
+    linkedin: string;
+    email: string;
+    phone: string;
+  };
+  profile: string[];
+  education: {
+    institution: string;
+    location: string;
+    period: string;
+    degree: string;
+    coursework: string;
+  };
+  experience: Array<{
+    role: string;
+    company: string;
+    period: string;
+    project: {
+      name: string;
+      githubUrl: string;
+      technologies: string;
+      highlights: string[];
+    };
+  }>;
+  projects: Array<{
+    name: string;
+    githubUrl: string;
+    technologies: string;
+    highlights: string[];
+  }>;
+  skills: Array<{
+    category: string;
+    skills: string;
+  }>;
+  activities: string[];
+}
+
+interface TranslatedCvPayload {
+  profile?: string[];
+  education?: {
+    institution?: string;
+    location?: string;
+    period?: string;
+    degree?: string;
+    coursework?: string;
+  };
+  experience?: Array<{
+    role?: string;
+    company?: string;
+    period?: string;
+    project?: {
+      name?: string;
+      highlights?: string[];
+    };
+  }>;
+  projects?: Array<{
+    name?: string;
+    highlights?: string[];
+  }>;
+  skills?: Array<{
+    category?: string;
+  }>;
+  activities?: string[];
 }
 
 const hash = (content: string) =>
@@ -179,7 +293,7 @@ async function translateText(
     },
   };
 
-  const maxRetries = 3;
+  const maxRetries = 5;
   let attempt = 0;
 
   while (attempt < maxRetries) {
@@ -193,7 +307,7 @@ async function translateText(
     });
 
     if (res.status === 429 || res.status >= 500) {
-      const waitMs = attempt * 2000;
+      const waitMs = attempt * 3000;
       console.warn(`    ⚠️  Google AI API rate limit/status ${res.status}. Retrying in ${waitMs / 1000}s (attempt ${attempt}/${maxRetries})...`);
       await new Promise((resolve) => setTimeout(resolve, waitMs));
       continue;
@@ -283,6 +397,12 @@ async function translateBlogPosts() {
         if (sourceParsed.data.date) {
           translatedParsed.data.date = sourceParsed.data.date;
         }
+        if (sourceParsed.data.tags) {
+          translatedParsed.data.tags = sourceParsed.data.tags;
+        }
+        if (sourceParsed.data.coverImage) {
+          translatedParsed.data.coverImage = sourceParsed.data.coverImage;
+        }
 
         await fs.mkdir(outDir, { recursive: true });
         const finalContent = matter.stringify(
@@ -371,6 +491,7 @@ async function translateDataFiles() {
           })),
           location: src.location,
           email: src.email,
+          phone: src.phone,
           socialLinks: src.socialLinks || [],
         };
 
@@ -436,6 +557,7 @@ async function translateDataFiles() {
               : undefined,
             repositoryUrl: p.repositoryUrl,
             liveUrl: p.liveUrl,
+            period: p.period,
           };
         });
 
@@ -560,6 +682,323 @@ async function translateDataFiles() {
       console.log(`  ✓ [data] ${file}`);
     } catch (err) {
       console.error(`  ❌ Failed to translate [data] ${file}:`, err);
+    }
+  }
+
+  // 5. about.json
+  const aboutSrcPath = path.join(DATA_SRC_DIR, "about.json");
+  const aboutRaw = await fs.readFile(aboutSrcPath, "utf8").catch(() => null);
+  if (aboutRaw) {
+    const currentHash = hash(aboutRaw);
+    if (hashes["about.json"] === currentHash) {
+      console.log(`  ⏭️  [data] about.json (unchanged)`);
+    } else {
+      console.log(`  ⏳ Translating [data] about.json...`);
+      try {
+        const src = JSON.parse(aboutRaw) as SourceAbout;
+        const transPayload: Record<string, unknown> = {
+          principles: src.principles,
+          focusAreas: src.focusAreas.map((f) => ({
+            name: f.name,
+          })),
+        };
+        if (src.achievements) {
+          transPayload.achievements = src.achievements.map((a) => ({
+            title: a.title,
+            issuer: a.issuer,
+            category: a.category,
+          }));
+        }
+
+        const enTrans = await translateJsonPayload<TranslatedAboutPayload>(
+          transPayload,
+          TARGETS.en.jsonPrompt,
+        );
+        const zhTrans = await translateJsonPayload<TranslatedAboutPayload>(
+          transPayload,
+          TARGETS["zh-TW"].jsonPrompt,
+        );
+
+        const translated = {
+          principles: src.principles.map((text, i) => ({
+            vi: text,
+            en: enTrans.principles?.[i] || text,
+            "zh-TW": zhTrans.principles?.[i] || text,
+          })),
+          focusAreas: src.focusAreas.map((f, i) => ({
+            name: {
+              vi: f.name,
+              en: enTrans.focusAreas?.[i]?.name || f.name,
+              "zh-TW": zhTrans.focusAreas?.[i]?.name || f.name,
+            },
+            emoji: f.emoji,
+          })),
+          achievements: (src.achievements || []).map((a, i) => ({
+            id: a.id,
+            title: {
+              vi: a.title,
+              en: enTrans.achievements?.[i]?.title || a.title,
+              "zh-TW": zhTrans.achievements?.[i]?.title || a.title,
+            },
+            issuer: {
+              vi: a.issuer,
+              en: enTrans.achievements?.[i]?.issuer || a.issuer,
+              "zh-TW": zhTrans.achievements?.[i]?.issuer || a.issuer,
+            },
+            year: a.year,
+            category: {
+              vi: a.category,
+              en: enTrans.achievements?.[i]?.category || a.category,
+              "zh-TW": zhTrans.achievements?.[i]?.category || a.category,
+            },
+            file: a.file,
+            fileType: a.fileType,
+          })),
+        };
+
+        await fs.writeFile(
+          path.join(DATA_OUT_DIR, "about.json"),
+          JSON.stringify(translated, null, 2) + "\n",
+          "utf8",
+        );
+        hashes["about.json"] = currentHash;
+        console.log(`  ✓ [data] about.json`);
+      } catch (err) {
+        console.error(`  ❌ Failed to translate [data] about.json:`, err);
+      }
+    }
+  }
+
+  // 6. privacy.json
+  const privacySrcPath = path.join(DATA_SRC_DIR, "privacy.json");
+  const privacyRaw = await fs.readFile(privacySrcPath, "utf8").catch(() => null);
+  if (privacyRaw) {
+    const currentHash = hash(privacyRaw);
+    if (hashes["privacy.json"] === currentHash) {
+      console.log(`  ⏭️  [data] privacy.json (unchanged)`);
+    } else {
+      console.log(`  ⏳ Translating [data] privacy.json...`);
+      try {
+        const src = JSON.parse(privacyRaw) as SourcePrivacy;
+        const transPayload = {
+          updatedAt: src.updatedAt,
+          sections: src.sections.map((s) => ({
+            title: s.title,
+            paragraphs: s.paragraphs,
+          })),
+        };
+
+        const enTrans = await translateJsonPayload<TranslatedPrivacyPayload>(
+          transPayload,
+          TARGETS.en.jsonPrompt,
+        );
+        const zhTrans = await translateJsonPayload<TranslatedPrivacyPayload>(
+          transPayload,
+          TARGETS["zh-TW"].jsonPrompt,
+        );
+
+        const translated = {
+          updatedAt: {
+            vi: src.updatedAt,
+            en: enTrans.updatedAt || src.updatedAt,
+            "zh-TW": zhTrans.updatedAt || src.updatedAt,
+          },
+          sections: src.sections.map((s, idx) => {
+            const enSec = enTrans.sections?.[idx];
+            const zhSec = zhTrans.sections?.[idx];
+            return {
+              title: {
+                vi: s.title,
+                en: enSec?.title || s.title,
+                "zh-TW": zhSec?.title || s.title,
+              },
+              paragraphs: s.paragraphs.map((p, pIdx) => ({
+                vi: p,
+                en: enSec?.paragraphs?.[pIdx] || p,
+                "zh-TW": zhSec?.paragraphs?.[pIdx] || p,
+              })),
+            };
+          }),
+        };
+
+        await fs.writeFile(
+          path.join(DATA_OUT_DIR, "privacy.json"),
+          JSON.stringify(translated, null, 2) + "\n",
+          "utf8",
+        );
+        hashes["privacy.json"] = currentHash;
+        console.log(`  ✓ [data] privacy.json`);
+      } catch (err) {
+        console.error(`  ❌ Failed to translate [data] privacy.json:`, err);
+      }
+    }
+  }
+
+  // 7. cv.json
+  const cvSrcPath = path.join(DATA_SRC_DIR, "cv.json");
+  const cvRaw = await fs.readFile(cvSrcPath, "utf8").catch(() => null);
+  if (cvRaw) {
+    const currentHash = hash(cvRaw);
+    if (hashes["cv.json"] === currentHash) {
+      console.log(`  ⏭️  [data] cv.json (unchanged)`);
+    } else {
+      console.log(`  ⏳ Translating [data] cv.json...`);
+      try {
+        const src = JSON.parse(cvRaw) as SourceCvData;
+        const transPayload = {
+          profile: src.profile,
+          education: {
+            institution: src.education.institution,
+            location: src.education.location,
+            period: src.education.period,
+            degree: src.education.degree,
+            coursework: src.education.coursework,
+          },
+          experience: src.experience.map((e) => ({
+            role: e.role,
+            company: e.company,
+            period: e.period,
+            project: {
+              name: e.project.name,
+              highlights: e.project.highlights,
+            },
+          })),
+          projects: src.projects.map((p) => ({
+            name: p.name,
+            highlights: p.highlights,
+          })),
+          skills: src.skills.map((s) => ({
+            category: s.category,
+          })),
+          activities: src.activities,
+        };
+
+        const enTrans = await translateJsonPayload<TranslatedCvPayload>(
+          transPayload,
+          TARGETS.en.jsonPrompt,
+        );
+        const zhTrans = await translateJsonPayload<TranslatedCvPayload>(
+          transPayload,
+          TARGETS["zh-TW"].jsonPrompt,
+        );
+
+        const translated = {
+          name: {
+            vi: src.name,
+            en: "VU TIEN DAT",
+            "zh-TW": "VU TIEN DAT",
+          },
+          contact: src.contact,
+          profile: src.profile.map((p, i) => ({
+            vi: p,
+            en: enTrans.profile?.[i] || p,
+            "zh-TW": zhTrans.profile?.[i] || p,
+          })),
+          education: {
+            institution: {
+              vi: src.education.institution,
+              en: enTrans.education?.institution || src.education.institution,
+              "zh-TW": zhTrans.education?.institution || src.education.institution,
+            },
+            location: {
+              vi: src.education.location,
+              en: enTrans.education?.location || src.education.location,
+              "zh-TW": zhTrans.education?.location || src.education.location,
+            },
+            period: {
+              vi: src.education.period,
+              en: enTrans.education?.period || src.education.period,
+              "zh-TW": zhTrans.education?.period || src.education.period,
+            },
+            degree: {
+              vi: src.education.degree,
+              en: enTrans.education?.degree || src.education.degree,
+              "zh-TW": zhTrans.education?.degree || src.education.degree,
+            },
+            coursework: {
+              vi: src.education.coursework,
+              en: enTrans.education?.coursework || src.education.coursework,
+              "zh-TW": zhTrans.education?.coursework || src.education.coursework,
+            },
+          },
+          experience: src.experience.map((e, i) => {
+            const enExp = enTrans.experience?.[i];
+            const zhExp = zhTrans.experience?.[i];
+            return {
+              role: {
+                vi: e.role,
+                en: enExp?.role || e.role,
+                "zh-TW": zhExp?.role || e.role,
+              },
+              company: {
+                vi: e.company,
+                en: enExp?.company || e.company,
+                "zh-TW": zhExp?.company || e.company,
+              },
+              period: {
+                vi: e.period,
+                en: enExp?.period || e.period,
+                "zh-TW": zhExp?.period || e.period,
+              },
+              project: {
+                name: {
+                  vi: e.project.name,
+                  en: enExp?.project?.name || e.project.name,
+                  "zh-TW": zhExp?.project?.name || e.project.name,
+                },
+                githubUrl: e.project.githubUrl,
+                technologies: e.project.technologies,
+                highlights: e.project.highlights.map((h, hIdx) => ({
+                  vi: h,
+                  en: enExp?.project?.highlights?.[hIdx] || h,
+                  "zh-TW": zhExp?.project?.highlights?.[hIdx] || h,
+                })),
+              },
+            };
+          }),
+          projects: src.projects.map((p, i) => {
+            const enProj = enTrans.projects?.[i];
+            const zhProj = zhTrans.projects?.[i];
+            return {
+              name: {
+                vi: p.name,
+                en: enProj?.name || p.name,
+                "zh-TW": zhProj?.name || p.name,
+              },
+              githubUrl: p.githubUrl,
+              technologies: p.technologies,
+              highlights: p.highlights.map((h, hIdx) => ({
+                vi: h,
+                en: enProj?.highlights?.[hIdx] || h,
+                "zh-TW": zhProj?.highlights?.[hIdx] || h,
+              })),
+            };
+          }),
+          skills: src.skills.map((s, i) => ({
+            category: {
+              vi: s.category,
+              en: enTrans.skills?.[i]?.category || s.category,
+              "zh-TW": zhTrans.skills?.[i]?.category || s.category,
+            },
+            skills: s.skills,
+          })),
+          activities: src.activities.map((a, i) => ({
+            vi: a,
+            en: enTrans.activities?.[i] || a,
+            "zh-TW": zhTrans.activities?.[i] || a,
+          })),
+        };
+
+        await fs.writeFile(
+          path.join(DATA_OUT_DIR, "cv.json"),
+          JSON.stringify(translated, null, 2) + "\n",
+          "utf8",
+        );
+        hashes["cv.json"] = currentHash;
+        console.log(`  ✓ [data] cv.json`);
+      } catch (err) {
+        console.error(`  ❌ Failed to translate [data] cv.json:`, err);
+      }
     }
   }
 

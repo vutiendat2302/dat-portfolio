@@ -1,187 +1,216 @@
-# DAT Portfolio
+# DAT Portfolio (v2.0)
 
-Portfolio cá nhân và technical blog của Dat, xây dựng bằng Next.js App Router, TypeScript, TailwindCSS và Markdown. Website chạy hoàn toàn theo kiến trúc static/Git-driven, không có backend hoặc database.
+> Portfolio cá nhân & Blog, được xây dựng theo kiến trúc **Static / Git-driven** hiện đại với **Next.js App Router**, **React 19**, **TypeScript** và **TailwindCSS 4**.
 
-## Tính năng chính
+[![Next.js](https://img.shields.io/badge/Next.js-16.3-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.2-blue?style=flat&logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-38bdf8?style=flat&logo=tailwindcss)](https://tailwindcss.com/)
+[![Gemini AI](https://img.shields.io/badge/Google_Gemini-Translation_Pipeline-orange?style=flat&logo=google)](https://aistudio.google.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-- Giao diện Modern Light Tech Portfolio, responsive và content-first.
-- Ba chế độ giao diện: Light, Dark và System; mặc định theo hệ điều hành và lưu preference.
-- Ba ngôn ngữ theo URL: Tiếng Việt (`vi`), English (`en`) và 繁體中文 Đài Loan (`zh-TW`).
-- Portfolio data type-safe trong `data/*.ts` và không duplicate dữ liệu theo locale.
-- Technical blog bằng Markdown chuẩn, parse và sanitize ở server/build time.
-- Static generation, metadata, OpenGraph, `hreflang`, sitemap và robots locale-aware.
-- Server Components mặc định; chỉ theme, language và mobile menu dùng Client Components nhỏ.
-
-## Công nghệ
-
-- Next.js 16 App Router và React Server Components
-- TypeScript strict mode
-- TailwindCSS 4
-- `next-themes` cho Light/Dark/System
-- `gray-matter`, Remark và Rehype cho Markdown
-- Vercel để deploy
-
-## Cấu trúc
-
-```text
-dat-portfolio/                                                                              
-    ├── app/                       # Next.js App Router                                         
-    │   ├── [locale]/              # Routing đa ngôn ngữ (/vi, /en, /zh-TW)                     
-    │   │   ├── layout.tsx         # Layout chính: Header, Footer, ThemeProvider, SEO           
-    │   │   ├── page.tsx           # Trang chủ (Hero, dự án tiêu biểu, bài viết mới)            
-    │   │   ├── about/page.tsx     # Trang giới thiệu, kỹ năng, kinh nghiệm & học vấn           
-    │   │   ├── projects/          # Danh sách dự án & chi tiết dự án ([slug])                  
-    │   │   └── blog/              # Danh sách bài viết & đọc bài viết ([slug])                 
-    │   ├── sitemap.ts & robots.ts # Tự động tạo Sitemap và Robots chuẩn SEO đa ngôn ngữ        
-    │   └── globals.css            # Tailwind CSS và biến màu semantic theme (Light/Dark)       
-    │                                                                                           
-    ├── content/                   # Nội dung bài viết Blog (.md)                               
-    │   └── posts/                                                                              
-    │       ├── vi/                # Bài viết tiếng Việt                                        
-    │       ├── en/                # Bài viết tiếng Anh                                         
-    │       └── zh-TW/             # Bài viết tiếng Trung phồn thể                              
-    │                                                                                           
-    ├── data/                      # Quản lý dữ liệu Portfolio                                  
-    │   ├── source/                # Nguồn nhập liệu tiếng Việt (chỉ cần viết tại đây)          
-    │   │   ├── profile.json       # Thông tin cá nhân, vai trò, giới thiệu, link mạng xã hội   
-    │   │   ├── projects.json      # Danh sách dự án, mô tả, công nghệ, link demo/code          
-    │   │   ├── skills.json        # Danh sách kỹ năng                                          
-    │   │   ├── experience.json    # Lịch sử làm việc (timeline)                                
-    │   │   └── education.json     # Học vấn / chứng chỉ                                        
-    │   ├── translations/          # Dữ liệu 3 thứ tiếng (tự động sinh qua npm run translate)   
-    │   ├── types.ts               # Định nghĩa TypeScript Types cho toàn bộ domain data        
-    │   ├── site.ts                # Cấu hình website (tên, domain canonical, SEO mặc định)     
-    │   └── *.ts                   # Typed exports cho Server Components (profile.ts, ...)      
-    │                                                                                           
-    ├── i18n/                      # Hệ thống đa ngôn ngữ                                       
-    │   ├── config.ts              # Danh sách locale: 'vi', 'en', 'zh-TW', mặc định 'vi'       
-    │   ├── getDictionary.ts       # Hàm lấy từ điển theo ngôn ngữ                              
-    │   └── dictionaries/          # Từ điển UI cho từng ngôn ngữ (vi.ts, en.ts, zh-TW.ts)      
-    │                                                                                           
-    ├── lib/                       # Utility & Logic xử lý                                      
-    │   ├── posts.ts               # Đọc và parse Markdown, tính thời gian đọc, sanitize HTML   
-    │   ├── seo.ts                 # Helper sinh Metadata API cho SEO, OpenGraph, Canonical     
-    │   └── formatDate.ts          # Định dạng ngày tháng theo từng ngôn ngữ                    
-    │                                                                                           
-    ├── components/                # UI Components tái sử dụng                                  
-    │   ├── common/                # Header, Footer, Container, TimelineList, SkillList,...     
-    │   ├── home/                  # Hero section                                               
-    │   ├── project/               # ProjectCard                                                
-    │   ├── blog/                  # PostCard                                                   
-    │   ├── i18n/                  # LanguageSwitcher (chuyển ngôn ngữ)                         
-    │   └── theme/                 # ThemeSwitcher, ThemeProvider (Dark/Light/System)           
-    │                                                                                           
-    ├── scripts/                   # CLI Scripts hỗ trợ tự động hóa                             
-    │   └── translate.ts           # Script dịch Markdown tự động sang en & zh-TW qua Claude API
-    │                                                                                           
-    └── public/                    # Chứa assets tĩnh: ảnh, svg, pdf 
-```
-
-Các thư mục locale trong `content/posts/` chỉ cần tồn tại khi có bài viết tương ứng.
-
-## Routing
-
-Locale mặc định là `vi`; `/` redirect tới `/vi`.
-
-```text
-/{locale}                         Trang chủ
-/{locale}/about                   Giới thiệu
-/{locale}/projects                Danh sách project
-/{locale}/projects/[slug]         Chi tiết project
-/{locale}/blog                    Danh sách bài viết
-/{locale}/blog/[slug]             Chi tiết bài viết
-```
-
-Locale hợp lệ: `vi`, `en`, `zh-TW`. Không dùng `zh-CN` cho phiên bản Đài Loan.
-
-## Thêm bài viết Markdown
-
-Tạo file kebab-case trong locale tương ứng, ví dụ `content/posts/vi/hoc-nextjs-co-ban.md`:
-
-```md
----
-title: "Học Next.js cơ bản"
-description: "Những kiến thức đầu tiên khi làm quen với Next.js."
-date: "2026-08-26"
-locale: "vi"
-translationKey: "learning-nextjs-basics"
-category: "Web Development"
-tags:
-  - nextjs
-  - typescript
-published: true
 ---
 
-# Học Next.js cơ bản
+## 🌟 Những điểm mới nổi bật trong Version 2.0
 
-Nội dung bài viết được viết bằng Markdown.
-```
+* **📄 Trang Sơ yếu lý lịch chuẩn PDF (`/[locale]/cv`)**:
+  * Giao diện mô phỏng resume chuẩn A4, hiển thị chính xác theo từng chi tiết của file hồ sơ PDF gốc.
+  * Tích hợp chức năng in trực tiếp (`Print`) với bộ CSS tối ưu in ấn và nút tải file PDF 1 chạm.
+* **📬 Trang Liên hệ trực tiếp (`/[locale]/contact`)**:
+  * Thẻ liên lạc nhanh với chức năng sao chép Email và Số điện thoại chỉ với 1 cú click.
+  * Mở nhanh trình soạn thư mặc định (`mailto:`) hoặc Gmail trên trình duyệt.
+  * Liên kết mạng xã hội chuyên nghiệp (GitHub, LinkedIn, Facebook, Instagram, Threads, Locket).
+* **🔒 Trang Chính sách quyền riêng tư (`/[locale]/privacy`)**:
+  * Minh bạch tuyệt đối về việc không thu thập dữ liệu cá nhân, không cài đặt tracker bên thứ ba.
+  * Bố cục tràn viền thoáng đãng, đồng bộ với phong cách chung của website.
+* **🎓 Thư viện Chứng chỉ & Bằng khen (`CertificateGallery`)**:
+  * Trưng bày các chứng nhận, giải thưởng và học bổng.
+  * Tích hợp modal xem trước tài liệu toàn màn hình (lightbox) hỗ trợ cả định dạng PDF nhúng và hình ảnh chất lượng cao.
+* **🤖 Pipeline Dịch tự động với Google Gemini AI**:
+  * Tác giả chỉ cần viết tiếng Việt tại `data/source/*.json` hoặc `content/posts/vi/*.md`.
+  * Lệnh `npm run translate` sử dụng Google Gemini AI tự động dịch sang tiếng Anh (`en`) và tiếng Trung Phồn thể Đài Loan chuẩn thuật ngữ IT (`zh-TW`).
+  * Cơ chế so sánh mã băm (`.hashes.json` & `sourceHash`) giúp **chỉ dịch những nội dung có sự thay đổi**, tối ưu chi phí và thời gian.
+* **⚡ Nâng cấp hiệu năng & Tương thích React 19**:
+  * Xử lý triệt để cảnh báo inline-script của `next-themes` trên React 19.
+  * TailwindCSS 4 với semantic CSS variables (Light, Dark, System) không gây giật lag khi chuyển đổi giao diện.
 
-`translationKey` dùng để liên kết các bản dịch của cùng một bài viết giữa các ngôn ngữ.
+---
 
-### Cơ chế hiển thị & Fallback bản dịch
-- **Fallback khi thiếu bản dịch**: Nếu bài viết mới chỉ có bản tiếng Việt (`vi`) mà chưa có bản tiếng Anh (`en`) hay tiếng Trung (`zh-TW`), khi người đọc truy cập route ngôn ngữ đó hoặc chuyển đổi qua selector, website sẽ **hiển thị bản gốc tiếng Việt kèm banner thông báo rõ ràng**: *"This article has not been translated into English yet. Displaying the original Vietnamese version."* (thay vì bị redirect về trang danh sách như trước).
-- **SEO & Canonical**: Trang fallback tự động đặt thẻ `canonical` trỏ về bài viết gốc tiếng Việt để tránh bị Google coi là trùng lặp nội dung. `hreflang` chỉ liệt kê các locale thực sự có file dịch tồn tại.
-- **Badge Dịch bởi AI**: Những bài viết được dịch tự động có cờ `autoTranslated: true` sẽ hiển thị huy hiệu `🤖 AI Translated` / `🤖 Dịch bởi AI`. Sau khi bạn review xong có thể đổi thành `autoTranslated: false` hoặc gỡ bỏ cờ này.
+## 🛠️ Công nghệ cốt lõi
 
-## Dịch tự động bằng AI (AI Translation Workflow)
+* **Framework**: Next.js 16 (App Router, Static Site Generation - SSG).
+* **Thư viện UI**: React 19 (mặc định React Server Components, Client Components cô lập ở tầng lá).
+* **Ngôn ngữ**: TypeScript Strict Mode.
+* **Styling**: TailwindCSS 4, `@tailwindcss/typography`.
+* **Quản lý Theme**: `next-themes` (Light / Dark / System).
+* **Xử lý nội dung Markdown**: `gray-matter`, `unified`, `remark-parse`, `remark-rehype`, `rehype-sanitize`, `rehype-stringify`.
+* **AI Engine**: Google Gemini API (`@google/genai` qua fetch REST API) tự động hóa bản địa hóa 3 ngôn ngữ.
+* **Deploy & Hosting**: Vercel Edge Network.
 
-Quy trình cập nhật nội dung (Blog & Dữ liệu Portfolio):
+---
+
+## 📁 Cấu trúc thư mục
+
 ```text
-Sửa Markdown (vi) hoặc JSON (data/source/) ➔ npm run translate ➔ Tự sinh en & zh-TW ➔ Review git diff ➔ Commit
+dat-portfolio/
+├── app/                           # Next.js App Router
+│   ├── [locale]/                  # Routing đa ngôn ngữ (/vi, /en, /zh-TW)
+│   │   ├── layout.tsx             # Root layout: ThemeProvider, Header, Footer
+│   │   ├── page.tsx               # Trang chủ: Hero, Dự án nổi bật, Bài viết mới
+│   │   ├── about/page.tsx         # Giới thiệu, Triết lý, Sở thích, Thư viện chứng chỉ
+│   │   ├── projects/              # Danh sách dự án & Chi tiết dự án ([slug])
+│   │   ├── blog/                  # Danh sách bài viết & Đọc bài viết ([slug])
+│   │   ├── cv/page.tsx            # Trang Sơ yếu lý lịch chuẩn in ấn & tải PDF
+│   │   ├── contact/page.tsx       # Trang kết nối & Thông tin liên hệ nhanh
+│   │   ├── privacy/page.tsx       # Chính sách bảo mật & quyền riêng tư
+│   │   └── not-found.tsx          # Trang 404 đa ngôn ngữ
+│   ├── sitemap.ts & robots.ts     # Tự động tạo Sitemap & Robots chuẩn SEO
+│   └── globals.css                # Semantic CSS tokens & Typography styles
+│
+├── content/posts/                 # Kho bài viết kỹ thuật dạng Markdown (.md)
+│   ├── vi/                        # Bài viết gốc tiếng Việt
+│   ├── en/                        # Bản dịch tiếng Anh (tự động dịch bởi AI)
+│   └── zh-TW/                     # Bản dịch tiếng Trung Phồn thể Đài Loan
+│
+├── data/                          # Kiến trúc dữ liệu phân tầng Git-driven
+│   ├── source/                    # Nguồn nhập liệu tiếng Việt (chỉ cần viết tại đây)
+│   │   ├── profile.json           # Thông tin cá nhân, mạng xã hội, giới thiệu
+│   │   ├── projects.json          # Danh sách dự án, mô tả, công nghệ, link demo/repo
+│   │   ├── skills.json            # Kỹ năng phân nhóm chuyên môn
+│   │   ├── experience.json        # Lịch sử kinh nghiệm công tác
+│   │   ├── education.json         # Quá trình đào tạo & học vấn
+│   │   ├── about.json             # Quan điểm sống & chủ đề quan tâm
+│   │   ├── cv.json                # Dữ liệu Sơ yếu lý lịch chuẩn theo bản in PDF
+│   │   └── privacy.json           # Nội dung chính sách quyền riêng tư
+│   ├── translations/              # Bản dịch 3 thứ tiếng (sinh tự động qua npm run translate)
+│   ├── types.ts                   # Định nghĩa TypeScript interface cho domain data
+│   └── *.ts                       # Typed exports cho React Server Components
+│
+├── i18n/                          # Hệ thống quản lý đa ngôn ngữ
+│   ├── config.ts                  # Cấu hình danh sách locale (vi, en, zh-TW)
+│   ├── getDictionary.ts           # Helper đọc từ điển theo locale
+│   ├── types.ts                   # Định nghĩa Type nghiêm ngặt cho từ điển UI
+│   └── dictionaries/              # Nhãn giao diện tĩnh (vi.ts, en.ts, zh-TW.ts)
+│
+├── components/                    # UI Components tái sử dụng
+│   ├── about/                     # CertificateGallery, lightbox chứng chỉ
+│   ├── blog/                      # PostCard
+│   ├── project/                   # ProjectCard
+│   ├── contact/                   # DirectContactCards
+│   ├── cv/                        # CvActions (Print, Download PDF)
+│   ├── home/                      # Hero, TypewriterText
+│   ├── i18n/                      # LanguageSwitcher
+│   ├── theme/                     # ThemeProvider, ThemeSwitcher
+│   └── common/                    # Header, Footer, Container, SectionHeading,...
+│
+├── lib/                           # Utility & Xử lý nghiệp vụ
+│   ├── posts.ts                   # Parse Markdown, tính thời gian đọc, xử lý fallback
+│   ├── seo.ts                     # Helper sinh OpenGraph, Canonical, hreflang
+│   └── formatDate.ts              # Định dạng ngày tháng theo locale
+│
+├── scripts/
+│   └── translate.ts               # CLI script dịch tự động qua Google Gemini AI
+│
+└── public/                        # Tài nguyên tĩnh: hình ảnh, logo, chứng chỉ, PDF
+    ├── cert/                      # Ảnh & PDF chứng chỉ
+    ├── images/                    # Logo, ảnh đại diện, cover ảnh bài viết
+    └── pdf/                       # Bản in PDF gốc (CV_example.pdf)
 ```
 
-### 1. Cấu hình API Key
-Script sử dụng Anthropic Claude SDK (mặc định model `claude-3-5-sonnet-latest`, có bộ từ điển thuật ngữ kỹ thuật IT chuẩn Đài Loan cho `zh-TW`):
+---
+
+## 🌐 Hệ thống Định tuyến (Routes)
+
+Ngôn ngữ mặc định là tiếng Việt (`vi`). Khi người dùng vào `/`, hệ thống tự động redirect về `/vi`.
+
+| Đường dẫn URL | Chức năng |
+| :--- | :--- |
+| `/{locale}` | Trang chủ (Hero, Dự án tiêu biểu, Ghi chép mới nhất) |
+| `/{locale}/about` | Giới thiệu cá nhân, quan điểm, sở thích & chứng chỉ |
+| `/{locale}/projects` | Danh sách tất cả dự án kỹ thuật |
+| `/{locale}/projects/[slug]` | Chi tiết dự án, công nghệ, kiến trúc, link demo/source code |
+| `/{locale}/blog` | Blog kỹ thuật & ghi chép phát triển sản phẩm |
+| `/{locale}/blog/[slug]` | Đọc bài viết Markdown với typography tối ưu |
+| `/{locale}/cv` | Sơ yếu lý lịch chuẩn trang in A4 kèm PDF download |
+| `/{locale}/contact` | Kênh kết nối & thông tin liên hệ trực tiếp |
+| `/{locale}/privacy` | Chính sách quyền riêng tư & bảo vệ dữ liệu khách truy cập |
+
+---
+
+## 🤖 Quy trình Dịch tự động bằng Google Gemini AI
+
+```text
+[Nhập liệu tiếng Việt]                     [Tự động dịch thuật]                   [Kiểm tra & Xuất bản]
+content/posts/vi/*.md       ───────┐
+                                   ├────►   npm run translate   ────►  Git Diff ────► Commit & Deploy
+data/source/*.json          ───────┘        (Gemini 2.0 Flash)
+```
+
+### 1. Cấu hình biến môi trường
+Tạo file `.env.local` hoặc `.env` tại thư mục gốc và điền API Key từ [Google AI Studio](https://aistudio.google.com/):
 ```bash
-# Thêm vào .env.local hoặc xuất biến môi trường
-export ANTHROPIC_API_KEY="sk-ant-..."
+GEMINI_API_KEY="your_api_key_here"
 ```
 
-### 2. Quản lý dữ liệu Portfolio (`data/source/*.json`)
-Bạn **không cần khai báo lặp lại 3 thứ tiếng** `{ vi, en, zh-TW }`. Bạn chỉ cần mở các file trong `data/source/` và viết tiếng Việt đơn thuần:
-* `data/source/profile.json`: Tên, vai trò, giới thiệu, link mạng xã hội.
-* `data/source/projects.json`: Danh sách dự án, tóm tắt, mô tả, công nghệ, link demo/github.
-* `data/source/skills.json`: Kỹ năng phân loại theo nhóm.
-* `data/source/experience.json` & `education.json`: Quá trình làm việc và học vấn.
-
-### 3. Chạy dịch tự động
+### 2. Thực thi lệnh dịch
 ```bash
 npm run translate
 ```
-- **Xử lý cả 2 phần**:
-  1. **Bài viết Blog**: Quét `content/posts/vi/*.md` và sinh bản dịch sang `content/posts/en/` và `content/posts/zh-TW/`.
-  2. **Dữ liệu Portfolio**: Quét `data/source/*.json` và sinh dữ liệu 3 ngôn ngữ vào `data/translations/*.json`.
-- **So sánh Hash (`sourceHash` & `.hashes.json`)**: Script so sánh mã băm của nội dung tiếng Việt. Nếu nội dung chưa thay đổi, script sẽ **tự động bỏ qua** để tiết kiệm chi phí token và thời gian chạy.
-- **Chỉ dịch khi cần**: Chỉ dịch những bài/mục chưa có bản dịch hoặc file tiếng Việt vừa có thay đổi nội dung.
-- **Chạy độc lập bằng tay**: Không gắn vào `next build` nhằm tránh phát sinh chi phí API ngoài ý muốn và giữ tốc độ build production luôn ở mức tối đa.
+* Tự động quét và dịch toàn bộ bài viết mới tại `content/posts/vi/` sang `en/` và `zh-TW/`.
+* Tự động quét và dịch các file dữ liệu tại `data/source/` sang `data/translations/`.
+* Quản lý trạng thái qua mã băm `.hashes.json`, không dịch lại nếu nội dung tiếng Việt không thay đổi.
 
-## Chạy project
+---
 
+## 🚀 Cài đặt và Khởi chạy
+
+### Yêu cầu môi trường
+* Node.js 18.18+ hoặc Node.js 20+
+* Trình quản lý gói `npm`
+
+### Cài đặt dependencies
 ```bash
 npm install
-npm run dev
 ```
 
-Mở `http://localhost:3000`; ứng dụng sẽ redirect tới `/vi`.
-
-Kiểm tra trước khi deploy:
-
+### Chạy môi trường phát triển (Dev)
 ```bash
+npm run dev
+```
+Truy cập `http://localhost:3000` trên trình duyệt để kiểm tra.
+
+### Kiểm tra tính toàn vẹn mã nguồn (Definition of Done)
+Trước khi commit hoặc deploy lên Vercel, luôn chạy bộ 3 lệnh kiểm thử:
+```bash
+# 1. Kiểm tra lỗi kiểu dữ liệu TypeScript
 npm run typecheck
+
+# 2. Kiểm tra chất lượng mã nguồn & convention
 npm run lint
+
+# 3. Kiểm tra quá trình tạo trang tĩnh (Static Generation)
 npm run build
 ```
 
-## Deployment
+---
 
-Kết nối repository với Vercel. Mỗi commit cập nhật TypeScript data hoặc Markdown content sẽ tạo lại static pages khi deploy.
+## 🚢 Triển khai (Deployment)
 
-## Nguyên tắc kiến trúc
+Dự án được tối ưu hoàn hảo cho nền tảng **Vercel**:
+1. Đẩy mã nguồn lên GitHub/GitLab.
+2. Kết nối kho lưu trữ với Vercel.
+3. Thêm biến môi trường `GEMINI_API_KEY` (nếu cần dùng script translate trên CI/CD, hoặc chỉ chạy local trước khi commit).
+4. Vercel tự động build và xuất bản các trang tĩnh với hiệu suất tải trang đạt điểm tối đa (100 Lighthouse).
 
-- Không backend, database, authentication, admin dashboard hoặc CMS.
-- Không API route để đọc dữ liệu local.
-- Không MDX nếu chưa có yêu cầu rõ ràng.
-- Git là source of truth cho data, nội dung và static assets.
-- Không tự bịa dữ liệu cá nhân hoặc bản dịch nội dung chưa có.
+---
 
+## 📜 Nguyên tắc kiến trúc (Architectural Rules)
+
+* **Git là nguồn dữ liệu duy nhất (Git-driven Single Source of Truth)**: Không sử dụng database, CMS bên ngoài, hay API route nội bộ chỉ để đọc file local.
+* **Server Components First**: Giữ bundle JavaScript phía client ở mức tối thiểu để tối ưu tốc độ và SEO.
+* **Nói không với dữ liệu hư cấu**: Mọi thông tin cá nhân, học vấn, kinh nghiệm và dự án đều phản ánh hồ sơ thực tế.
+* **Bảo vệ quyền riêng tư**: Không lưu cookie theo dõi, tôn trọng người đọc.
+
+---
+
+© 2026 Vũ Tiến Đạt. Mã nguồn phát hành dưới giấy phép [MIT License](LICENSE).

@@ -1,0 +1,446 @@
+{
+  "principles": [
+    {
+      "vi": "Lượng đổi dẫn đến chất đổi, chất mới lại mở đầu một quá trình tích lũy lượng mới.",
+      "en": "Changes in quantity lead to changes in quality, and the new quality initiates a new process of quantitative accumulation.",
+      "zh-TW": "量變引起質變，新質又開啟新量變的積累過程。"
+    },
+    {
+      "vi": "Tích lũy về lượng, tạo bước nhảy về chất, chất mới lại quy định lượng mới.",
+      "en": "Quantitative accumulation creates a qualitative leap, and the new quality in turn dictates the new quantity.",
+      "zh-TW": "量的積累創造質的飛躍，新質又規定新量。"
+    },
+    {
+      "vi": "Không có sự chuyển hóa về chất nếu thiếu những điều kiện tích lũy về lượng tương ứng.",
+      "en": "There is no qualitative transformation without the corresponding conditions of quantitative accumulation.",
+      "zh-TW": "如果缺少相應的量變積累條件，就不會有質的轉化。"
+    },
+    {
+      "vi": "Sự phát triển không chỉ là tăng lên về lượng, mà còn là sự chuyển hóa về chất.",
+      "en": "Development is not merely a quantitative increase, but also a qualitative transformation.",
+      "zh-TW": "發展不只是量的增加，更是質的轉化。"
+    },
+    {
+      "vi": "Khi sự tích lũy về lượng đạt đến giới hạn, bước nhảy về chất mở ra một trạng thái mới.",
+      "en": "When quantitative accumulation reaches its limit, a qualitative leap unlocks a new state.",
+      "zh-TW": "當量的積累達到極限時，質的飛躍便開啟嶄新的狀態。"
+    },
+    {
+      "vi": "Mọi sự vật đều có những giới hạn của riêng mình, nhưng giới hạn không phải lúc nào cũng là điểm kết thúc.",
+      "en": "All entities have their own limits, but a limit is not always an endpoint.",
+      "zh-TW": "萬物皆有自身的界限，但界限並不總是代表終點。"
+    },
+    {
+      "vi": "Đôi khi, nó chỉ là ranh giới giữa trạng thái hiện tại và một khả năng chưa được hiện thực hóa. Ta có thể kiên trì đi trên một con đường trong thời gian dài mà chưa nhận thấy sự khác biệt rõ rệt, điều đó không nhất thiết có nghĩa là ta đang đứng yên. Nhưng cũng không phải cứ lặp lại mãi một hành động thì sẽ dẫn đến tiến bộ. Sự tích lũy chỉ thực sự có ý nghĩa khi nó làm thay đổi những điều kiện bên trong, giúp ta vượt qua giới hạn của phương thức cũ. Đến một lúc nào đó, muốn tiến xa hơn, ta không thể chỉ làm nhiều hơn, mà phải trở thành một phiên bản có cách nghĩ, cách làm và năng lực khác trước. Có những giới hạn chỉ có thể vượt qua bằng sự kiên trì, nhưng cũng có những giới hạn chỉ có thể vượt qua khi ta thay đổi chính cách mình tiến về phía trước.",
+      "en": "Sometimes, it is merely the boundary between the current state and an unfulfilled potential. We may persist on a path for a long time without noticing any distinct difference; however, this does not necessarily mean we are standing still. Yet, endlessly repeating the same action does not automatically lead to progress either. Accumulation is only truly meaningful when it alters internal conditions, helping us transcend the limitations of our previous methods. At a certain point, to advance further, we can no longer simply do more—we must evolve into a version with a different mindset, methodology, and capability than before. Some limits can only be overcome through persistence, while others can only be surpassed when we change the very way we move forward.",
+      "zh-TW": "有時候，它僅僅是當前狀態與尚未實現之可能性之間的邊界。我們可以長時間堅持走一條道路，卻尚未察覺到明顯的差異，這並不一定意味著我們正在原地踏步。但也不是說一味地重複某個動作就會帶來進步。積累唯有在改變內在條件、助我們突破舊方法的界限時，才真正具有意義。到了某個時刻，若想走得更遠，我們不能僅僅做得更多，而是必須蛻變成一個在思維方式、做事方法與能力上都煥然一新的人。有些界限只能透過堅持不懈來跨越，但也有一些界限，只有當我們改變前進的方式時才能突破。"
+    }
+  ],
+  "focusAreas": [
+    {
+      "name": {
+        "vi": "AI",
+        "en": "AI",
+        "zh-TW": "AI"
+      },
+      "emoji": "🤖"
+    },
+    {
+      "name": {
+        "vi": "Data Engineer",
+        "en": "Data Engineer",
+        "zh-TW": "Data Engineer"
+      },
+      "emoji": "📊"
+    },
+    {
+      "name": {
+        "vi": "Triết học",
+        "en": "Philosophy",
+        "zh-TW": "哲學"
+      },
+      "emoji": "🏛️"
+    },
+    {
+      "name": {
+        "vi": "Kinh tế",
+        "en": "Economics",
+        "zh-TW": "經濟"
+      },
+      "emoji": "📈"
+    },
+    {
+      "name": {
+        "vi": "Chính trị",
+        "en": "Politics",
+        "zh-TW": "政治"
+      },
+      "emoji": "🌐"
+    },
+    {
+      "name": {
+        "vi": "Tiếng Anh",
+        "en": "English",
+        "zh-TW": "英文"
+      },
+      "emoji": "🇬🇧"
+    },
+    {
+      "name": {
+        "vi": "Tiếng Trung (Phồn thể)",
+        "en": "Traditional Chinese",
+        "zh-TW": "中文（繁體）"
+      },
+      "emoji": "🇹🇼"
+    },
+    {
+      "name": {
+        "vi": "Âm nhạc",
+        "en": "Music",
+        "zh-TW": "音樂"
+      },
+      "emoji": "🎵"
+    },
+    {
+      "name": {
+        "vi": "Du lịch",
+        "en": "Travel",
+        "zh-TW": "旅遊"
+      },
+      "emoji": "✈️"
+    },
+    {
+      "name": {
+        "vi": "Sức khỏe",
+        "en": "Health",
+        "zh-TW": "健康"
+      },
+      "emoji": "🌿"
+    },
+    {
+      "name": {
+        "vi": "Chelsea FC",
+        "en": "Chelsea FC",
+        "zh-TW": "Chelsea FC"
+      },
+      "emoji": "🦁"
+    }
+  ],
+  "achievements": [
+    {
+      "id": "viasm",
+      "title": {
+        "vi": "Học bổng Chương trình trọng điểm quốc gia phát triển Toán học",
+        "en": "National Key Program Scholarship for the Development of Mathematics",
+        "zh-TW": "國家級數學發展重點計畫獎學金"
+      },
+      "issuer": {
+        "vi": "Viện Nghiên cứu Cao cấp về Toán (VIASM)",
+        "en": "Vietnam Institute for Advanced Study in Mathematics (VIASM)",
+        "zh-TW": "越南高等數學研究所 (VIASM)"
+      },
+      "year": "2024",
+      "category": {
+        "vi": "Giấy chứng nhận",
+        "en": "Certificate",
+        "zh-TW": "證明書"
+      },
+      "file": "/cert/hbviasm.PNG",
+      "fileType": "image"
+    },
+    {
+      "id": "yamada",
+      "title": {
+        "vi": "Học bổng Quỹ Yamada (Yamada Scholarship)",
+        "en": "Yamada Scholarship",
+        "zh-TW": "山田基金會獎學金 (Yamada Scholarship)"
+      },
+      "issuer": {
+        "vi": "Quỹ Học bổng Yamada (Nhật Bản)",
+        "en": "Yamada Scholarship Foundation (Japan)",
+        "zh-TW": "山田獎學金基金會（日本）"
+      },
+      "year": "2024",
+      "category": {
+        "vi": "Giấy chứng nhận",
+        "en": "Certificate",
+        "zh-TW": "證明書"
+      },
+      "file": "/cert/yamada.PNG",
+      "fileType": "image"
+    },
+    {
+      "id": "spmm2026",
+      "title": {
+        "vi": "Summer Program on Mathematical Modeling (SPMM 2026)",
+        "en": "Summer Program on Mathematical Modeling (SPMM 2026)",
+        "zh-TW": "Summer Program on Mathematical Modeling (SPMM 2026)"
+      },
+      "issuer": {
+        "vi": "Nara Women's University (Nhật Bản) & VNU HUS",
+        "en": "Nara Women's University (Japan) & VNU HUS",
+        "zh-TW": "奈良女子大學（日本）與越南國立大學河內理科大學"
+      },
+      "year": "2026",
+      "category": {
+        "vi": "Chứng chỉ",
+        "en": "Certificate",
+        "zh-TW": "證書"
+      },
+      "file": "/cert/7_Certificate_SPMM2026.pdf",
+      "fileType": "pdf"
+    },
+    {
+      "id": "sic",
+      "title": {
+        "vi": "Samsung Innovation Campus (SIC)",
+        "en": "Samsung Innovation Campus (SIC)",
+        "zh-TW": "Samsung Innovation Campus (SIC)"
+      },
+      "issuer": {
+        "vi": "Samsung Electronics Vietnam",
+        "en": "Samsung Electronics Vietnam",
+        "zh-TW": "越南三星電子"
+      },
+      "year": "2025",
+      "category": {
+        "vi": "Chứng chỉ",
+        "en": "Certificate",
+        "zh-TW": "證書"
+      },
+      "file": "/cert/samsungcampus.jpg",
+      "fileType": "image"
+    },
+    {
+      "id": "coursera-ds",
+      "title": {
+        "vi": "Foundations of Data Science",
+        "en": "Foundations of Data Science",
+        "zh-TW": "Foundations of Data Science"
+      },
+      "issuer": {
+        "vi": "Google Career Certificates (Coursera)",
+        "en": "Google Career Certificates (Coursera)",
+        "zh-TW": "Google 職涯證書 (Coursera)"
+      },
+      "year": "2025",
+      "category": {
+        "vi": "Chứng chỉ",
+        "en": "Certificate",
+        "zh-TW": "證書"
+      },
+      "file": "/cert/Coursera_data_sciences.pdf",
+      "fileType": "pdf"
+    },
+    {
+      "id": "coursera-insights",
+      "title": {
+        "vi": "Go Beyond the Numbers: Translate Data into Insights",
+        "en": "Go Beyond the Numbers: Translate Data into Insights",
+        "zh-TW": "Go Beyond the Numbers: Translate Data into Insights"
+      },
+      "issuer": {
+        "vi": "Google Career Certificates (Coursera)",
+        "en": "Google Career Certificates (Coursera)",
+        "zh-TW": "Google 職涯證書 (Coursera)"
+      },
+      "year": "2026",
+      "category": {
+        "vi": "Chứng chỉ",
+        "en": "Certificate",
+        "zh-TW": "證書"
+      },
+      "file": "/cert/translate_data_into_insight.pdf",
+      "fileType": "pdf"
+    },
+    {
+      "id": "dataflow",
+      "title": {
+        "vi": "Ban Tổ chức Cuộc thi Học thuật DataFlow 2025",
+        "en": "DataFlow 2025 Academic Competition Organizing Committee",
+        "zh-TW": "2025年 DataFlow 學術競賽籌備委員會"
+      },
+      "issuer": {
+        "vi": "Khoa Toán - Cơ - Tin học, Trường ĐHKHTN, ĐHQGHN",
+        "en": "Faculty of Mathematics - Mechanics - Informatics, VNU University of Science",
+        "zh-TW": "越南國立大學河內理科大學數學-力學-資訊學系"
+      },
+      "year": "2025",
+      "category": {
+        "vi": "Giấy chứng nhận",
+        "en": "Certificate",
+        "zh-TW": "證明書"
+      },
+      "file": "/cert/dataflow.jpg",
+      "fileType": "image"
+    },
+    {
+      "id": "sv5tot",
+      "title": {
+        "vi": "Bằng khen đạt Danh hiệu “Sinh viên 5 tốt” cấp thành phố",
+        "en": "Certificate of Merit for Achieving the \"City-level Students of 5 Merits\" Title",
+        "zh-TW": "獲頒城市級「五好學生」榮譽獎狀"
+      },
+      "issuer": {
+        "vi": "Hội Sinh viên Việt Nam",
+        "en": "Vietnam National Union of Students",
+        "zh-TW": "越南學生會"
+      },
+      "year": "2024",
+      "category": {
+        "vi": "Giấy khen",
+        "en": "Certificate of Merit",
+        "zh-TW": "獎狀"
+      },
+      "file": "/cert/sv5tot.jpg",
+      "fileType": "image"
+    },
+    {
+      "id": "sv5t-tieubieu",
+      "title": {
+        "vi": "Đạt Danh hiệu “Sinh viên 5 tốt” cấp ĐHQGHN",
+        "en": "Achieved the \"VNU-level Students of 5 Merits\" Title",
+        "zh-TW": "獲得越南國立大學河內分校級「五好學生」榮譽"
+      },
+      "issuer": {
+        "vi": "Hội Sinh viên Việt Nam",
+        "en": "Vietnam National Union of Students",
+        "zh-TW": "越南學生會"
+      },
+      "year": "2025",
+      "category": {
+        "vi": "Giấy chứng nhận",
+        "en": "Certificate",
+        "zh-TW": "證明書"
+      },
+      "file": "/cert/sv5t_t.PNG",
+      "fileType": "image"
+    },
+    {
+      "id": "pttntoan",
+      "title": {
+        "vi": "Học bổng Phát triển Tài năng Toán học",
+        "en": "Mathematics Talent Development Scholarship",
+        "zh-TW": "數學人才發展獎學金"
+      },
+      "issuer": {
+        "vi": "Trường Đại học Khoa học Tự nhiên, ĐHQGHN",
+        "en": "VNU University of Science",
+        "zh-TW": "越南國立大學河內理科大學"
+      },
+      "year": "2023 - 2026",
+      "category": {
+        "vi": "Giấy chứng nhận",
+        "en": "Certificate",
+        "zh-TW": "證明書"
+      },
+      "file": "/cert/pttntoan.PNG",
+      "fileType": "image"
+    },
+    {
+      "id": "giaykhen",
+      "title": {
+        "vi": "Giấy khen Thành tích xuất sắc trong học tập",
+        "en": "Certificate of Merit for Outstanding Academic Achievements",
+        "zh-TW": "學業成績優異獎狀"
+      },
+      "issuer": {
+        "vi": "Trường Đại học Khoa học Tự nhiên, ĐHQGHN",
+        "en": "VNU University of Science",
+        "zh-TW": "越南國立大學河內理科大學"
+      },
+      "year": "2025",
+      "category": {
+        "vi": "Giấy khen",
+        "en": "Certificate of Merit",
+        "zh-TW": "獎狀"
+      },
+      "file": "/cert/giaykhen.jpg",
+      "fileType": "image"
+    },
+    {
+      "id": "truonghe",
+      "title": {
+        "vi": "Chứng nhận Hoàn thành Trường hè Toán học",
+        "en": "Certificate of Completion for the Summer School in Mathematics",
+        "zh-TW": "數學暑期學校結業證書"
+      },
+      "issuer": {
+        "vi": "Trường hè Khoa học & Công nghệ",
+        "en": "Science & Technology Summer School",
+        "zh-TW": "科學與技術暑期學校"
+      },
+      "year": "2026",
+      "category": {
+        "vi": "Giấy chứng nhận",
+        "en": "Certificate",
+        "zh-TW": "證明書"
+      },
+      "file": "/cert/truonghe.jpg",
+      "fileType": "image"
+    },
+    {
+      "id": "taxilang",
+      "title": {
+        "vi": "Giấy khen Tình nguyện Mùa hè Xanh",
+        "en": "Certificate of Merit for Green Summer Volunteer Campaign",
+        "zh-TW": "綠色夏天志工活動獎狀"
+      },
+      "issuer": {
+        "vi": "Đại học Quốc gia Hà Nội",
+        "en": "Vietnam National University, Hanoi",
+        "zh-TW": "越南國立大學河內分校"
+      },
+      "year": "2024",
+      "category": {
+        "vi": "Giấy khen",
+        "en": "Certificate of Merit",
+        "zh-TW": "獎狀"
+      },
+      "file": "/cert/taxilang.jpg",
+      "fileType": "image"
+    },
+    {
+      "id": "doquan",
+      "title": {
+        "vi": "Học bổng Đỗ Quân",
+        "en": "Do Quan Scholarship",
+        "zh-TW": "杜軍獎學金"
+      },
+      "issuer": {
+        "vi": "Đoàn Thanh niên - Hội Sinh viên ĐHQGHN",
+        "en": "Ho Chi Minh Communist Youth Union - Vietnam National Union of Students, VNU",
+        "zh-TW": "越南國立大學河內分校共青團 - 學生會"
+      },
+      "year": "2025",
+      "category": {
+        "vi": "Giấy chứng nhận",
+        "en": "Certificate",
+        "zh-TW": "證明書"
+      },
+      "file": "/cert/doquan.PNG",
+      "fileType": "image"
+    },
+    {
+      "id": "hienmau",
+      "title": {
+        "vi": "Giấy chứng nhận Tham gia Hiến máu tình nguyện",
+        "en": "Certificate of Participation in Voluntary Blood Donation",
+        "zh-TW": "參與自願捐血證明書"
+      },
+      "issuer": {
+        "vi": "Viện Huyết học - Truyền máu Trung ương",
+        "en": "National Institute of Hematology and Blood Transfusion",
+        "zh-TW": "中央血液學與輸血研究所"
+      },
+      "year": "2024",
+      "category": {
+        "vi": "Giấy chứng nhận",
+        "en": "Certificate",
+        "zh-TW": "證明書"
+      },
+      "file": "/cert/hienmau.jpg",
+      "fileType": "image"
+    }
+  ]
+}
