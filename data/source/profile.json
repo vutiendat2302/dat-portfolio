@@ -2,13 +2,13 @@
   "name": {
     "vi": "Vũ Tiến Đạt",
     "en": "Felix Vu",
-    "zh-TW": "五進達"
+    "zh-TW": "武進達"
   },
   "initials": "D",
   "role": "Kỹ sư phần mềm",
   "introduction": "Một góc nhỏ để ghi lại những gì mình học được, những thứ mình đang làm. Không phải điều gì viết ở đây cũng hoàn hảo, nhưng ít nhất mình có thể nhìn lại và biết bản thân đã tiến bộ từng chút.",
   "about": [
-    "Vũ Tiến Đạt, sinh ngày 23-02-2005, cung Song Ngư.",
+    "Vũ Tiến Đạt, sinh ngày 23-02-2005 tại Hải Dương, cung Song Ngư - mệnh Thủy.",
     "Cử nhân Toán - Tin, học tại [Trường Đại học Khoa học Tự nhiên](https://hus.vnu.edu.vn/), Đại học Quốc gia Hà Nội.",
     "Quan tâm đến phát triển hệ thống phần mềm, phân tích dữ liệu, trí tuệ nhân tạo và tối ưu hóa."
   ],
@@ -44,6 +44,6 @@
   "activities": [
     "Được trao tặng danh hiệu “Sinh viên tiêu biểu Thủ đô Hà Nội”.",
     "Tham gia ban tổ chức cuộc thi “DataFlow 2025” và các hoạt động chuyên môn kỹ thuật.",
-    "Tham gia “Chương trình hè về Mô hình hóa Toán học (SPMM 2026)“."
+    "Tham gia “Chương trình hè về Mô hình hóa Toán học (SPMM 2026)”."
   ]
 }

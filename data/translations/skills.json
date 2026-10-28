@@ -16,7 +16,7 @@
     "category": {
       "vi": "Phát triển Giao diện (Frontend)",
       "en": "Frontend Development",
-      "zh-TW": "前端開發 (Frontend)"
+      "zh-TW": "前端開發"
     },
     "skills": [
       "ReactJS",
@@ -30,7 +30,7 @@
     "category": {
       "vi": "Hệ thống Máy chủ (Backend)",
       "en": "Backend Systems",
-      "zh-TW": "後端伺服器系統 (Backend)"
+      "zh-TW": "後端伺服器"
     },
     "skills": [
       "Spring Boot",

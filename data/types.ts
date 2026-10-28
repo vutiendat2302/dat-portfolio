@@ -33,6 +33,7 @@ export interface Project {
   repositoryUrl?: string;
   liveUrl?: string;
   highlights?: LocalizedText[];
+  period?: string;
 }
 
 export interface SkillGroup {

@@ -46,9 +46,6 @@ export default async function CvPage({ params }: CvPageProps) {
           <h1 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
             {dictionary.cvPage.title}
           </h1>
-          <p className="mt-1 text-sm text-muted">
-            {dictionary.cvPage.description}
-          </p>
         </div>
 
         <CvActions

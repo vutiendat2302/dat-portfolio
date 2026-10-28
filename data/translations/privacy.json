@@ -15,12 +15,12 @@
         {
           "vi": "Website này là portfolio cá nhân và blog phi thương mại của Vũ Tiến Đạt, được xây dựng nhằm mục đích giới thiệu, chia sẻ các dự án mã nguồn mở và ghi chép kinh nghiệm.",
           "en": "This website is a personal portfolio and non-commercial blog by Vu Tien Dat, built to showcase and share open-source projects and document technical experience.",
-          "zh-TW": "本網站是武進達（Vũ Tiến Đạt）的個人作品集與非商業部落格，旨在介紹、分享開源專案與記錄相關經驗。"
+          "zh-TW": "本網站為 Vũ Tiến Đạt 的個人作品集與非商業部落格，旨在介紹、分享開源專案與記錄經驗。"
         },
         {
           "vi": "Mình tôn trọng quyền riêng tư của mọi khách truy cập và cam kết minh bạch tuyệt đối về cách website hoạt động.",
-          "en": "I respect the privacy of all visitors and am committed to absolute transparency regarding how the website operates.",
-          "zh-TW": "本人尊重所有訪客的隱私權，並承諾對網站的運作方式保持絕對透明。"
+          "en": "I respect the privacy of every visitor and am committed to absolute transparency regarding how the website operates.",
+          "zh-TW": "我尊重每位訪客的隱私，並承諾對網站的運作方式保持絕對透明。"
         }
       ]
     },
@@ -33,13 +33,13 @@
       "paragraphs": [
         {
           "vi": "Website là trang web tĩnh hoàn toàn không sử dụng cơ sở dữ liệu để lưu trữ thông tin người dùng ẩn danh.",
-          "en": "The website is a fully static site that does not use any database to store anonymous user information.",
-          "zh-TW": "本網站為完全靜態的網頁，並未使用資料庫來儲存匿名使用者資訊。"
+          "en": "The website is a completely static site that does not use a database to store anonymous user information.",
+          "zh-TW": "本網站為純靜態網站，完全未使用資料庫來儲存匿名使用者資訊。"
         },
         {
           "vi": "Website không sử dụng cơ sở dữ liệu để lưu trữ thông tin cá nhân của khách truy cập và không sử dụng công cụ theo dõi quảng cáo hoặc theo dõi chéo giữa các website. Tuy nhiên, nhà cung cấp dịch vụ hosting có thể xử lý dữ liệu kỹ thuật như địa chỉ IP và nhật ký truy cập để vận hành, bảo mật hệ thống.",
-          "en": "The website does not use a database to store visitors' personal information and does not use advertising trackers or cross-site tracking tools. However, the hosting provider may process technical data such as IP addresses and access logs to operate and secure the system.",
-          "zh-TW": "本網站未利用資料庫來儲存訪客的個人資訊，亦未使用廣告追蹤工具或跨網站追蹤。不過，主機服務供應商可能會處理 IP 位址與存取日誌等技術資料，以維持系統運作與資安防護。"
+          "en": "The website does not use a database to store visitors' personal information and does not use advertising trackers or cross-site tracking tools. However, the hosting provider may process technical data such as IP addresses and access logs for system operation and security.",
+          "zh-TW": "本網站不使用資料庫來儲存訪客的個人資訊，亦未使用廣告追蹤工具或跨網站追蹤工具。不過，託管服務供應商可能會為了系統維運與資安目的，處理諸如 IP 位址與存取日誌等技術資料。"
         }
       ]
     },
@@ -52,8 +52,8 @@
       "paragraphs": [
         {
           "vi": "Website có chứa các liên kết dẫn tới các nền tảng bên ngoài (chẳng hạn như GitHub, LinkedIn, Facebook, Instagram, v.v.). Khi bạn nhấp vào các liên kết này, bạn sẽ chịu sự quản lý của chính sách quyền riêng tư và điều khoản sử dụng riêng của từng nền tảng tương ứng.",
-          "en": "The website contains links leading to external platforms (such as GitHub, LinkedIn, Facebook, Instagram, etc.). When you click on these links, you are subject to the respective privacy policies and terms of use of each platform.",
-          "zh-TW": "本網站包含通往外部平台的連結（例如 GitHub、LinkedIn、Facebook、Instagram 等）。當您點擊這些連結時，您將受該等平台各自的隱私權政策與使用條款所規範。"
+          "en": "The website contains links leading to external platforms (such as GitHub, LinkedIn, Facebook, Instagram, etc.). When you click on these links, you are subject to the privacy policy and terms of use of each respective platform.",
+          "zh-TW": "本網站包含通往外部平台的連結（例如 GitHub、LinkedIn、Facebook、Instagram 等）。當您點擊這些連結時，您將受各對應平台自身的隱私權政策與使用條款所規範。"
         }
       ]
     },
@@ -66,8 +66,8 @@
       "paragraphs": [
         {
           "vi": "Nếu bạn có bất kỳ câu hỏi hoặc góp ý nào liên quan đến chính sách quyền riêng tư của website, bạn luôn có thể liên hệ trực tiếp với mình qua email: vutiendat23022005@gmail.com.",
-          "en": "If you have any questions or feedback regarding the website's privacy policy, you can always contact me directly via email at: vutiendat23022005@gmail.com.",
-          "zh-TW": "如果您對本網站的隱私權政策有任何疑問或建議，隨時歡迎透過電子郵件與我聯繫：vutiendat23022005@gmail.com。"
+          "en": "If you have any questions or suggestions regarding the website's privacy policy, you can always contact me directly via email at vutiendat23022005@gmail.com.",
+          "zh-TW": "如果您對本網站的隱私權政策有任何疑問或建議，隨時可以透過電子郵件直接與我聯繫：vutiendat23022005@gmail.com。"
         }
       ]
     }

@@ -25,8 +25,8 @@ export const vi: Dictionary = {
     about: { eyebrow: "01 / Giới thiệu", title: "Về mình", more: "Tìm hiểu thêm" },
     projects: {
       eyebrow: "02 / Dự án nổi bật",
-      title: "Những gì mình đang xây dựng",
-      description: "Một số sản phẩm và thử nghiệm kỹ thuật đang được phát triển.",
+      title: "Dự án",
+      description: "Một số sản phẩm và thử nghiệm đang được phát triển.",
       all: "Xem tất cả",
     },
     capabilities: {
@@ -38,8 +38,8 @@ export const vi: Dictionary = {
     education: { eyebrow: "05 / Học vấn", title: "Học vấn" },
     writing: {
       eyebrow: "06 / Bài viết",
-      title: "Ghi chép kỹ thuật",
-      description: "Ghi chú kỹ thuật và những điều mình học được trong quá trình làm sản phẩm.",
+      title: "Bài viết",
+      description: "Một góc nhỏ của mình",
       all: "Xem tất cả",
     },
     contact: {
@@ -67,12 +67,12 @@ export const vi: Dictionary = {
   },
   projectsPage: {
     eyebrow: "02 / Dự án",
-    title: "Những thứ mình đã xây dựng",
+    title: "Một số sản phẩm đang được phát triển.",
     description: "Các dự án cá nhân, thử nghiệm và sản phẩm đang được hoàn thiện.",
   },
   blogPage: {
     eyebrow: "06 / Bài viết",
-    title: "Ghi chép và chia sẻ",
+    title: "Blog của Vũ Tiến Đạt",
     description: "Ghi chép kỹ thuật, hướng dẫn ngắn và những bài học trong quá trình xây dựng sản phẩm.",
   },
   cvPage: {
@@ -134,7 +134,7 @@ export const vi: Dictionary = {
   footer: {
     builtWith: "vutiendat23022005@gmail.com",
     privacyPolicy: "Chính sách quyền riêng tư",
-    githubRepo: "Github Repository",
+    githubRepo: "GitHub Repository",
   },
   metadata: {
     siteDescription: "Portfolio cá nhân và blog kỹ thuật của Vũ Tiến Đạt.",

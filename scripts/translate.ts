@@ -88,6 +88,7 @@ interface SourceProject {
   imageAlt?: string;
   repositoryUrl?: string;
   liveUrl?: string;
+  period?: string;
 }
 
 interface TranslatedProjectItem {
@@ -396,6 +397,12 @@ async function translateBlogPosts() {
         if (sourceParsed.data.date) {
           translatedParsed.data.date = sourceParsed.data.date;
         }
+        if (sourceParsed.data.tags) {
+          translatedParsed.data.tags = sourceParsed.data.tags;
+        }
+        if (sourceParsed.data.coverImage) {
+          translatedParsed.data.coverImage = sourceParsed.data.coverImage;
+        }
 
         await fs.mkdir(outDir, { recursive: true });
         const finalContent = matter.stringify(
@@ -550,6 +557,7 @@ async function translateDataFiles() {
               : undefined,
             repositoryUrl: p.repositoryUrl,
             liveUrl: p.liveUrl,
+            period: p.period,
           };
         });
 
