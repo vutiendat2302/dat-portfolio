@@ -1,0 +1,92 @@
+{
+  "name": "Vũ Tiến Đạt",
+  "contact": {
+    "github": "https://github.com/vutiendat2302",
+    "linkedin": "https://www.linkedin.com/in/dat-vu-tien-8b492b35b/",
+    "email": "vutiendat23022005@gmail.com",
+    "phone": "0962362615"
+  },
+  "profile": [
+    "Sinh viên năm thứ tư ngành Toán - Tin học tại Trường Đại học Khoa học Tự nhiên, ĐHQGHN với niềm đam mê phát triển phần mềm và các hệ thống công nghệ có khả năng mở rộng.",
+    "Có kinh nghiệm thực tế về phát triển web full-stack, kỹ thuật backend, xử lý dữ liệu và hệ thống cơ sở dữ liệu thông qua các dự án học thuật và thực tế.",
+    "Đam mê học hỏi công nghệ mới, giải quyết các vấn đề thực tiễn và phát triển các hệ thống hiệu quả, có khả năng mở rộng cao."
+  ],
+  "education": {
+    "institution": "Trường Đại học Khoa học Tự nhiên, ĐHQGHN",
+    "location": "Hà Nội, Việt Nam",
+    "period": "2023 – Hiện tại",
+    "degree": "Cử nhân Toán - Tin học. GPA: [3.42].",
+    "coursework": "Các môn học liên quan: Đại số tuyến tính, Xác suất và Thống kê, Tối ưu hóa, Toán rời rạc, Học máy, Hệ cơ sở dữ liệu."
+  },
+  "experience": [
+    {
+      "role": "Thực tập sinh Lập trình Fullstack",
+      "company": "JVB (Japan Vietnam Business)",
+      "period": "06/2026 – 08/2026",
+      "project": {
+        "name": "Hệ thống Quản lý Học tập Tích hợp AI (LMS)",
+        "githubUrl": "https://github.com/vutiendat2302",
+        "technologies": "ReactJS, TypeScript, Java Spring Boot, FastAPI, MySQL, Redis, Qdrant, Docker",
+        "highlights": [
+          "Phát triển các dịch vụ backend bằng Java Spring Boot và MySQL, triển khai các RESTful API và logic nghiệp vụ cốt lõi.",
+          "Tích hợp dịch vụ AI riêng biệt bằng Python để cá nhân hóa việc học tập và xử lý nội dung hỗ trợ bởi AI.",
+          "Sử dụng Docker, Redis và MinIO để tích hợp dịch vụ, quản lý dữ liệu và triển khai ứng dụng."
+        ]
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "Hệ thống Quản lý Bán hàng và Tồn kho",
+      "githubUrl": "https://github.com/vutiendat2302",
+      "technologies": "ReactJS, Vite, TailwindCSS, Java Spring Boot, MySQL",
+      "highlights": [
+        "Phát triển ứng dụng web full-stack để quản lý sản phẩm, đơn hàng và kho bãi.",
+        "Xây dựng các RESTful API phục vụ thao tác CRUD và quy trình xử lý đơn hàng.",
+        "Thiết kế giao diện người dùng responsive bằng ReactJS và TailwindCSS.",
+        "Thiết kế cấu trúc cơ sở dữ liệu và triển khai các tính năng theo dõi tồn kho."
+      ]
+    },
+    {
+      "name": "Mạng Tích chập Đồ thị Thời gian Cải tiến Dự báo Lưu lượng Giao thông",
+      "githubUrl": "https://github.com/vutiendat2302",
+      "technologies": "Python, PyTorch, Graph Neural Networks, GCN, GRU, Attention",
+      "highlights": [
+        "Phát triển mô hình Mạng Tích chập Đồ thị Thời gian (T-GCN) cải tiến nhằm dự báo lưu lượng giao thông không gian - thời gian.",
+        "Kết hợp tích chập đồ thị, mạng nơ-ron hồi quy và cơ chế attention để mô hình hóa sự phụ thuộc không gian và thời gian trong dữ liệu giao thông.",
+        "Tích hợp các đặc trưng chuỗi thời gian và biến ngoại sinh để nâng cao chất lượng biểu diễn mô hình giao thông trên toàn mạng lưới các nút giao."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Ngôn ngữ lập trình",
+      "skills": "Java, Python, SQL, TypeScript"
+    },
+    {
+      "category": "Frontend",
+      "skills": "ReactJS, Vite, TailwindCSS, HTML, CSS"
+    },
+    {
+      "category": "Backend",
+      "skills": "Spring Boot, FastAPI, RESTful APIs, Spring Security, JWT"
+    },
+    {
+      "category": "Cơ sở dữ liệu & Lưu trữ",
+      "skills": "MySQL, Redis, MinIO, Qdrant"
+    },
+    {
+      "category": "AI & Tìm kiếm",
+      "skills": "RAG, Vector Search, Vector Embeddings"
+    },
+    {
+      "category": "Công cụ & Nền tảng",
+      "skills": "Git, GitHub, Docker, Gurobi"
+    }
+  ],
+  "activities": [
+    "Được trao tặng danh hiệu “Sinh viên tiêu biểu Thành phố Hà Nội”.",
+    "Tham gia ban tổ chức cuộc thi “DataFlow 2025” và các hoạt động chuyên môn kỹ thuật.",
+    "Tham gia “Chương trình hè về Mô hình hóa Toán học (SPMM 2026)“."
+  ]
+}

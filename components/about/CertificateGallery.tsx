@@ -8,6 +8,13 @@ import type { Locale } from "@/i18n/config";
 interface CertificateGalleryProps {
   items: Certificate[];
   locale: Locale;
+  labels?: {
+    viewCertificate: string;
+    openOriginal: string;
+    showMore: string;
+    showLess: string;
+    close: string;
+  };
 }
 
 // Category badge colors (3 clean categories: Giấy khen, Chứng chỉ, Giấy chứng nhận)
@@ -35,7 +42,7 @@ function getCategoryBadge(categoryVi: string) {
   }
 }
 
-export function CertificateGallery({ items, locale }: CertificateGalleryProps) {
+export function CertificateGallery({ items, locale, labels }: CertificateGalleryProps) {
   const [activeCert, setActiveCert] = useState<Certificate | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(6);
 
@@ -59,35 +66,45 @@ export function CertificateGallery({ items, locale }: CertificateGalleryProps) {
     };
   }, [activeCert]);
 
-  const viewText = {
-    vi: "Xem chứng nhận",
-    en: "View Certificate",
-    "zh-TW": "檢視證書",
-  }[locale];
+  const viewText =
+    labels?.viewCertificate ||
+    {
+      vi: "Xem chứng nhận",
+      en: "View Certificate",
+      "zh-TW": "檢視證書",
+    }[locale];
 
-  const openNewTabText = {
-    vi: "Mở file gốc",
-    en: "Open original",
-    "zh-TW": "開啟原始檔案",
-  }[locale];
+  const openNewTabText =
+    labels?.openOriginal ||
+    {
+      vi: "Mở file gốc",
+      en: "Open original",
+      "zh-TW": "開啟原始檔案",
+    }[locale];
 
-  const showMoreText = {
-    vi: "Xem thêm",
-    en: "Show more",
-    "zh-TW": "查看更多",
-  }[locale];
+  const showMoreText =
+    labels?.showMore ||
+    {
+      vi: "Xem thêm",
+      en: "Show more",
+      "zh-TW": "查看更多",
+    }[locale];
 
-  const showLessText = {
-    vi: "Thu gọn",
-    en: "Show less",
-    "zh-TW": "收起",
-  }[locale];
+  const showLessText =
+    labels?.showLess ||
+    {
+      vi: "Thu gọn",
+      en: "Show less",
+      "zh-TW": "收起",
+    }[locale];
 
-  const closeText = {
-    vi: "Đóng",
-    en: "Close",
-    "zh-TW": "關閉",
-  }[locale];
+  const closeText =
+    labels?.close ||
+    {
+      vi: "Đóng",
+      en: "Close",
+      "zh-TW": "關閉",
+    }[locale];
 
   const handleShowMore = () => {
     setVisibleCount((prev) => Math.min(prev + 3, items.length));

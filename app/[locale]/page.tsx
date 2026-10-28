@@ -4,17 +4,10 @@ import { notFound } from "next/navigation";
 import { PostCard } from "@/components/blog/PostCard";
 import { Container } from "@/components/common/Container";
 import { EmptyState } from "@/components/common/EmptyState";
-import { FormattedText } from "@/components/common/FormattedText";
 import { SectionHeading } from "@/components/common/SectionHeading";
-import { SkillList } from "@/components/common/SkillList";
-import { TimelineList } from "@/components/common/TimelineList";
 import { Hero } from "@/components/home/Hero";
 import { ProjectCard } from "@/components/project/ProjectCard";
-import { education } from "@/data/education";
-import { experiences } from "@/data/experience";
-import { profile } from "@/data/profile";
 import { featuredProjects } from "@/data/projects";
-import { skillGroups } from "@/data/skills";
 import { isLocale, localePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 import { getPublishedPosts } from "@/lib/posts";
@@ -38,23 +31,7 @@ export default async function HomePage({ params }: HomePageProps) {
   return (
     <Container>
       <Hero locale={locale} dictionary={dictionary} />
-
-      <section id="about" className="reveal grid gap-10 border-t border-border py-16 sm:py-24 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16" aria-labelledby="about-title">
-        <div id="about-title">
-          <SectionHeading title={dictionary.sections.about.title} />
-        </div>
-        <div className="max-w-2xl space-y-5 text-base leading-8 text-muted sm:text-lg">
-          {profile.about.map((paragraph, index) => (
-            <p key={index}>
-              <FormattedText text={paragraph[locale]} />
-            </p>
-          ))}
-          <Link href={localePath(locale, "/about")} className="link-underline inline-block rounded-sm pt-2 text-sm font-medium text-foreground hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4">
-            {dictionary.sections.about.more} →
-          </Link>
-        </div>
-      </section>
-
+      
       <section className="reveal border-t border-border py-16 sm:py-24" aria-labelledby="featured-projects-title">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div id="featured-projects-title">
@@ -69,23 +46,6 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      <section className="reveal border-t border-border py-16 sm:py-24" aria-labelledby="capabilities-title">
-        <div id="capabilities-title">
-          <SectionHeading title={dictionary.sections.capabilities.title} description={dictionary.sections.capabilities.description} />
-        </div>
-        <div className="mt-10"><SkillList groups={skillGroups} locale={locale} emptyMessage={dictionary.empty.skills} /></div>
-      </section>
-
-      <section id="experience" className="reveal border-t border-border py-16 sm:py-24" aria-labelledby="experience-title">
-        <div id="experience-title"><SectionHeading title={dictionary.sections.experience.title} /></div>
-        <div className="mt-10"><TimelineList items={experiences} locale={locale} emptyMessage={dictionary.empty.experience} /></div>
-      </section>
-
-      <section className="reveal border-t border-border py-16 sm:py-24" aria-labelledby="education-title">
-        <div id="education-title"><SectionHeading title={dictionary.sections.education.title} /></div>
-        <div className="mt-10"><TimelineList items={education} locale={locale} emptyMessage={dictionary.empty.education} /></div>
-      </section>
-
       <section className="reveal border-t border-border py-16 sm:py-24" aria-labelledby="latest-posts-title">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div id="latest-posts-title"><SectionHeading title={dictionary.sections.writing.title} description={dictionary.sections.writing.description} /></div>
@@ -98,22 +58,6 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      <section id="contact" className="reveal grid gap-8 border-t border-border py-16 sm:py-24 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16" aria-labelledby="contact-title">
-        <div id="contact-title"><SectionHeading title={dictionary.sections.contact.title} /></div>
-        <div className="max-w-2xl">
-          <p className="text-pretty text-base leading-8 text-muted sm:text-lg">{dictionary.sections.contact.description}</p>
-          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link
-              href={localePath(locale, "/contact")}
-              className="inline-flex items-center gap-1.5 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-4"
-            >
-              {dictionary.navigation.contact} →
-            </Link>
-            {profile.socialLinks.map((link) => <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="link-underline rounded-sm text-sm font-medium text-foreground hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4">{link.label} ↗︎</a>)}
-            {profile.email ? <a href={`mailto:${profile.email}`} className="link-underline rounded-sm text-sm font-medium text-foreground hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4">{dictionary.contactPage.email} ↗︎</a> : null}
-          </div>
-        </div>
-      </section>
     </Container>
   );
 }

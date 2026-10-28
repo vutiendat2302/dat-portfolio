@@ -36,23 +36,21 @@ export interface Dictionary {
     contact: { eyebrow: string; title: string; description: string };
   };
   aboutPage: {
-    eyebrow: string;
     title: string;
     description: string;
-    story: string;
-    skills: string;
-    experience: string;
-    education: string;
-    context: string;
-    perspective: string;
+    interests: string;
     principles: string;
     focusAreas: string;
-    interests: string;
-    achievements: string;
-    achievementsDescription: string;
     album: string;
     albumDescription: string;
     albumButton: string;
+    achievements: string;
+    achievementsDescription: string;
+    viewCertificate: string;
+    openOriginal: string;
+    showMore: string;
+    showLess: string;
+    close: string;
   };
   projectsPage: {
     eyebrow: string;
@@ -81,33 +79,15 @@ export interface Dictionary {
     phone: string;
   };
   contactPage: {
-    eyebrow: string;
     title: string;
     description: string;
     directContact: string;
     email: string;
     phone: string;
-    location: string;
+    copy: string;
+    copied: string;
+    openEmail: string;
     social: string;
-    availability: string;
-    availabilityStatus: string;
-    availabilityNotice: string;
-    responseTime: string;
-    responseTimeNotice: string;
-    sendMessage: string;
-    formDescription: string;
-    nameLabel: string;
-    namePlaceholder: string;
-    emailLabel: string;
-    emailPlaceholder: string;
-    subjectLabel: string;
-    subjectPlaceholder: string;
-    messageLabel: string;
-    messagePlaceholder: string;
-    sendButton: string;
-    copyEmail: string;
-    emailCopied: string;
-    openGmail: string;
   };
   project: {
     viewProject: string;

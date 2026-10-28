@@ -171,7 +171,17 @@ export default async function AboutPage({ params }: AboutPageProps) {
         <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg sm:leading-8">
           {dictionary.aboutPage.achievementsDescription}
         </p>
-        <CertificateGallery items={certificates} locale={locale} />
+        <CertificateGallery
+          items={certificates}
+          locale={locale}
+          labels={{
+            viewCertificate: dictionary.aboutPage.viewCertificate,
+            openOriginal: dictionary.aboutPage.openOriginal,
+            showMore: dictionary.aboutPage.showMore,
+            showLess: dictionary.aboutPage.showLess,
+            close: dictionary.aboutPage.close,
+          }}
+        />
       </section>
     </Container>
   );
