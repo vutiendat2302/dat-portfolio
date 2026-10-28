@@ -12,24 +12,24 @@
   },
   "introduction": {
     "vi": "Một góc nhỏ để ghi lại những gì mình học được, những thứ mình đang làm. Không phải điều gì viết ở đây cũng hoàn hảo, nhưng ít nhất mình có thể nhìn lại và biết bản thân đã tiến bộ từng chút.",
-    "en": "A small corner to document what I've learned and what I'm currently working on. Not everything written here is perfect, but at least I can look back and see how I've improved over time.",
-    "zh-TW": "一個記錄自己所學與所做事物的小角落。這裡寫的內容未必完美，但至少能讓我回顧並看見自己一點一滴的進步。"
+    "en": "A small corner to document what I've learned and what I'm currently working on. Not everything written here is perfect, but at least I can look back and see how I've improved step by step.",
+    "zh-TW": "一個記錄自己所學與正在做的事情的小角落。這裡寫的內容不一定很完美，但至少回顧時能看到自己在一點一滴地進步。"
   },
   "about": [
     {
       "vi": "Vũ Tiến Đạt, chuyên ngành Toán - Tin tại trường Đại học Khoa học Tự nhiên, Đại học Quốc gia Hà Nội.",
-      "en": "Vu Tien Dat, majoring in Mathematics and Computer Science at VNU University of Science, Vietnam National University, Hanoi.",
-      "zh-TW": "武進達，主修於河內國家大學自然科學大學數學資訊系。"
+      "en": "Vũ Tiến Đạt, majoring in Mathematics and Computer Science at VNU University of Science, Vietnam National University, Hanoi.",
+      "zh-TW": "武進達，主修於河內國家大學自然科學大學數學與資訊學系。"
     },
     {
       "vi": "Cử nhân Toán - Tin học tại [Trường Đại học Khoa học Tự nhiên](https://hus.vnu.edu.vn/).",
-      "en": "Bachelor of Mathematics and Computer Science at [VNU University of Science](https://hus.vnu.edu.vn/).",
-      "zh-TW": "數學資訊學士，畢業於[自然科學大學](https://hus.vnu.edu.vn/)。"
+      "en": "Bachelor of Science in Mathematics and Computer Science at [VNU University of Science](https://hus.vnu.edu.vn/).",
+      "zh-TW": "於 [自然科學大學](https://hus.vnu.edu.vn/) 取得數學與資訊學學士學位。"
     },
     {
       "vi": "Quan tâm đến phát triển hệ thống phần mềm, phân tích dữ liệu, trí tuệ nhân tạo và tối ưu hóa.",
-      "en": "Interested in software systems development, data analysis, artificial intelligence, and optimization.",
-      "zh-TW": "熱衷於軟體系統開發、資料分析、人工智慧與最佳化。"
+      "en": "Interested in software systems development, data analytics, artificial intelligence, and optimization.",
+      "zh-TW": "對軟體系統開發、資料分析、人工智慧及最佳化領域充滿興趣。"
     }
   ],
   "location": "Hà Nội, Việt Nam",

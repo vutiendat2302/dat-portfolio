@@ -48,6 +48,11 @@ export interface Dictionary {
     principles: string;
     focusAreas: string;
     interests: string;
+    achievements: string;
+    achievementsDescription: string;
+    album: string;
+    albumDescription: string;
+    albumButton: string;
   };
   projectsPage: {
     eyebrow: string;

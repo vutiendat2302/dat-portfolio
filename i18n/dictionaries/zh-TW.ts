@@ -51,7 +51,7 @@ export const zhTW: Dictionary = {
   aboutPage: {
     eyebrow: "01 / 關於我",
     title: "個人資訊",
-    description: "個人專業背景、研究興趣與技術實踐。",
+    description: "專業背景、個人原則與個人興趣。",
     story: "我的故事",
     skills: "技術能力",
     experience: "經歷",
@@ -61,6 +61,11 @@ export const zhTW: Dictionary = {
     principles: "原則",
     focusAreas: "關注主題",
     interests: "個人興趣",
+    achievements: "榮譽與成就",
+    achievementsDescription: "求學歷程中獲得的一些榮譽與成果",
+    album: "Album",
+    albumDescription: "記錄我生活與成長的一些照片",
+    albumButton: "Google Photos",
   },
   projectsPage: {
     eyebrow: "02 / 專案",

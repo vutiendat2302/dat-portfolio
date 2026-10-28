@@ -119,6 +119,50 @@ interface TranslatedTimelineItem {
   description?: string;
 }
 
+interface SourceAchievement {
+  id: string;
+  title: string;
+  issuer: string;
+  year?: string;
+  category: string;
+  file: string;
+  fileType: "image" | "pdf";
+}
+
+interface SourceAbout {
+  principles: string[];
+  focusAreas: Array<{ name: string; emoji?: string }>;
+  achievements?: SourceAchievement[];
+}
+
+interface TranslatedAboutPayload {
+  principles?: string[];
+  focusAreas?: Array<{ name?: string }>;
+  achievements?: Array<{
+    title?: string;
+    issuer?: string;
+    category?: string;
+  }>;
+}
+
+interface SourcePrivacySection {
+  title: string;
+  paragraphs: string[];
+}
+
+interface SourcePrivacy {
+  updatedAt: string;
+  sections: SourcePrivacySection[];
+}
+
+interface TranslatedPrivacyPayload {
+  updatedAt?: string;
+  sections?: Array<{
+    title?: string;
+    paragraphs?: string[];
+  }>;
+}
+
 const hash = (content: string) =>
   crypto.createHash("sha1").update(content).digest("hex").slice(0, 8);
 
@@ -560,6 +604,155 @@ async function translateDataFiles() {
       console.log(`  ✓ [data] ${file}`);
     } catch (err) {
       console.error(`  ❌ Failed to translate [data] ${file}:`, err);
+    }
+  }
+
+  // 5. about.json
+  const aboutSrcPath = path.join(DATA_SRC_DIR, "about.json");
+  const aboutRaw = await fs.readFile(aboutSrcPath, "utf8").catch(() => null);
+  if (aboutRaw) {
+    const currentHash = hash(aboutRaw);
+    if (hashes["about.json"] === currentHash) {
+      console.log(`  ⏭️  [data] about.json (unchanged)`);
+    } else {
+      console.log(`  ⏳ Translating [data] about.json...`);
+      try {
+        const src = JSON.parse(aboutRaw) as SourceAbout;
+        const transPayload: Record<string, unknown> = {
+          principles: src.principles,
+          focusAreas: src.focusAreas.map((f) => ({
+            name: f.name,
+          })),
+        };
+        if (src.achievements) {
+          transPayload.achievements = src.achievements.map((a) => ({
+            title: a.title,
+            issuer: a.issuer,
+            category: a.category,
+          }));
+        }
+
+        const enTrans = await translateJsonPayload<TranslatedAboutPayload>(
+          transPayload,
+          TARGETS.en.jsonPrompt,
+        );
+        const zhTrans = await translateJsonPayload<TranslatedAboutPayload>(
+          transPayload,
+          TARGETS["zh-TW"].jsonPrompt,
+        );
+
+        const translated = {
+          principles: src.principles.map((text, i) => ({
+            vi: text,
+            en: enTrans.principles?.[i] || text,
+            "zh-TW": zhTrans.principles?.[i] || text,
+          })),
+          focusAreas: src.focusAreas.map((f, i) => ({
+            name: {
+              vi: f.name,
+              en: enTrans.focusAreas?.[i]?.name || f.name,
+              "zh-TW": zhTrans.focusAreas?.[i]?.name || f.name,
+            },
+            emoji: f.emoji,
+          })),
+          achievements: (src.achievements || []).map((a, i) => ({
+            id: a.id,
+            title: {
+              vi: a.title,
+              en: enTrans.achievements?.[i]?.title || a.title,
+              "zh-TW": zhTrans.achievements?.[i]?.title || a.title,
+            },
+            issuer: {
+              vi: a.issuer,
+              en: enTrans.achievements?.[i]?.issuer || a.issuer,
+              "zh-TW": zhTrans.achievements?.[i]?.issuer || a.issuer,
+            },
+            year: a.year,
+            category: {
+              vi: a.category,
+              en: enTrans.achievements?.[i]?.category || a.category,
+              "zh-TW": zhTrans.achievements?.[i]?.category || a.category,
+            },
+            file: a.file,
+            fileType: a.fileType,
+          })),
+        };
+
+        await fs.writeFile(
+          path.join(DATA_OUT_DIR, "about.json"),
+          JSON.stringify(translated, null, 2) + "\n",
+          "utf8",
+        );
+        hashes["about.json"] = currentHash;
+        console.log(`  ✓ [data] about.json`);
+      } catch (err) {
+        console.error(`  ❌ Failed to translate [data] about.json:`, err);
+      }
+    }
+  }
+
+  // 6. privacy.json
+  const privacySrcPath = path.join(DATA_SRC_DIR, "privacy.json");
+  const privacyRaw = await fs.readFile(privacySrcPath, "utf8").catch(() => null);
+  if (privacyRaw) {
+    const currentHash = hash(privacyRaw);
+    if (hashes["privacy.json"] === currentHash) {
+      console.log(`  ⏭️  [data] privacy.json (unchanged)`);
+    } else {
+      console.log(`  ⏳ Translating [data] privacy.json...`);
+      try {
+        const src = JSON.parse(privacyRaw) as SourcePrivacy;
+        const transPayload = {
+          updatedAt: src.updatedAt,
+          sections: src.sections.map((s) => ({
+            title: s.title,
+            paragraphs: s.paragraphs,
+          })),
+        };
+
+        const enTrans = await translateJsonPayload<TranslatedPrivacyPayload>(
+          transPayload,
+          TARGETS.en.jsonPrompt,
+        );
+        const zhTrans = await translateJsonPayload<TranslatedPrivacyPayload>(
+          transPayload,
+          TARGETS["zh-TW"].jsonPrompt,
+        );
+
+        const translated = {
+          updatedAt: {
+            vi: src.updatedAt,
+            en: enTrans.updatedAt || src.updatedAt,
+            "zh-TW": zhTrans.updatedAt || src.updatedAt,
+          },
+          sections: src.sections.map((s, idx) => {
+            const enSec = enTrans.sections?.[idx];
+            const zhSec = zhTrans.sections?.[idx];
+            return {
+              title: {
+                vi: s.title,
+                en: enSec?.title || s.title,
+                "zh-TW": zhSec?.title || s.title,
+              },
+              paragraphs: s.paragraphs.map((p, pIdx) => ({
+                vi: p,
+                en: enSec?.paragraphs?.[pIdx] || p,
+                "zh-TW": zhSec?.paragraphs?.[pIdx] || p,
+              })),
+            };
+          }),
+        };
+
+        await fs.writeFile(
+          path.join(DATA_OUT_DIR, "privacy.json"),
+          JSON.stringify(translated, null, 2) + "\n",
+          "utf8",
+        );
+        hashes["privacy.json"] = currentHash;
+        console.log(`  ✓ [data] privacy.json`);
+      } catch (err) {
+        console.error(`  ❌ Failed to translate [data] privacy.json:`, err);
+      }
     }
   }
 

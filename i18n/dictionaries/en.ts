@@ -51,7 +51,7 @@ export const en: Dictionary = {
   aboutPage: {
     eyebrow: "01 / About",
     title: "Personal Information",
-    description: "Background, engineering interests, and the technologies I use.",
+    description: "Professional background, principles, and personal interests.",
     story: "Story",
     skills: "Skills",
     experience: "Experience",
@@ -61,6 +61,11 @@ export const en: Dictionary = {
     principles: "Principles",
     focusAreas: "Areas of Interest",
     interests: "Interests",
+    achievements: "Achievements & Honors",
+    achievementsDescription: "A few achievements and recognitions I have earned",
+    album: "Album",
+    albumDescription: "A few photos of my journey and moments",
+    albumButton: "Google Photos",
   },
   projectsPage: {
     eyebrow: "02 / Projects",

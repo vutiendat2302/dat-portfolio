@@ -5,23 +5,40 @@
       "en": "Programming Languages",
       "zh-TW": "程式語言"
     },
-    "skills": ["Java", "Python", "SQL", "TypeScript"]
+    "skills": [
+      "Java",
+      "Python",
+      "SQL",
+      "TypeScript"
+    ]
   },
   {
     "category": {
       "vi": "Phát triển Giao diện (Frontend)",
-      "en": "Frontend",
-      "zh-TW": "前端技術"
+      "en": "Frontend Development",
+      "zh-TW": "前端開發 (Frontend)"
     },
-    "skills": ["ReactJS", "Vite", "TailwindCSS", "HTML", "CSS"]
+    "skills": [
+      "ReactJS",
+      "Vite",
+      "TailwindCSS",
+      "HTML",
+      "CSS"
+    ]
   },
   {
     "category": {
       "vi": "Hệ thống Máy chủ (Backend)",
-      "en": "Backend",
-      "zh-TW": "後端技術"
+      "en": "Backend Systems",
+      "zh-TW": "後端伺服器系統 (Backend)"
     },
-    "skills": ["Spring Boot", "FastAPI", "RESTful APIs", "Spring Security", "JWT"]
+    "skills": [
+      "Spring Boot",
+      "FastAPI",
+      "RESTful APIs",
+      "Spring Security",
+      "JWT"
+    ]
   },
   {
     "category": {
@@ -29,7 +46,12 @@
       "en": "Databases & Storage",
       "zh-TW": "資料庫與儲存"
     },
-    "skills": ["MySQL", "Redis", "MinIO", "Qdrant"]
+    "skills": [
+      "MySQL",
+      "Redis",
+      "MinIO",
+      "Qdrant"
+    ]
   },
   {
     "category": {
@@ -37,7 +59,11 @@
       "en": "AI & Search",
       "zh-TW": "AI 與搜尋"
     },
-    "skills": ["RAG", "Vector Search", "Vector Embeddings"]
+    "skills": [
+      "RAG",
+      "Vector Search",
+      "Vector Embeddings"
+    ]
   },
   {
     "category": {
@@ -45,6 +71,11 @@
       "en": "Tools & Platforms",
       "zh-TW": "工具與平台"
     },
-    "skills": ["Git", "GitHub", "Docker", "Gurobi"]
+    "skills": [
+      "Git",
+      "GitHub",
+      "Docker",
+      "Gurobi"
+    ]
   }
 ]

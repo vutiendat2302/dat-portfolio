@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { CertificateGallery } from "@/components/about/CertificateGallery";
 import { Container } from "@/components/common/Container";
 import { FormattedText } from "@/components/common/FormattedText";
 import { InterestList } from "@/components/common/InterestList";
 import { SectionHeading } from "@/components/common/SectionHeading";
-import {
-  aboutContext,
-  aboutFocusAreas,
-  aboutPerspective,
-  aboutPrinciples,
-} from "@/data/about";
+import { aboutFocusAreas, aboutPrinciples, certificates } from "@/data/about";
 import { profile } from "@/data/profile";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -47,8 +43,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
       />
 
       {/* 2. Phần giới thiệu cá nhân ban đầu (profile.about) */}
-      <div className="mt-12 border-t border-border pt-10 sm:mt-14">
-        <div className="max-w-3xl space-y-5 text-base leading-relaxed text-muted sm:text-lg sm:leading-8">
+      <div className="mt-6 border-t border-border pt-6 sm:mt-10">
+        <div className="space-y-4 text-base leading-relaxed text-muted sm:text-lg sm:leading-8">
           {profile.about.map((paragraph, index) => (
             <p key={index}>
               <FormattedText text={paragraph[locale]} />
@@ -57,31 +53,10 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </div>
       </div>
 
-      {/* 3. Bối cảnh */}
-      <section
-        id="context"
-        className="mt-14 border-t border-border pt-10 sm:mt-16"
-        aria-labelledby="context-title"
-      >
-        <h2
-          id="context-title"
-          className="text-xl font-medium tracking-tight text-foreground sm:text-2xl"
-        >
-          {dictionary.aboutPage.context}
-        </h2>
-        <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-muted sm:text-lg sm:leading-8">
-          {aboutContext.map((item, index) => (
-            <p key={index}>
-              <FormattedText text={item[locale]} />
-            </p>
-          ))}
-        </div>
-      </section>
-
-      {/* 4. Sở thích */}
+      {/* 3. Sở thích */}
       <section
         id="interests"
-        className="mt-14 border-t border-border pt-10 sm:mt-16"
+        className="mt-6 border-t border-border pt-6 sm:mt-6"
         aria-labelledby="interests-title"
       >
         <h2
@@ -95,31 +70,10 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </div>
       </section>
 
-      {/* 5. Góc nhìn */}
-      <section
-        id="perspective"
-        className="mt-14 border-t border-border pt-10 sm:mt-16"
-        aria-labelledby="perspective-title"
-      >
-        <h2
-          id="perspective-title"
-          className="text-xl font-medium tracking-tight text-foreground sm:text-2xl"
-        >
-          {dictionary.aboutPage.perspective}
-        </h2>
-        <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-muted sm:text-lg sm:leading-8">
-          {aboutPerspective.map((item, index) => (
-            <p key={index}>
-              <FormattedText text={item[locale]} />
-            </p>
-          ))}
-        </div>
-      </section>
-
-      {/* 6. Quan điểm */}
+      {/* 4. Quan điểm */}
       <section
         id="principles"
-        className="mt-14 border-t border-border pt-10 sm:mt-16"
+        className="mt-6 border-t border-border pt-6 sm:mt-6"
         aria-labelledby="principles-title"
       >
         <h2
@@ -128,24 +82,19 @@ export default async function AboutPage({ params }: AboutPageProps) {
         >
           {dictionary.aboutPage.principles}
         </h2>
-        <div className="mt-6 max-w-3xl space-y-6">
-          {aboutPrinciples.map((item, index) => (
-            <div key={index} className="space-y-1.5">
-              <h3 className="text-base font-medium text-foreground sm:text-lg">
-                {item.title[locale]}
-              </h3>
-              <p className="text-base leading-relaxed text-muted sm:text-lg sm:leading-8">
-                {item.description[locale]}
-              </p>
-            </div>
+        <div className="mt-6 space-y-4 text-base leading-relaxed text-muted sm:text-lg sm:leading-8">
+          {aboutPrinciples.map((paragraph, index) => (
+            <p key={index}>
+              <FormattedText text={paragraph[locale] || paragraph.vi} />
+            </p>
           ))}
         </div>
       </section>
 
-      {/* 7. Chủ đề quan tâm */}
+      {/* 5. Chủ đề quan tâm */}
       <section
         id="focus-areas"
-        className="mt-14 border-t border-border pt-10 sm:mt-16"
+        className="mt-6 border-t border-border pt-6 sm:mt-6"
         aria-labelledby="focus-title"
       >
         <h2
@@ -154,18 +103,75 @@ export default async function AboutPage({ params }: AboutPageProps) {
         >
           {dictionary.aboutPage.focusAreas}
         </h2>
-        <div className="mt-6 max-w-3xl space-y-6">
+        <div className="mt-6 flex flex-wrap gap-2.5 sm:gap-3">
           {aboutFocusAreas.map((item) => (
-            <div key={item.id} className="space-y-1.5">
-              <h3 className="text-base font-medium text-foreground sm:text-lg">
-                {item.title[locale]}
-              </h3>
-              <p className="text-base leading-relaxed text-muted sm:text-lg sm:leading-8">
-                {item.description[locale]}
-              </p>
-            </div>
+            <span
+              key={item.name[locale]}
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground shadow-2xs transition-colors hover:border-accent hover:text-accent"
+            >
+              {item.emoji && (
+                <span className="text-base select-none" aria-hidden="true">
+                  {item.emoji}
+                </span>
+              )}
+              <span>{item.name[locale]}</span>
+            </span>
           ))}
         </div>
+      </section>
+
+      {/* 6. Album ảnh */}
+      <section
+        id="album"
+        className="mt-6 border-t border-border pt-6 sm:mt-6"
+        aria-labelledby="album-title"
+      >
+        <h2
+          id="album-title"
+          className="text-xl font-medium tracking-tight text-foreground sm:text-2xl"
+        >
+          {dictionary.aboutPage.album}
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg sm:leading-8">
+          {dictionary.aboutPage.albumDescription}
+        </p>
+        <div className="mt-6">
+          <a
+            href="https://photos.app.goo.gl/vkkN7eCtBJ9x4zow8"
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground shadow-2xs transition-all duration-200 hover:border-accent hover:text-accent hover:shadow-xs active:scale-[0.98]"
+          >
+            <span className="text-base select-none" aria-hidden="true">
+              📸
+            </span>
+            <span>{dictionary.aboutPage.albumButton}</span>
+            <span
+              className="text-xs text-subtle transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+          </a>
+        </div>
+      </section>
+
+      {/* 7. Thành tích & Chứng nhận */}
+      <section
+        id="achievements"
+        className="mt-6 border-t border-border pt-6 sm:mt-6"
+        aria-labelledby="achievements-title"
+      >
+        <h2
+          id="achievements-title"
+          className="text-xl font-medium tracking-tight text-foreground sm:text-2xl"
+        >
+          {dictionary.aboutPage.achievements}
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg sm:leading-8">
+          {dictionary.aboutPage.achievementsDescription}
+        </p>
+        <CertificateGallery items={certificates} locale={locale} />
       </section>
     </Container>
   );

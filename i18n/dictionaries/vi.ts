@@ -51,7 +51,7 @@ export const vi: Dictionary = {
   aboutPage: {
     eyebrow: "01 / Giới thiệu",
     title: "Thông tin cá nhân",
-    description: "Nền tảng chuyên môn, lĩnh vực quan tâm và kinh nghiệm thực tiễn.",
+    description: "Nền tảng chuyên môn, quan điểm và sở thích.",
     story: "Câu chuyện",
     skills: "Kỹ năng",
     experience: "Kinh nghiệm",
@@ -61,6 +61,11 @@ export const vi: Dictionary = {
     principles: "Quan điểm",
     focusAreas: "Chủ đề quan tâm",
     interests: "Sở thích",
+    achievements: "Thành tích",
+    achievementsDescription: "Một số thành tích nhỏ mà mình đạt được",
+    album: "Album",
+    albumDescription: "Một số tấm ảnh về mình",
+    albumButton: "Google Photos",
   },
   projectsPage: {
     eyebrow: "02 / Dự án",

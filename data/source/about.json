@@ -1,0 +1,161 @@
+{
+  "principles": [
+    "Lượng đổi dẫn đến chất đổi, chất mới lại mở đầu một quá trình tích lũy lượng mới.",
+    "Tích lũy về lượng, tạo bước nhảy về chất, chất mới lại quy định lượng mới.",
+    "Không có sự chuyển hóa về chất nếu thiếu những điều kiện tích lũy về lượng tương ứng.",
+    "Sự phát triển không chỉ là tăng lên về lượng, mà còn là sự chuyển hóa về chất.",
+    "Khi sự tích lũy về lượng đạt đến giới hạn, bước nhảy về chất mở ra một trạng thái mới.",
+    "Mọi sự vật đều có những giới hạn của riêng mình, nhưng giới hạn không phải lúc nào cũng là điểm kết thúc.",
+    "Đôi khi, nó chỉ là ranh giới giữa trạng thái hiện tại và một khả năng chưa được hiện thực hóa. Ta có thể kiên trì đi trên một con đường trong thời gian dài mà chưa nhận thấy sự khác biệt rõ rệt, điều đó không nhất thiết có nghĩa là ta đang đứng yên. Nhưng cũng không phải cứ lặp lại mãi một hành động thì sẽ dẫn đến tiến bộ. Sự tích lũy chỉ thực sự có ý nghĩa khi nó làm thay đổi những điều kiện bên trong, giúp ta vượt qua giới hạn của phương thức cũ. Đến một lúc nào đó, muốn tiến xa hơn, ta không thể chỉ làm nhiều hơn, mà phải trở thành một phiên bản có cách nghĩ, cách làm và năng lực khác trước. Có những giới hạn chỉ có thể vượt qua bằng sự kiên trì, nhưng cũng có những giới hạn chỉ có thể vượt qua khi ta thay đổi chính cách mình tiến về phía trước."
+  ],
+  "focusAreas": [
+    { "name": "AI", "emoji": "🤖" },
+    { "name": "Data Engineer", "emoji": "📊" },
+    { "name": "Triết học", "emoji": "🏛️" },
+    { "name": "Kinh tế", "emoji": "📈" },
+    { "name": "Chính trị", "emoji": "🌐" },
+    { "name": "Tiếng Anh", "emoji": "🇬🇧" },
+    { "name": "Tiếng Trung (Phồn thể)", "emoji": "🇹🇼" },
+    { "name": "Âm nhạc", "emoji": "🎵" },
+    { "name": "Du lịch", "emoji": "✈️" },
+    { "name": "Sức khỏe", "emoji": "🌿" },
+    { "name": "Chelsea FC", "emoji": "🦁" }
+  ],
+  "achievements": [
+    {
+      "id": "viasm",
+      "title": "Học bổng Chương trình trọng điểm quốc gia phát triển Toán học",
+      "issuer": "Viện Nghiên cứu Cao cấp về Toán (VIASM)",
+      "year": "2024",
+      "category": "Giấy chứng nhận",
+      "file": "/cert/hbviasm.PNG",
+      "fileType": "image"
+    },
+    {
+      "id": "yamada",
+      "title": "Học bổng Quỹ Yamada (Yamada Scholarship)",
+      "issuer": "Quỹ Học bổng Yamada (Nhật Bản)",
+      "year": "2024",
+      "category": "Giấy chứng nhận",
+      "file": "/cert/yamada.PNG",
+      "fileType": "image"
+    },
+    {
+      "id": "spmm2026",
+      "title": "Summer Program on Mathematical Modeling (SPMM 2026)",
+      "issuer": "Nara Women's University (Nhật Bản) & VNU HUS",
+      "year": "2026",
+      "category": "Chứng chỉ",
+      "file": "/cert/7_Certificate_SPMM2026.pdf",
+      "fileType": "pdf"
+    },
+    {
+      "id": "sic",
+      "title": "Samsung Innovation Campus (SIC)",
+      "issuer": "Samsung Electronics Vietnam",
+      "year": "2025",
+      "category": "Chứng chỉ",
+      "file": "/cert/samsungcampus.jpg",
+      "fileType": "image"
+    },
+    {
+      "id": "coursera-ds",
+      "title": "Foundations of Data Science",
+      "issuer": "Google Career Certificates (Coursera)",
+      "year": "2025",
+      "category": "Chứng chỉ",
+      "file": "/cert/Coursera_data_sciences.pdf",
+      "fileType": "pdf"
+    },
+    {
+      "id": "coursera-insights",
+      "title": "Go Beyond the Numbers: Translate Data into Insights",
+      "issuer": "Google Career Certificates (Coursera)",
+      "year": "2026",
+      "category": "Chứng chỉ",
+      "file": "/cert/translate_data_into_insight.pdf",
+      "fileType": "pdf"
+    },
+    {
+      "id": "dataflow",
+      "title": "Ban Tổ chức Cuộc thi Học thuật DataFlow 2025",
+      "issuer": "Khoa Toán - Cơ - Tin học, Trường ĐHKHTN, ĐHQGHN",
+      "year": "2025",
+      "category": "Giấy chứng nhận",
+      "file": "/cert/dataflow.jpg",
+      "fileType": "image"
+    },
+    {
+      "id": "sv5tot",
+      "title": "Bằng khen đạt Danh hiệu “Sinh viên 5 tốt” cấp thành phố",
+      "issuer": "Hội Sinh viên Việt Nam",
+      "year": "2024",
+      "category": "Giấy khen",
+      "file": "/cert/sv5tot.jpg",
+      "fileType": "image"
+    },
+    {
+      "id": "sv5t-tieubieu",
+      "title": "Đạt Danh hiệu “Sinh viên 5 tốt” cấp ĐHQGHN",
+      "issuer": "Hội Sinh viên Việt Nam",
+      "year": "2025",
+      "category": "Giấy chứng nhận",
+      "file": "/cert/sv5t_t.PNG",
+      "fileType": "image"
+    },
+    {
+      "id": "pttntoan",
+      "title": "Học bổng Phát triển Tài năng Toán học",
+      "issuer": "Trường Đại học Khoa học Tự nhiên, ĐHQGHN",
+      "year": "2023 - 2026",
+      "category": "Giấy chứng nhận",
+      "file": "/cert/pttntoan.PNG",
+      "fileType": "image"
+    },
+    {
+      "id": "giaykhen",
+      "title": "Giấy khen Thành tích xuất sắc trong học tập",
+      "issuer": "Trường Đại học Khoa học Tự nhiên, ĐHQGHN",
+      "year": "2025",
+      "category": "Giấy khen",
+      "file": "/cert/giaykhen.jpg",
+      "fileType": "image"
+    },
+    {
+      "id": "truonghe",
+      "title": "Chứng nhận Hoàn thành Trường hè Toán học",
+      "issuer": "Trường hè Khoa học & Công nghệ",
+      "year": "2026",
+      "category": "Giấy chứng nhận",
+      "file": "/cert/truonghe.jpg",
+      "fileType": "image"
+    },
+    {
+      "id": "taxilang",
+      "title": "Giấy khen Tình nguyện Mùa hè Xanh",
+      "issuer": "Đại học Quốc gia Hà Nội",
+      "year": "2024",
+      "category": "Giấy khen",
+      "file": "/cert/taxilang.jpg",
+      "fileType": "image"
+    },
+    {
+      "id": "doquan",
+      "title": "Học bổng Đỗ Quân",
+      "issuer": "Đoàn Thanh niên - Hội Sinh viên ĐHQGHN",
+      "year": "2025",
+      "category": "Giấy chứng nhận",
+      "file": "/cert/doquan.PNG",
+      "fileType": "image"
+    },
+    {
+      "id": "hienmau",
+      "title": "Giấy chứng nhận Tham gia Hiến máu tình nguyện",
+      "issuer": "Viện Huyết học - Truyền máu Trung ương",
+      "year": "2024",
+      "category": "Giấy chứng nhận",
+      "file": "/cert/hienmau.jpg",
+      "fileType": "image"
+    }
+  ]
+}
