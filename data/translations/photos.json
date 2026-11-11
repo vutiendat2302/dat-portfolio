@@ -9,8 +9,8 @@
     },
     "description": {
       "vi": "Đẹp trai thì đăng, album lưu giữ những lúc trông cũng ra gì và này nọ.",
-      "en": "Post when looking sharp, an album capturing moments when things actually look decent.",
-      "zh-TW": "帥氣就發布，這個相簿記錄了看起來也挺像那麼一回事的時刻。"
+      "en": "Post when looking good, an album capturing moments that actually look decent.",
+      "zh-TW": "帥氣就發，記錄那些看起來也挺像那麼一回事的時刻的相簿。"
     },
     "category": "me",
     "year": "2026",
@@ -28,8 +28,8 @@
     "lens": "",
     "stats": {
       "vi": "1 ảnh (1 ảnh ngang) · Tối đa 1048px",
-      "en": "1 photo (1 landscape) · Max 1048px",
-      "zh-TW": "1 張照片（1 張橫幅照片）· 最大 1048px"
+      "en": "1 photo (1 landscape photo) · Max 1048px",
+      "zh-TW": "1 張照片（1 張橫幅照片） · 最高 1048px"
     },
     "coverImage": "/photos/me/DAT00907.JPG",
     "photos": [
@@ -49,7 +49,7 @@
         },
         "story": {
           "vi": "Một buổi chiều lang thang góc phố sau giờ làm việc, tận hưởng nhịp sống chậm lại.",
-          "en": "An afternoon wandering around a street corner after work, enjoying the slowed-down pace of life.",
+          "en": "An afternoon wandering around the street corner after work, enjoying the slowed-down pace of life.",
           "zh-TW": "下班後在街角漫步的一個下午，享受放慢的步調。"
         },
         "extra": {
@@ -89,13 +89,13 @@
     },
     "description": {
       "vi": "Hà Nội vào mùa se lạnh, trời hơi âm u.",
-      "en": "Hanoi entering the chilly season with slightly gloomy skies.",
-      "zh-TW": "河內進入微涼的季節，天空有些陰暗。"
+      "en": "Hanoi entering the chilly season with a slightly overcast sky.",
+      "zh-TW": "河內進入微涼的季節，天空有點陰暗。"
     },
     "story": {
       "vi": "Ngày 10/11/2026, sau nhiều lần hẹn rồi lại thôi, cuối cùng cũng có bộ ảnh đầu tiên cho vào album. Trốn làm để đi chụp ảnh :), trời Hà Nội hơi lạnh, ảnh thì hơi nhiều, còn photographer thì vẫn đang học việc. Cảm ơn mẫu ảnh Hazy đã kiên nhẫn hợp tác với một tay máy còn non nghề. Phải công nhận là hôm nay mẫu quá beautiful đi! 📸",
-      "en": "November 10, 2026, after many postponed plans, finally captured the first set of photos for the album. Skipped work for a photoshoot :), Hanoi weather was a bit cold, there were quite a lot of photos, and the photographer is still an apprentice. Thanks to the photo model Hazy for patiently cooperating with an amateur shutterbug. Must admit the model was extremely beautiful today! 📸",
-      "zh-TW": "2026年11月10日，在歷經多次約了又取消之後，終於有了第一組照片放入相簿。翹班去拍照 :)，河內的天空有點冷，照片有點多，而攝影師還在學習中。感謝模特兒 Hazy 有耐心與一位生嫩的攝影師合作。不得不承認今天模特兒太漂亮了！ 📸"
+      "en": "November 10, 2026, after multiple postponed plans, we finally got our first photo set for the album. Skipped work for a photoshoot :), Hanoi weather is a bit cold, there are quite a few photos, and the photographer is still an amateur. Thanks to the model Hazy for patiently cooperating with a rookie photographer. Gotta admit the model was super beautiful today! 📸",
+      "zh-TW": "2026年11月10日，經過多次相約又作罷後，終於有了第一組可以放進相簿的照片。翹班去拍照 :)，河內的天氣有點冷，照片有點多，而攝影師還在學徒階段。感謝模特兒 Hazy 耐心配合一個生嫩的攝影手。不得不承認今天模特兒實在太 beautiful 了！ 📸"
     },
     "credits": {
       "title": {
@@ -112,8 +112,8 @@
         },
         "note": {
           "vi": "Bấm máy bằng tất cả sự tự tin.",
-          "en": "Triggering the shutter with absolute confidence.",
-          "zh-TW": "懷著滿腔的自信按下快門。"
+          "en": "Shooting with absolute confidence.",
+          "zh-TW": "帶著滿滿的自信按快門。"
         }
       },
       "model": {
@@ -125,8 +125,8 @@
         },
         "note": {
           "vi": "Chỉ cần đứng vào khung hình là đủ.",
-          "en": "Just stepping into the frame is enough.",
-          "zh-TW": "只要站在畫面裡就足夠了。"
+          "en": "Just standing in the frame is enough.",
+          "zh-TW": "只要站進畫面裡就夠了。"
         }
       }
     },
@@ -138,16 +138,16 @@
       "zh-TW": "10/11/2026 - 11/11/2026"
     },
     "location": {
-      "vi": "Hồ Tây, Hà Nội",
-      "en": "West Lake, Hanoi",
-      "zh-TW": "西湖，河內"
+      "vi": "Hà Nội",
+      "en": "Hanoi",
+      "zh-TW": "河內"
     },
     "camera": "Sony ILCE-6400",
     "lens": "Sigma 18-50mm F2.8 DC DN",
     "stats": {
       "vi": "6 ảnh (3 ảnh dọc, 2 ảnh ngang, 1 ảnh vuông) · Tối đa 6000px",
-      "en": "6 photos (3 portraits, 2 landscapes, 1 square) · Max 6000px",
-      "zh-TW": "6 張照片（3 張直幅照片、2 張橫幅照片、1 張正方形照片）· 最大 6000px"
+      "en": "6 photos (3 portrait photos, 2 landscape photos, 1 square photo) · Max 6000px",
+      "zh-TW": "6 張照片（3 張直幅照片，2 張橫幅照片，1 張方形照片） · 最高 6000px"
     },
     "coverImage": "/photos/everyone/hazy/anh.JPG",
     "photos": [
@@ -157,13 +157,13 @@
         "title": {
           "vi": "Một chút dịu dàng",
           "en": "A Touch of Gentleness",
-          "zh-TW": "一絲溫柔"
+          "zh-TW": "一點溫柔"
         },
         "date": "10/11/2026",
         "location": {
           "vi": "Hà Nội",
           "en": "Hanoi",
-          "zh-TW": "河內"
+          "zh-TW": "Hà Nội"
         },
         "story": {
           "vi": "",
@@ -205,7 +205,7 @@
         "location": {
           "vi": "Hà Nội",
           "en": "Hanoi",
-          "zh-TW": "河內"
+          "zh-TW": "Hà Nội"
         },
         "story": {
           "vi": "",
@@ -240,14 +240,14 @@
         "src": "/photos/everyone/hazy/anh2.png",
         "title": {
           "vi": "Đứng yên cho đẹp",
-          "en": "Standing Still in Grace",
+          "en": "Standing Still Looks Good",
           "zh-TW": "靜靜站著就很美"
         },
         "date": "11/11/2026",
         "location": {
           "vi": "Hà Nội",
           "en": "Hanoi",
-          "zh-TW": "河內"
+          "zh-TW": "Hà Nội"
         },
         "story": {
           "vi": "",
@@ -280,7 +280,7 @@
         "location": {
           "vi": "Hà Nội",
           "en": "Hanoi",
-          "zh-TW": "河內"
+          "zh-TW": "Hà Nội"
         },
         "story": {
           "vi": "",
@@ -302,18 +302,18 @@
         "height": 6000
       },
       {
-        "id": "Sao lại có 2 bó hoa ?",
+        "id": "anh4",
         "src": "/photos/everyone/hazy/anh4.png",
         "title": {
-          "vi": "Anh4",
-          "en": "Photo 4",
-          "zh-TW": "Anh4"
+          "vi": "Sao lại có 2 bó hoa ?",
+          "en": "Why Are There Two Bouquets?",
+          "zh-TW": "怎麼會有 2 束花？"
         },
         "date": "11/11/2026",
         "location": {
           "vi": "Hà Nội",
           "en": "Hanoi",
-          "zh-TW": "河內"
+          "zh-TW": "Hà Nội"
         },
         "story": {
           "vi": "",
@@ -339,14 +339,14 @@
         "src": "/photos/everyone/hazy/Hoa giấy.jpeg",
         "title": {
           "vi": "Hoa giấy",
-          "en": "Paper Flowers",
+          "en": "Bougainvillea",
           "zh-TW": "九重葛"
         },
         "date": "10/11/2026",
         "location": {
           "vi": "Hà Nội",
           "en": "Hanoi",
-          "zh-TW": "河內"
+          "zh-TW": "Hà Nội"
         },
         "story": {
           "vi": "",
