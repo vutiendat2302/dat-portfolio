@@ -1,0 +1,188 @@
+[
+  {
+    "id": "goc-anh-cua-dat",
+    "slug": "goc-anh-cua-dat",
+    "title": "Khoảnh khắc của mình",
+    "description": "Những khoảnh khắc đời thường và hình ảnh chân dung cá nhân của mình.",
+    "category": "me",
+    "year": "2026",
+    "date": "15/10/2026 - 17/10/2026",
+    "location": "Hà Nội",
+    "camera": "Sony",
+    "stats": "3 ảnh (3 ảnh ngang) · Tối đa 2560px",
+    "coverImage": "/photos/me/DAT00907.JPG",
+    "photos": [
+      {
+        "id": "me-dat00907",
+        "src": "/photos/me/DAT00907.JPG",
+        "title": "Góc phố quen",
+        "date": "17/10/2026",
+        "location": "Hà Nội",
+        "story": "Một buổi chiều lang thang góc phố sau giờ làm việc, tận hưởng nhịp sống chậm lại.",
+        "extra": {
+          "dimensions": "1048 × 590",
+          "software": "Google"
+        },
+        "tags": [
+          "chân dung",
+          "hà nội",
+          "đời thường"
+        ],
+        "aspectRatio": "landscape",
+        "width": 1048,
+        "height": 590
+      },
+      {
+        "id": "me-ava1",
+        "src": "/photos/me/ava1.jpg",
+        "title": "Chân dung studio",
+        "date": "15/10/2026",
+        "location": "Hà Nội",
+        "story": "Bức ảnh chân dung được chụp tại studio với ánh sáng tự nhiên.",
+        "extra": {
+          "dimensions": "1048 × 590",
+          "software": "Google"
+        },
+        "tags": [
+          "chân dung",
+          "studio"
+        ],
+        "aspectRatio": "landscape",
+        "width": 1048,
+        "height": 590
+      },
+      {
+        "id": "me-ava",
+        "src": "/photos/me/ava.jpg",
+        "title": "Ngày nắng thu",
+        "date": "20/09/2026",
+        "location": "Hà Nội",
+        "story": "Ghi lại nụ cười bình yên trong một buổi chiều nắng nhẹ.",
+        "extra": {
+          "dimensions": "2560 × 1706"
+        },
+        "tags": [
+          "đời thường",
+          "chân dung"
+        ],
+        "aspectRatio": "landscape",
+        "width": 2560,
+        "height": 1706
+      }
+    ]
+  },
+  {
+    "id": "ha-noi-mua-dong",
+    "slug": "ha-noi-mua-dong",
+    "title": "Hà Nội mùa đông",
+    "description": "Bộ ảnh chụp những ngày đầu đông Hà Nội, khi cái lạnh bắt đầu thấm dần trên từng con phố và mặt hồ phẳng lặng.",
+    "category": "everyone",
+    "year": "2026",
+    "date": "10/11/2026 - 11/11/2026",
+    "location": "Hồ Tây, Hà Nội",
+    "camera": "Sony ILCE-6400",
+    "lens": "Sigma 18-50mm F2.8 DC DN",
+    "stats": "4 ảnh (3 ảnh dọc, 1 ảnh vuông) · Tối đa 6000px",
+    "coverImage": "/photos/everyone/hazy/IMG_20261111112511295.png",
+    "photos": [
+      {
+        "id": "suong-som-ho-tay",
+        "src": "/photos/everyone/hazy/IMG_20261111112511295.png",
+        "title": "Sương sớm ở Hồ Tây",
+        "date": "11/11/2026",
+        "location": "Hà Nội",
+        "story": "Ánh sáng buổi sớm xuyên qua màn sương mờ mang lại cảm giác tĩnh lặng và bình yên.",
+        "extra": {
+          "dimensions": "1082 × 1080"
+        },
+        "tags": [
+          "đường phố",
+          "sương sớm",
+          "film look"
+        ],
+        "aspectRatio": "square",
+        "width": 1082,
+        "height": 1080
+      },
+      {
+        "id": "portrait-dat01530",
+        "src": "/photos/everyone/hazy/dat01530.jpeg",
+        "title": "Giai điệu phố đông",
+        "date": "10/11/2026",
+        "location": "Hà Nội",
+        "story": "Buổi chiều tản bộ bắt trọn khoảnh khắc tự nhiên với ánh sáng dịu nhẹ.",
+        "exif": {
+          "camera": "Sony ILCE-6400",
+          "lens": "Sigma 18-50mm F2.8 DC DN",
+          "aperture": "f/2.8",
+          "shutterSpeed": "1/80s",
+          "iso": "400",
+          "focalLength": "35.3mm"
+        },
+        "extra": {
+          "dimensions": "3376 × 6000"
+        },
+        "tags": [
+          "chân dung",
+          "ngoại cảnh",
+          "film look"
+        ],
+        "aspectRatio": "portrait",
+        "width": 3376,
+        "height": 6000
+      },
+      {
+        "id": "portrait-dat01292",
+        "src": "/photos/everyone/hazy/dat01292.jpeg",
+        "title": "Nét cười dịu dàng",
+        "date": "10/11/2026",
+        "location": "Hà Nội",
+        "story": "Khoảnh khắc tự nhiên với nụ cười rạng rỡ dưới ánh nắng chiều.",
+        "exif": {
+          "camera": "Sony ILCE-6400",
+          "lens": "Sigma 18-50mm F2.8 DC DN",
+          "aperture": "f/2.8",
+          "shutterSpeed": "1/100s",
+          "iso": "200",
+          "focalLength": "25.4mm"
+        },
+        "extra": {
+          "dimensions": "3050 × 5597"
+        },
+        "tags": [
+          "chân dung",
+          "tự nhiên"
+        ],
+        "aspectRatio": "portrait",
+        "width": 3050,
+        "height": 5597
+      },
+      {
+        "id": "portrait-dat01444",
+        "src": "/photos/everyone/hazy/dat01444.jpeg",
+        "title": "Hoàng hôn lấp lánh",
+        "date": "10/11/2026",
+        "location": "Hà Nội",
+        "story": "Ánh hoàng hôn vàng ấm buông xuống lúc cuối chiều.",
+        "exif": {
+          "camera": "Sony ILCE-6400",
+          "lens": "Sigma 18-50mm F2.8 DC DN",
+          "aperture": "f/2.8",
+          "shutterSpeed": "1/80s",
+          "iso": "400",
+          "focalLength": "31.7mm"
+        },
+        "extra": {
+          "dimensions": "3376 × 6000"
+        },
+        "tags": [
+          "hoàng hôn",
+          "chân dung"
+        ],
+        "aspectRatio": "portrait",
+        "width": 3376,
+        "height": 6000
+      }
+    ]
+  }
+]

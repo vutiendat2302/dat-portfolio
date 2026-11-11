@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { projects } from "@/data/projects";
+import { photoAlbums } from "@/data/photos";
 import { getSiteUrl } from "@/data/site";
 import { localeConfig, localePath, locales, type Locale } from "@/i18n/config";
 import { getPostAlternatePaths, getPublishedPosts } from "@/lib/posts";
@@ -32,7 +33,7 @@ function localizedPaths(path = ""): Record<Locale, string> {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/about", "/projects", "/blog", "/cv", "/contact"];
+  const staticRoutes = ["", "/about", "/projects", "/blog", "/photos", "/cv", "/contact"];
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.flatMap((route) => {
     const paths = localizedPaths(route);
     return locales.map((locale) => ({
@@ -66,5 +67,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticEntries, ...projectEntries, ...postEntries];
+  const albumEntries: MetadataRoute.Sitemap = photoAlbums.flatMap((album) => {
+    const paths = localizedPaths(`/photos/${album.slug}`);
+    return locales.map((locale) => ({
+      url: absoluteUrl(paths[locale]),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      alternates: { languages: alternateLanguages(paths) },
+    }));
+  });
+
+  return [...staticEntries, ...projectEntries, ...postEntries, ...albumEntries];
 }

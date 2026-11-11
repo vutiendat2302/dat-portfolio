@@ -1,0 +1,563 @@
+[
+  {
+    "id": "goc-anh-cua-dat",
+    "slug": "goc-anh-cua-dat",
+    "title": {
+      "vi": "Khoảnh khắc của mình",
+      "en": "My Moments",
+      "zh-TW": "我的時刻"
+    },
+    "description": {
+      "vi": "Những khoảnh khắc đời thường và hình ảnh chân dung cá nhân của mình.",
+      "en": "Everyday moments and personal portrait photography.",
+      "zh-TW": "我的日常時刻與個人肖像攝影。"
+    },
+    "category": "me",
+    "year": "2026",
+    "date": {
+      "vi": "15/10/2026 - 17/10/2026",
+      "en": "15/10/2026 - 17/10/2026",
+      "zh-TW": "15/10/2026 - 17/10/2026"
+    },
+    "location": {
+      "vi": "Hà Nội",
+      "en": "Hà Nội",
+      "zh-TW": "河內"
+    },
+    "camera": "Sony",
+    "lens": "",
+    "stats": {
+      "vi": "3 ảnh (3 ảnh ngang) · Tối đa 2560px",
+      "en": "3 photos (3 landscape) · Max 2560px",
+      "zh-TW": "3張照片（3張橫幅）· 最高 2560px"
+    },
+    "coverImage": "/photos/me/DAT00907.JPG",
+    "photos": [
+      {
+        "id": "me-dat00907",
+        "src": "/photos/me/DAT00907.JPG",
+        "title": {
+          "vi": "Góc phố quen",
+          "en": "Familiar Street Corner",
+          "zh-TW": "熟悉的街角"
+        },
+        "date": "17/10/2026",
+        "location": {
+          "vi": "Hà Nội",
+          "en": "Hà Nội",
+          "zh-TW": "河內"
+        },
+        "story": {
+          "vi": "Một buổi chiều lang thang góc phố sau giờ làm việc, tận hưởng nhịp sống chậm lại.",
+          "en": "An afternoon wandering around a street corner after work, enjoying the slowed-down pace of life.",
+          "zh-TW": "下班後在街角漫步的一個下午，享受放慢的生活節奏。"
+        },
+        "extra": {
+          "dimensions": "1048 × 590",
+          "software": "Google"
+        },
+        "tags": [
+          {
+            "vi": "chân dung",
+            "en": "portrait",
+            "zh-TW": "肖像"
+          },
+          {
+            "vi": "hà nội",
+            "en": "hà nội",
+            "zh-TW": "河內"
+          },
+          {
+            "vi": "đời thường",
+            "en": "lifestyle",
+            "zh-TW": "日常"
+          }
+        ],
+        "aspectRatio": "landscape",
+        "width": 1048,
+        "height": 590
+      },
+      {
+        "id": "me-ava1",
+        "src": "/photos/me/ava1.jpg",
+        "title": {
+          "vi": "Chân dung studio",
+          "en": "Studio Portrait",
+          "zh-TW": "攝影棚肖像"
+        },
+        "date": "15/10/2026",
+        "location": {
+          "vi": "Hà Nội",
+          "en": "Hà Nội",
+          "zh-TW": "河內"
+        },
+        "story": {
+          "vi": "Bức ảnh chân dung được chụp tại studio với ánh sáng tự nhiên.",
+          "en": "A portrait capture in the studio utilizing natural lighting.",
+          "zh-TW": "在攝影棚內以自然光拍攝的肖像照。"
+        },
+        "extra": {
+          "dimensions": "1048 × 590",
+          "software": "Google"
+        },
+        "tags": [
+          {
+            "vi": "chân dung",
+            "en": "portrait",
+            "zh-TW": "肖像"
+          },
+          {
+            "vi": "studio",
+            "en": "studio",
+            "zh-TW": "攝影棚"
+          }
+        ],
+        "aspectRatio": "landscape",
+        "width": 1048,
+        "height": 590
+      },
+      {
+        "id": "me-ava",
+        "src": "/photos/me/ava.jpg",
+        "title": {
+          "vi": "Ngày nắng thu",
+          "en": "Autumn Sun",
+          "zh-TW": "秋日陽光"
+        },
+        "date": "20/09/2026",
+        "location": {
+          "vi": "Hà Nội",
+          "en": "Hà Nội",
+          "zh-TW": "河內"
+        },
+        "story": {
+          "vi": "Ghi lại nụ cười bình yên trong một buổi chiều nắng nhẹ.",
+          "en": "Capturing a serene smile during a gentle sunny afternoon.",
+          "zh-TW": "記錄一個溫和陽光午後中的寧靜笑容。"
+        },
+        "extra": {
+          "dimensions": "2560 × 1706"
+        },
+        "tags": [
+          {
+            "vi": "đời thường",
+            "en": "lifestyle",
+            "zh-TW": "日常"
+          },
+          {
+            "vi": "chân dung",
+            "en": "portrait",
+            "zh-TW": "肖像"
+          }
+        ],
+        "aspectRatio": "landscape",
+        "width": 2560,
+        "height": 1706
+      }
+    ]
+  },
+  {
+    "id": "ha-noi-mua-dong",
+    "slug": "ha-noi-mua-dong",
+    "title": {
+      "vi": "Hà Nội mùa đông",
+      "en": "Hà Nội Winter",
+      "zh-TW": "河內之冬"
+    },
+    "description": {
+      "vi": "Bộ ảnh chụp những ngày đầu đông Hà Nội, khi cái lạnh bắt đầu thấm dần trên từng con phố và mặt hồ phẳng lặng.",
+      "en": "A photo series capturing the early days of winter in Hà Nội, as the chill begins to permeate every street and calm lake surface.",
+      "zh-TW": "記錄河內初冬日子的照片集，此時寒意開始滲透進每一條街道和平靜的湖面。"
+    },
+    "category": "everyone",
+    "year": "2026",
+    "date": {
+      "vi": "10/11/2026 - 11/11/2026",
+      "en": "10/11/2026 - 11/11/2026",
+      "zh-TW": "10/11/2026 - 11/11/2026"
+    },
+    "location": {
+      "vi": "Hồ Tây, Hà Nội",
+      "en": "Hồ Tây, Hà Nội",
+      "zh-TW": "西湖，河內"
+    },
+    "camera": "Sony ILCE-6400",
+    "lens": "Sigma 18-50mm F2.8 DC DN",
+    "stats": {
+      "vi": "4 ảnh (3 ảnh dọc, 1 ảnh vuông) · Tối đa 6000px",
+      "en": "4 photos (3 portrait, 1 square) · Max 6000px",
+      "zh-TW": "4張照片（3張直幅，1張方形）· 最高 6000px"
+    },
+    "coverImage": "/photos/everyone/hazy/IMG_20261111112511295.png",
+    "photos": [
+      {
+        "id": "suong-som-ho-tay",
+        "src": "/photos/everyone/hazy/IMG_20261111112511295.png",
+        "title": {
+          "vi": "Sương sớm ở Hồ Tây",
+          "en": "Early Morning Mist at West Lake",
+          "zh-TW": "西湖早霧"
+        },
+        "date": "11/11/2026",
+        "location": {
+          "vi": "Hà Nội",
+          "en": "Hà Nội",
+          "zh-TW": "河內"
+        },
+        "story": {
+          "vi": "Ánh sáng buổi sớm xuyên qua màn sương mờ mang lại cảm giác tĩnh lặng và bình yên.",
+          "en": "Early morning light piercing through the dense fog, evoking a sense of tranquility and peace.",
+          "zh-TW": "晨光穿透薄霧，帶來靜謐與安詳的感受。"
+        },
+        "extra": {
+          "dimensions": "1082 × 1080"
+        },
+        "tags": [
+          {
+            "vi": "đường phố",
+            "en": "street",
+            "zh-TW": "街頭"
+          },
+          {
+            "vi": "sương sớm",
+            "en": "morning mist",
+            "zh-TW": "早霧"
+          },
+          {
+            "vi": "film look",
+            "en": "film look",
+            "zh-TW": "膠卷風格"
+          }
+        ],
+        "aspectRatio": "square",
+        "width": 1082,
+        "height": 1080
+      },
+      {
+        "id": "portrait-dat01530",
+        "src": "/photos/everyone/hazy/dat01530.jpeg",
+        "title": {
+          "vi": "Giai điệu phố đông",
+          "en": "Busy Street Melody",
+          "zh-TW": "擁擠街道的旋律"
+        },
+        "date": "10/11/2026",
+        "location": {
+          "vi": "Hà Nội",
+          "en": "Hà Nội",
+          "zh-TW": "河內"
+        },
+        "story": {
+          "vi": "Buổi chiều tản bộ bắt trọn khoảnh khắc tự nhiên với ánh sáng dịu nhẹ.",
+          "en": "An afternoon stroll capturing candid moments under soft lighting.",
+          "zh-TW": "午後漫步，在柔和的光線下捕捉自然時刻。"
+        },
+        "exif": {
+          "camera": "Sony ILCE-6400",
+          "lens": "Sigma 18-50mm F2.8 DC DN",
+          "aperture": "f/2.8",
+          "shutterSpeed": "1/80s",
+          "iso": "400",
+          "focalLength": "35.3mm"
+        },
+        "extra": {
+          "dimensions": "3376 × 6000"
+        },
+        "tags": [
+          {
+            "vi": "chân dung",
+            "en": "portrait",
+            "zh-TW": "肖像"
+          },
+          {
+            "vi": "ngoại cảnh",
+            "en": "outdoor",
+            "zh-TW": "外景"
+          },
+          {
+            "vi": "film look",
+            "en": "film look",
+            "zh-TW": "膠卷風格"
+          }
+        ],
+        "aspectRatio": "portrait",
+        "width": 3376,
+        "height": 6000
+      },
+      {
+        "id": "portrait-dat01292",
+        "src": "/photos/everyone/hazy/dat01292.jpeg",
+        "title": {
+          "vi": "Nét cười dịu dàng",
+          "en": "Gentle Smile",
+          "zh-TW": "溫柔的笑靨"
+        },
+        "date": "10/11/2026",
+        "location": {
+          "vi": "Hà Nội",
+          "en": "Hà Nội",
+          "zh-TW": "河內"
+        },
+        "story": {
+          "vi": "Khoảnh khắc tự nhiên với nụ cười rạng rỡ dưới ánh nắng chiều.",
+          "en": "A candid moment with a radiant smile under the afternoon sun.",
+          "zh-TW": "在夕陽下帶著燦爛笑容的自然時刻。"
+        },
+        "exif": {
+          "camera": "Sony ILCE-6400",
+          "lens": "Sigma 18-50mm F2.8 DC DN",
+          "aperture": "f/2.8",
+          "shutterSpeed": "1/100s",
+          "iso": "200",
+          "focalLength": "25.4mm"
+        },
+        "extra": {
+          "dimensions": "3050 × 5597"
+        },
+        "tags": [
+          {
+            "vi": "chân dung",
+            "en": "portrait",
+            "zh-TW": "肖像"
+          },
+          {
+            "vi": "tự nhiên",
+            "en": "natural",
+            "zh-TW": "自然"
+          }
+        ],
+        "aspectRatio": "portrait",
+        "width": 3050,
+        "height": 5597
+      },
+      {
+        "id": "portrait-dat01444",
+        "src": "/photos/everyone/hazy/dat01444.jpeg",
+        "title": {
+          "vi": "Hoàng hôn lấp lánh",
+          "en": "Gleaming Sunset",
+          "zh-TW": "閃耀的黃昏"
+        },
+        "date": "10/11/2026",
+        "location": {
+          "vi": "Hà Nội",
+          "en": "Hà Nội",
+          "zh-TW": "河內"
+        },
+        "story": {
+          "vi": "Ánh hoàng hôn vàng ấm buông xuống lúc cuối chiều.",
+          "en": "Warm golden sunset light cascading down at dusk.",
+          "zh-TW": "傍晚時分灑下的溫暖金黃色夕陽。"
+        },
+        "exif": {
+          "camera": "Sony ILCE-6400",
+          "lens": "Sigma 18-50mm F2.8 DC DN",
+          "aperture": "f/2.8",
+          "shutterSpeed": "1/80s",
+          "iso": "400",
+          "focalLength": "31.7mm"
+        },
+        "extra": {
+          "dimensions": "3376 × 6000"
+        },
+        "tags": [
+          {
+            "vi": "hoàng hôn",
+            "en": "sunset",
+            "zh-TW": "黃昏"
+          },
+          {
+            "vi": "chân dung",
+            "en": "portrait",
+            "zh-TW": "肖像"
+          }
+        ],
+        "aspectRatio": "portrait",
+        "width": 3376,
+        "height": 6000
+      }
+    ]
+  },
+  {
+    "id": "di-bo-cuoi-tuan",
+    "slug": "di-bo-cuoi-tuan",
+    "title": {
+      "vi": "Đi bộ cuối tuần",
+      "en": "Weekend Walk",
+      "zh-TW": "週末漫步"
+    },
+    "description": {
+      "vi": "Những chuyến dạo bộ ngắm nhìn phố phường và ghi lại những khoảnh khắc bất chợt.",
+      "en": "Weekend walks observing the cityscape and capturing spontaneous moments.",
+      "zh-TW": "漫步欣賞街景並捕捉突發瞬間的旅程。"
+    },
+    "category": "everyone",
+    "year": "2026",
+    "date": {
+      "vi": "10/11/2026",
+      "en": "10/11/2026",
+      "zh-TW": "10/11/2026"
+    },
+    "location": {
+      "vi": "Hà Nội",
+      "en": "Hà Nội",
+      "zh-TW": "河內"
+    },
+    "camera": "Sony ILCE-6400",
+    "lens": "Sigma 18-50mm F2.8 DC DN",
+    "stats": {
+      "vi": "3 ảnh (3 ảnh dọc) · Tối đa 6000px",
+      "en": "3 photos (3 portrait) · Max 6000px",
+      "zh-TW": "3張照片（3張直幅）· 最高 6000px"
+    },
+    "coverImage": "/photos/everyone/hazy/dat01444.jpeg",
+    "photos": [
+      {
+        "id": "walk-dat01444",
+        "src": "/photos/everyone/hazy/dat01444.jpeg",
+        "title": {
+          "vi": "Chiều tản bộ",
+          "en": "Afternoon Stroll",
+          "zh-TW": "午後漫步"
+        },
+        "date": "10/11/2026",
+        "location": {
+          "vi": "Hà Nội",
+          "en": "Hà Nội",
+          "zh-TW": "河內"
+        },
+        "story": {
+          "vi": "Ánh nắng vàng nhẹ len lỏi qua từng tán cây khi dòng người qua lại.",
+          "en": "Soft golden sunlight filtering through the foliage amidst the passing crowd.",
+          "zh-TW": "人群來往時，微弱的金黃陽光穿透樹冠。"
+        },
+        "exif": {
+          "camera": "Sony ILCE-6400",
+          "lens": "Sigma 18-50mm F2.8 DC DN",
+          "aperture": "f/2.8",
+          "shutterSpeed": "1/80s",
+          "iso": "400",
+          "focalLength": "31.7mm"
+        },
+        "extra": {
+          "dimensions": "3376 × 6000",
+          "software": "ILCE-6400 v2.00"
+        },
+        "tags": [
+          {
+            "vi": "nắng chiều",
+            "en": "golden hour",
+            "zh-TW": "夕陽"
+          },
+          {
+            "vi": "chân dung",
+            "en": "portrait",
+            "zh-TW": "肖像"
+          },
+          {
+            "vi": "cuối tuần",
+            "en": "weekend",
+            "zh-TW": "週末"
+          }
+        ],
+        "aspectRatio": "portrait",
+        "width": 3376,
+        "height": 6000
+      },
+      {
+        "id": "walk-dat01292",
+        "src": "/photos/everyone/hazy/dat01292.jpeg",
+        "title": {
+          "vi": "Khoảnh khắc ngưng đọng",
+          "en": "Suspended Moment",
+          "zh-TW": "凝結的時刻"
+        },
+        "date": "10/11/2026",
+        "location": {
+          "vi": "Hà Nội",
+          "en": "Hà Nội",
+          "zh-TW": "河內"
+        },
+        "story": {
+          "vi": "Dừng lại vài giây để cảm nhận sự tĩnh lặng hiếm hoi giữa nhịp sống đô thị.",
+          "en": "Pausing for a few seconds to experience the rare stillness amid the urban rush.",
+          "zh-TW": "停留幾秒鐘，感受都市生活中難得的寧靜。"
+        },
+        "exif": {
+          "camera": "Sony ILCE-6400",
+          "lens": "Sigma 18-50mm F2.8 DC DN",
+          "aperture": "f/2.8",
+          "shutterSpeed": "1/100s",
+          "iso": "200",
+          "focalLength": "25.4mm"
+        },
+        "extra": {
+          "dimensions": "3050 × 5597",
+          "software": "ILCE-6400 v2.00"
+        },
+        "tags": [
+          {
+            "vi": "đời sống",
+            "en": "street life",
+            "zh-TW": "生活"
+          },
+          {
+            "vi": "tự nhiên",
+            "en": "natural",
+            "zh-TW": "自然"
+          }
+        ],
+        "aspectRatio": "portrait",
+        "width": 3050,
+        "height": 5597
+      },
+      {
+        "id": "walk-dat01530",
+        "src": "/photos/everyone/hazy/dat01530.jpeg",
+        "title": {
+          "vi": "Góc phố chiều",
+          "en": "Evening Street Corner",
+          "zh-TW": "午後街角"
+        },
+        "date": "10/11/2026",
+        "location": {
+          "vi": "Hà Nội",
+          "en": "Hà Nội",
+          "zh-TW": "河內"
+        },
+        "story": {
+          "vi": "Những khoảnh khắc tự nhiên được ghi lại một cách chân thực nhất.",
+          "en": "Candid moments captured in their most authentic form.",
+          "zh-TW": "以最真實的方式記錄下自然的時刻。"
+        },
+        "exif": {
+          "camera": "Sony ILCE-6400",
+          "lens": "Sigma 18-50mm F2.8 DC DN",
+          "aperture": "f/2.8",
+          "shutterSpeed": "1/80s",
+          "iso": "400",
+          "focalLength": "35.3mm"
+        },
+        "extra": {
+          "dimensions": "3376 × 6000",
+          "software": "ILCE-6400 v2.00"
+        },
+        "tags": [
+          {
+            "vi": "chân dung",
+            "en": "portrait",
+            "zh-TW": "肖像"
+          },
+          {
+            "vi": "ngoại cảnh",
+            "en": "outdoor",
+            "zh-TW": "外景"
+          }
+        ],
+        "aspectRatio": "portrait",
+        "width": 3376,
+        "height": 6000
+      }
+    ]
+  }
+]

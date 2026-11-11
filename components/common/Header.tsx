@@ -18,11 +18,12 @@ interface HeaderProps {
 }
 
 export function Header({ locale, dictionary, blogTranslations }: HeaderProps) {
-  // Thứ tự menu: Home, Projects, Blog, About, Contact, CV
+  // Thứ tự menu: Home, Projects, Blog, Photos, About, Contact, CV
   const navigation: NavItem[] = [
     { label: dictionary.navigation.home, href: localePath(locale, "") },
     { label: dictionary.navigation.projects, href: localePath(locale, "/projects") },
     { label: dictionary.navigation.blog, href: localePath(locale, "/blog") },
+    { label: dictionary.navigation.photos, href: localePath(locale, "/photos") },
     { label: dictionary.navigation.about, href: localePath(locale, "/about") },
     { label: dictionary.navigation.contact, href: localePath(locale, "/contact") },
     { label: dictionary.navigation.cv, href: localePath(locale, "/cv") },

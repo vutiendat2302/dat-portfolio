@@ -233,6 +233,64 @@ interface TranslatedCvPayload {
   activities?: string[];
 }
 
+interface SourcePhotoItem {
+  id: string;
+  src: string;
+  title: string;
+  date: string;
+  location: string;
+  story?: string;
+  exif?: {
+    camera?: string;
+    lens?: string;
+    aperture?: string;
+    shutterSpeed?: string;
+    iso?: string | number;
+    focalLength?: string;
+  };
+  extra?: {
+    software?: string;
+    dimensions?: string;
+  };
+  tags?: string[];
+  aspectRatio?: "square" | "portrait" | "landscape";
+  width?: number;
+  height?: number;
+}
+
+interface SourcePhotoAlbum {
+  id: string;
+  slug: string;
+  title: string;
+  description?: string;
+  story?: string;
+  category: "me" | "everyone";
+  year: string;
+  date?: string;
+  location?: string;
+  camera?: string;
+  lens?: string;
+  stats?: string;
+  coverImage: string;
+  photos: SourcePhotoItem[];
+}
+
+interface TranslatedPhotoItem {
+  title?: string;
+  location?: string;
+  story?: string;
+  tags?: string[];
+}
+
+interface TranslatedPhotoAlbum {
+  title?: string;
+  description?: string;
+  story?: string;
+  location?: string;
+  stats?: string;
+  photos?: TranslatedPhotoItem[];
+}
+
 const hash = (content: string) =>
   crypto.createHash("sha1").update(content).digest("hex").slice(0, 8);
 
@@ -998,6 +1056,137 @@ async function translateDataFiles() {
         console.log(`  ✓ [data] cv.json`);
       } catch (err) {
         console.error(`  ❌ Failed to translate [data] cv.json:`, err);
+      }
+    }
+  }
+
+  // 9. photos.json
+  const photosSrcPath = path.join(DATA_SRC_DIR, "photos.json");
+  const photosRaw = await fs.readFile(photosSrcPath, "utf8").catch(() => null);
+  if (photosRaw) {
+    const currentHash = hash(photosRaw);
+    if (hashes["photos.json"] === currentHash) {
+      console.log(`  ⏭️  [data] photos.json (unchanged)`);
+    } else {
+      console.log(`  ⏳ Translating [data] photos.json...`);
+      try {
+        const srcAlbums = JSON.parse(photosRaw) as SourcePhotoAlbum[];
+        const transPayload = srcAlbums.map((album) => ({
+          title: album.title,
+          description: album.description,
+          story: album.story,
+          location: album.location,
+          stats: album.stats,
+          photos: album.photos.map((p) => ({
+            title: p.title,
+            location: p.location,
+            story: p.story,
+            tags: p.tags,
+          })),
+        }));
+
+        const enTrans = await translateJsonPayload<TranslatedPhotoAlbum[]>(
+          transPayload,
+          TARGETS.en.jsonPrompt,
+        );
+        const zhTrans = await translateJsonPayload<TranslatedPhotoAlbum[]>(
+          transPayload,
+          TARGETS["zh-TW"].jsonPrompt,
+        );
+
+        const translated = srcAlbums.map((album, aIdx) => {
+          const enAlbum = enTrans?.[aIdx];
+          const zhAlbum = zhTrans?.[aIdx];
+          return {
+            id: album.id,
+            slug: album.slug,
+            title: {
+              vi: album.title,
+              en: enAlbum?.title || album.title,
+              "zh-TW": zhAlbum?.title || album.title,
+            },
+            description: {
+              vi: album.description || "",
+              en: enAlbum?.description || album.description || "",
+              "zh-TW": zhAlbum?.description || album.description || "",
+            },
+            story: album.story
+              ? {
+                  vi: album.story,
+                  en: enAlbum?.story || album.story,
+                  "zh-TW": zhAlbum?.story || album.story,
+                }
+              : undefined,
+            category: album.category,
+            year: album.year,
+            date: album.date
+              ? {
+                  vi: album.date,
+                  en: album.date,
+                  "zh-TW": album.date,
+                }
+              : undefined,
+            location: {
+              vi: album.location || "",
+              en: enAlbum?.location || album.location || "",
+              "zh-TW": zhAlbum?.location || album.location || "",
+            },
+            camera: album.camera || "",
+            lens: album.lens || "",
+            stats: album.stats
+              ? {
+                  vi: album.stats,
+                  en: enAlbum?.stats || album.stats,
+                  "zh-TW": zhAlbum?.stats || album.stats,
+                }
+              : undefined,
+            coverImage: album.coverImage,
+            photos: album.photos.map((p, pIdx) => {
+              const enPhoto = enAlbum?.photos?.[pIdx];
+              const zhPhoto = zhAlbum?.photos?.[pIdx];
+              return {
+                id: p.id,
+                src: p.src,
+                title: {
+                  vi: p.title,
+                  en: enPhoto?.title || p.title,
+                  "zh-TW": zhPhoto?.title || p.title,
+                },
+                date: p.date,
+                location: {
+                  vi: p.location,
+                  en: enPhoto?.location || p.location,
+                  "zh-TW": zhPhoto?.location || p.location,
+                },
+                story: {
+                  vi: p.story || "",
+                  en: enPhoto?.story || p.story || "",
+                  "zh-TW": zhPhoto?.story || p.story || "",
+                },
+                exif: p.exif,
+                extra: p.extra,
+                tags: (p.tags || []).map((t, tIdx) => ({
+                  vi: t,
+                  en: enPhoto?.tags?.[tIdx] || t,
+                  "zh-TW": zhPhoto?.tags?.[tIdx] || t,
+                })),
+                aspectRatio: p.aspectRatio,
+                width: p.width,
+                height: p.height,
+              };
+            }),
+          };
+        });
+
+        await fs.writeFile(
+          path.join(DATA_OUT_DIR, "photos.json"),
+          JSON.stringify(translated, null, 2) + "\n",
+          "utf8",
+        );
+        hashes["photos.json"] = currentHash;
+        console.log(`  ✓ [data] photos.json`);
+      } catch (err) {
+        console.error(`  ❌ Failed to translate [data] photos.json:`, err);
       }
     }
   }
