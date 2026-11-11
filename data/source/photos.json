@@ -1,0 +1,196 @@
+[
+  {
+    "id": "goc-anh-cua-dat",
+    "slug": "goc-anh-cua-dat",
+    "title": "Nhân vật chính",
+    "description": "Đẹp trai thì đăng, album lưu giữ những lúc trông cũng ra gì và này nọ.",
+    "category": "me",
+    "year": "2026",
+    "date": "15/10/2026 - 17/10/2026",
+    "location": "Hà Nội",
+    "camera": "Sony",
+    "stats": "1 ảnh (1 ảnh ngang) · Tối đa 1048px",
+    "coverImage": "/photos/me/DAT00907.JPG",
+    "photos": [
+      {
+        "id": "me-dat00907",
+        "src": "/photos/me/DAT00907.JPG",
+        "title": "Góc phố quen",
+        "date": "17/10/2026",
+        "location": "Hà Nội",
+        "story": "Một buổi chiều lang thang góc phố sau giờ làm việc, tận hưởng nhịp sống chậm lại.",
+        "extra": {
+          "dimensions": "1048 × 590",
+          "software": "Google"
+        },
+        "tags": [
+          "chân dung",
+          "hà nội",
+          "đời thường"
+        ],
+        "aspectRatio": "landscape",
+        "width": 1048,
+        "height": 590
+      }
+    ]
+  },
+  {
+    "id": "ha-noi-mua-dong",
+    "slug": "ha-noi-mua-dong",
+    "title": "Mùa đông Hà Nội",
+    "description": "Hà Nội vào mùa se lạnh, trời hơi âm u.",
+    "story": "Ngày 10/11/2026, sau nhiều lần hẹn rồi lại thôi, cuối cùng cũng có bộ ảnh đầu tiên cho vào album. Trốn làm để đi chụp ảnh :), trời Hà Nội hơi lạnh, ảnh thì hơi nhiều, còn photographer thì vẫn đang học việc. Cảm ơn mẫu ảnh Hazy đã kiên nhẫn hợp tác với một tay máy còn non nghề. Phải công nhận là hôm nay mẫu quá beautiful đi! 📸",
+    "category": "everyone",
+    "credits": {
+      "title": "Người bấm, người xinh",
+      "photographer": {
+        "name": "Đạt",
+        "role": "Photographer tập sự",
+        "note": "Bấm máy bằng tất cả sự tự tin."
+      },
+      "model": {
+        "name": "Hazy",
+        "role": "Main character",
+        "note": "Chỉ cần đứng vào khung hình là đủ."
+      }
+    },
+    "year": "2026",
+    "date": "10/11/2026 - 11/11/2026",
+    "location": "Hà Nội",
+    "camera": "Sony ILCE-6400",
+    "lens": "Sigma 18-50mm F2.8 DC DN",
+    "stats": "6 ảnh (3 ảnh dọc, 2 ảnh ngang, 1 ảnh vuông) · Tối đa 6000px",
+    "coverImage": "/photos/everyone/hazy/anh.JPG",
+    "photos": [
+      {
+        "id": "anh",
+        "src": "/photos/everyone/hazy/anh.JPG",
+        "title": "Một chút dịu dàng",
+        "date": "10/11/2026",
+        "location": "Hà Nội",
+        "story": "",
+        "exif": {
+          "camera": "Sony ILCE-6400",
+          "lens": "Sigma 18-50mm F2.8 DC DN",
+          "aperture": "f/2.8",
+          "shutterSpeed": "1/100s",
+          "iso": "320",
+          "focalLength": "18.7mm"
+        },
+        "extra": {
+          "dimensions": "6000 × 3376",
+          "software": "ILCE-6400 v2.00"
+        },
+        "tags": [
+          "đời thường"
+        ],
+        "aspectRatio": "landscape",
+        "width": 6000,
+        "height": 3376
+      },
+      {
+        "id": "anh1",
+        "src": "/photos/everyone/hazy/anh1.jpeg",
+        "title": "Nàng thơ ngang qua",
+        "date": "10/11/2026",
+        "location": "Hà Nội",
+        "story": "",
+        "exif": {
+          "camera": "Sony ILCE-6400",
+          "lens": "Sigma 18-50mm F2.8 DC DN",
+          "aperture": "f/2.8",
+          "shutterSpeed": "1/100s",
+          "iso": "200",
+          "focalLength": "25.4mm"
+        },
+        "extra": {
+          "dimensions": "3050 × 5597",
+          "software": "ILCE-6400 v2.00"
+        },
+        "tags": [
+          "đời thường"
+        ],
+        "aspectRatio": "portrait",
+        "width": 3050,
+        "height": 5597
+      },
+      {
+        "id": "anh2",
+        "src": "/photos/everyone/hazy/anh2.png",
+        "title": "Đứng yên cho đẹp",
+        "date": "11/11/2026",
+        "location": "Hà Nội",
+        "story": "",
+        "extra": {
+          "dimensions": "1082 × 1080"
+        },
+        "tags": [
+          "đời thường"
+        ],
+        "aspectRatio": "square",
+        "width": 1082,
+        "height": 1080
+      },
+      {
+        "id": "anh3",
+        "src": "/photos/everyone/hazy/anh3.png",
+        "title": "Em và mùa đông",
+        "date": "11/11/2026",
+        "location": "Hà Nội",
+        "story": "",
+        "extra": {
+          "dimensions": "3376 × 6000"
+        },
+        "tags": [
+          "đời thường"
+        ],
+        "aspectRatio": "portrait",
+        "width": 3376,
+        "height": 6000
+      },
+      {
+        "id": "Sao lại có 2 bó hoa ?",
+        "src": "/photos/everyone/hazy/anh4.png",
+        "title": "Anh4",
+        "date": "11/11/2026",
+        "location": "Hà Nội",
+        "story": "",
+        "extra": {
+          "dimensions": "3376 × 6000"
+        },
+        "tags": [
+          "đời thường"
+        ],
+        "aspectRatio": "portrait",
+        "width": 3376,
+        "height": 6000
+      },
+      {
+        "id": "hoa-gi-y",
+        "src": "/photos/everyone/hazy/Hoa giấy.jpeg",
+        "title": "Hoa giấy",
+        "date": "10/11/2026",
+        "location": "Hà Nội",
+        "story": "",
+        "exif": {
+          "camera": "Sony ILCE-6400",
+          "lens": "Sigma 18-50mm F2.8 DC DN",
+          "aperture": "f/2.8",
+          "shutterSpeed": "1/100s",
+          "iso": "200",
+          "focalLength": "23.7mm"
+        },
+        "extra": {
+          "dimensions": "6000 × 3376",
+          "software": "ILCE-6400 v2.00"
+        },
+        "tags": [
+          "đời thường"
+        ],
+        "aspectRatio": "landscape",
+        "width": 6000,
+        "height": 3376
+      }
+    ]
+  }
+]

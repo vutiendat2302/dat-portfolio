@@ -6,32 +6,32 @@
   },
   "contact": {
     "github": "https://github.com/vutiendat2302",
-    "linkedin": "https://www.linkedin.com/in/dat-vu-tien-8b492b35b/",
+    "linkedin": "https://www.linkedin.com/in/vutiendat23/",
     "email": "vutiendat23022005@gmail.com",
     "phone": "0962362615"
   },
   "profile": [
     {
       "vi": "Sinh viên năm thứ tư ngành Toán - Tin học tại Trường Đại học Khoa học Tự nhiên, ĐHQGHN với niềm đam mê phát triển phần mềm và các hệ thống công nghệ có khả năng mở rộng.",
-      "en": "Fourth-year Mathematics and Computer Science student at VNU University of Science, with a passion for software development and scalable technology systems.",
-      "zh-TW": "國立河內大學自然科學大學數學資訊系大四學生，熱衷於軟體開發與具備擴充能力的技術系統。"
+      "en": "Fourth-year Mathematics and Computer Science student at VNU University of Science, with a strong passion for software development and scalable technology systems.",
+      "zh-TW": "國立越南大學河內科學大學數學資訊學系四年級學生，對開發軟體與具備擴展能力的技術系統充滿熱情。"
     },
     {
       "vi": "Có kinh nghiệm thực tế về phát triển web full-stack, kỹ thuật backend, xử lý dữ liệu và hệ thống cơ sở dữ liệu thông qua các dự án học thuật và thực tế.",
-      "en": "Practical experience in full-stack web development, backend engineering, data processing, and database systems through academic and real-world projects.",
-      "zh-TW": "透過學術專案與實務經驗，具備網頁全端開發、後端工程、資料處理與資料庫系統的實務經驗。"
+      "en": "Hands-on experience in full-stack web development, backend engineering, data processing, and database systems through academic and practical projects.",
+      "zh-TW": "透過學術與實務專案，擁有全端網頁開發、後端工程、資料處理與資料庫系統的實務經驗。"
     },
     {
       "vi": "Đam mê học hỏi công nghệ mới, giải quyết các vấn đề thực tiễn và phát triển các hệ thống hiệu quả, có khả năng mở rộng cao.",
-      "en": "Passionate about learning new technologies, solving practical problems, and developing efficient, highly scalable systems.",
-      "zh-TW": "熱衷於學習新技術、解決實際問題，並開發高效且高擴充能力的系統。"
+      "en": "Enthusiastic about learning new technologies, solving real-world problems, and building efficient, highly scalable systems.",
+      "zh-TW": "熱衷於學習新技術、解決實務問題，並開發出高效且具備高度擴展能力的系統。"
     }
   ],
   "education": {
     "institution": {
       "vi": "Trường Đại học Khoa học Tự nhiên, ĐHQGHN",
       "en": "VNU University of Science",
-      "zh-TW": "國立河內大學自然科學大學"
+      "zh-TW": "國立越南大學河內科學大學"
     },
     "location": {
       "vi": "Hà Nội, Việt Nam",
@@ -41,11 +41,11 @@
     "period": {
       "vi": "2023 – Hiện tại",
       "en": "2023 – Present",
-      "zh-TW": "2023 年 – 至今"
+      "zh-TW": "2023 – 至今"
     },
     "degree": {
       "vi": "Cử nhân Toán - Tin học. GPA: [3.42].",
-      "en": "Bachelor of Mathematics and Computer Science. GPA: [3.42].",
+      "en": "Bachelor of Science in Mathematics and Computer Science. GPA: [3.42].",
       "zh-TW": "數學資訊學士。GPA：[3.42]。"
     },
     "coursework": {
@@ -58,8 +58,8 @@
     {
       "role": {
         "vi": "Thực tập sinh Lập trình Fullstack",
-        "en": "Fullstack Software Engineering Intern",
-        "zh-TW": "全端程式設計實習生"
+        "en": "Fullstack Developer Intern",
+        "zh-TW": "全端程式開發實習生"
       },
       "company": {
         "vi": "JVB (Japan Vietnam Business)",
@@ -83,11 +83,11 @@
           {
             "vi": "Phát triển các dịch vụ backend bằng Java Spring Boot và MySQL, triển khai các RESTful API và logic nghiệp vụ cốt lõi.",
             "en": "Developed backend services using Java Spring Boot and MySQL, implementing RESTful APIs and core business logic.",
-            "zh-TW": "使用 Java Spring Boot 與 MySQL 開發後端服務，並佈署 RESTful API 與核心業務邏輯。"
+            "zh-TW": "使用 Java Spring Boot 與 MySQL 開發後端服務，佈署 RESTful API 與核心業務邏輯。"
           },
           {
             "vi": "Tích hợp dịch vụ AI riêng biệt bằng Python để cá nhân hóa việc học tập và xử lý nội dung hỗ trợ bởi AI.",
-            "en": "Integrated a separate AI service built with Python for personalized learning and AI-driven content processing.",
+            "en": "Integrated a separate AI service built in Python for personalized learning and AI-assisted content processing.",
             "zh-TW": "使用 Python 整合獨立的 AI 服務，以實現個人化學習與 AI 輔助內容處理。"
           },
           {
@@ -111,8 +111,8 @@
       "highlights": [
         {
           "vi": "Phát triển ứng dụng web full-stack để quản lý sản phẩm, đơn hàng và kho bãi.",
-          "en": "Developed a full-stack web application for managing products, orders, and warehouses.",
-          "zh-TW": "開發全端網頁應用程式以管理產品、訂單與倉儲。"
+          "en": "Developed a full-stack web application to manage products, orders, and warehouse inventory.",
+          "zh-TW": "開發全端網頁應用程式，用於管理產品、訂單與倉庫。"
         },
         {
           "vi": "Xây dựng các RESTful API phục vụ thao tác CRUD và quy trình xử lý đơn hàng.",
@@ -126,8 +126,8 @@
         },
         {
           "vi": "Thiết kế cấu trúc cơ sở dữ liệu và triển khai các tính năng theo dõi tồn kho.",
-          "en": "Designed the database schema and implemented inventory tracking features.",
-          "zh-TW": "設計資料庫結構並實作庫存追蹤功能。"
+          "en": "Designed database schemas and implemented inventory tracking features.",
+          "zh-TW": "設計資料庫架構並佈署庫存追蹤功能。"
         }
       ]
     },
@@ -135,25 +135,25 @@
       "name": {
         "vi": "Mạng Tích chập Đồ thị Thời gian Cải tiến Dự báo Lưu lượng Giao thông",
         "en": "Improved Temporal Graph Convolutional Network for Traffic Flow Forecasting",
-        "zh-TW": "改良式時空圖卷积網路之交通流量預測"
+        "zh-TW": "改進型時空圖卷積網路之交通流量預測"
       },
       "githubUrl": "https://github.com/vutiendat2302",
       "technologies": "Python, PyTorch, Graph Neural Networks, GCN, GRU, Attention",
       "highlights": [
         {
           "vi": "Phát triển mô hình Mạng Tích chập Đồ thị Thời gian (T-GCN) cải tiến nhằm dự báo lưu lượng giao thông không gian - thời gian.",
-          "en": "Developed an improved Temporal Graph Convolutional Network (T-GCN) model for spatial-temporal traffic flow forecasting.",
-          "zh-TW": "開發改良式時空圖卷积網路 (T-GCN) 模型，以預測時空交通流量。"
+          "en": "Developed an improved Temporal Graph Convolutional Network (T-GCN) model for spatiotemporal traffic flow forecasting.",
+          "zh-TW": "開發改進型的時空圖卷積網路 (T-GCN) 模型，旨在預測時空交通流量。"
         },
         {
           "vi": "Kết hợp tích chập đồ thị, mạng nơ-ron hồi quy và cơ chế attention để mô hình hóa sự phụ thuộc không gian và thời gian trong dữ liệu giao thông.",
           "en": "Combined graph convolutions, recurrent neural networks, and attention mechanisms to model spatial and temporal dependencies in traffic data.",
-          "zh-TW": "結合圖卷积、遞歸神經網路與注意力機制，以對交通資料中的時空相依性進行建模。"
+          "zh-TW": "結合圖卷積、遞歸神經網路與 attention 機制，以對交通資料中的時空間依賴性進行建模。"
         },
         {
           "vi": "Tích hợp các đặc trưng chuỗi thời gian và biến ngoại sinh để nâng cao chất lượng biểu diễn mô hình giao thông trên toàn mạng lưới các nút giao.",
-          "en": "Integrated time-series features and exogenous variables to enhance the representation quality of traffic models across a network of intersections.",
-          "zh-TW": "整合時間序列特徵與外生變數，以提升整個路口網路中交通模型表達的品質。"
+          "en": "Incorporated time-series features and exogenous variables to enhance traffic representation quality across a network of intersections.",
+          "zh-TW": "整合時間序列特徵與外生變數，以提升整個路口網路中交通模型表徵的品質。"
         }
       ]
     }

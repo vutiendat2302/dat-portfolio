@@ -17,7 +17,7 @@ export function Footer({ locale, dictionary }: FooterProps) {
 
   const linkedinLink =
     profile.socialLinks.find((l) => l.label.toLowerCase().includes("linkedin"))?.href ||
-    "https://www.linkedin.com/in/dat-vu-tien-8b492b35b/";
+    "https://www.linkedin.com/in/vutiendat23/";
 
   const email = profile.email || "vutiendat23022005@gmail.com";
 
