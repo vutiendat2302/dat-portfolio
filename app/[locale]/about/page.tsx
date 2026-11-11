@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { CertificateGallery } from "@/components/about/CertificateGallery";
@@ -8,7 +9,7 @@ import { InterestList } from "@/components/common/InterestList";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { aboutFocusAreas, aboutPrinciples, certificates } from "@/data/about";
 import { profile } from "@/data/profile";
-import { isLocale } from "@/i18n/config";
+import { isLocale, localePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 import { createMetadata } from "@/lib/seo";
 
@@ -136,10 +137,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
           {dictionary.aboutPage.albumDescription}
         </p>
         <div className="mt-6">
-          <a
-            href="https://photos.app.goo.gl/vkkN7eCtBJ9x4zow8"
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href={localePath(locale, "/photos/goc-anh-cua-dat")}
             className="group inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground shadow-2xs transition-all duration-200 hover:border-accent hover:text-accent hover:shadow-xs active:scale-[0.98]"
           >
             <span className="text-base select-none" aria-hidden="true">
@@ -147,12 +146,12 @@ export default async function AboutPage({ params }: AboutPageProps) {
             </span>
             <span>{dictionary.aboutPage.albumButton}</span>
             <span
-              className="text-xs text-subtle transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
+              className="text-xs text-subtle transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-accent"
               aria-hidden="true"
             >
-              ↗
+              →
             </span>
-          </a>
+          </Link>
         </div>
       </section>
 

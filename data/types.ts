@@ -84,12 +84,25 @@ export interface PhotoItem {
   height?: number;
 }
 
+export interface PhotoPersonCredit {
+  name: string;
+  role: LocalizedText;
+  note?: LocalizedText;
+}
+
+export interface PhotoCredits {
+  title?: LocalizedText;
+  photographer?: PhotoPersonCredit;
+  model?: PhotoPersonCredit;
+}
+
 export interface PhotoAlbum {
   id: string;
   slug: string;
   title: LocalizedText;
   description?: LocalizedText;
   story?: LocalizedText;
+  credits?: PhotoCredits;
   category: "me" | "everyone";
   year: string;
   date?: LocalizedText;

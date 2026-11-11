@@ -57,7 +57,7 @@ export const vi: Dictionary = {
     focusAreas: "Chủ đề quan tâm",
     album: "Album",
     albumDescription: "Một số tấm ảnh về mình",
-    albumButton: "Google Photos",
+    albumButton: "Nhân vật chính",
     achievements: "Thành tích",
     achievementsDescription: "Một số thành tích nhỏ mà mình đạt được",
     viewCertificate: "Xem chứng nhận",

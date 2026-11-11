@@ -174,6 +174,54 @@ export function AlbumDetailView({
                 </p>
               </div>
             ) : null}
+
+            {/* Credits Section (Photographer & Model) */}
+            {album.credits && (album.credits.photographer || album.credits.model) ? (
+              <div className="mt-5 border-t border-border/60 pt-4">
+                {album.credits.title ? (
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted mb-3">
+                    {album.credits.title[locale]}
+                  </h3>
+                ) : null}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
+                  {album.credits.photographer ? (
+                    <div className="border border-border bg-surface/60 p-3 rounded-none">
+                      <div className="flex items-baseline justify-between gap-2">
+                        <span className="font-medium text-foreground text-sm">
+                          {album.credits.photographer.name}
+                        </span>
+                        <span className="text-xs text-muted">
+                          {album.credits.photographer.role[locale]}
+                        </span>
+                      </div>
+                      {album.credits.photographer.note ? (
+                        <p className="mt-1 text-xs text-muted/90 italic">
+                          &ldquo;{album.credits.photographer.note[locale]}&rdquo;
+                        </p>
+                      ) : null}
+                    </div>
+                  ) : null}
+
+                  {album.credits.model ? (
+                    <div className="border border-border bg-surface/60 p-3 rounded-none">
+                      <div className="flex items-baseline justify-between gap-2">
+                        <span className="font-medium text-foreground text-sm">
+                          {album.credits.model.name}
+                        </span>
+                        <span className="text-xs text-muted">
+                          {album.credits.model.role[locale]}
+                        </span>
+                      </div>
+                      {album.credits.model.note ? (
+                        <p className="mt-1 text-xs text-muted/90 italic">
+                          &ldquo;{album.credits.model.note[locale]}&rdquo;
+                        </p>
+                      ) : null}
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            ) : null}
           </div>
 
           {/* Right: Key-Value metadata table */}
@@ -209,6 +257,13 @@ export function AlbumDetailView({
               <dd className="text-foreground">
                 {album.photos.length} {t.photoCount}
               </dd>
+
+              {albumStats ? (
+                <>
+                  <dt className="text-muted">{t.metaStats}</dt>
+                  <dd className="text-foreground">{albumStats}</dd>
+                </>
+              ) : null}
             </dl>
           </div>
         </div>

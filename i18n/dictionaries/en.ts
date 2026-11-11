@@ -57,7 +57,7 @@ export const en: Dictionary = {
     focusAreas: "Areas of Interest",
     album: "Album",
     albumDescription: "A few photos of my journey and moments",
-    albumButton: "Google Photos",
+    albumButton: "Main character",
     achievements: "Achievements & Honors",
     achievementsDescription: "A few achievements and recognitions I have earned",
     viewCertificate: "View Certificate",

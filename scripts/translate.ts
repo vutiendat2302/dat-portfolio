@@ -258,12 +258,27 @@ interface SourcePhotoItem {
   height?: number;
 }
 
+interface SourcePhotoCredits {
+  title?: string;
+  photographer?: {
+    name: string;
+    role: string;
+    note?: string;
+  };
+  model?: {
+    name: string;
+    role: string;
+    note?: string;
+  };
+}
+
 interface SourcePhotoAlbum {
   id: string;
   slug: string;
   title: string;
   description?: string;
   story?: string;
+  credits?: SourcePhotoCredits;
   category: "me" | "everyone";
   year: string;
   date?: string;
@@ -282,12 +297,24 @@ interface TranslatedPhotoItem {
   tags?: string[];
 }
 
+interface TranslatedPersonCredit {
+  role?: string;
+  note?: string;
+}
+
+interface TranslatedPhotoCredits {
+  title?: string;
+  photographer?: TranslatedPersonCredit;
+  model?: TranslatedPersonCredit;
+}
+
 interface TranslatedPhotoAlbum {
   title?: string;
   description?: string;
   story?: string;
   location?: string;
   stats?: string;
+  credits?: TranslatedPhotoCredits;
   photos?: TranslatedPhotoItem[];
 }
 
@@ -1077,6 +1104,23 @@ async function translateDataFiles() {
           story: album.story,
           location: album.location,
           stats: album.stats,
+          credits: album.credits
+            ? {
+                title: album.credits.title,
+                photographer: album.credits.photographer
+                  ? {
+                      role: album.credits.photographer.role,
+                      note: album.credits.photographer.note,
+                    }
+                  : undefined,
+                model: album.credits.model
+                  ? {
+                      role: album.credits.model.role,
+                      note: album.credits.model.note,
+                    }
+                  : undefined,
+              }
+            : undefined,
           photos: album.photos.map((p) => ({
             title: p.title,
             location: p.location,
@@ -1115,6 +1159,67 @@ async function translateDataFiles() {
                   vi: album.story,
                   en: enAlbum?.story || album.story,
                   "zh-TW": zhAlbum?.story || album.story,
+                }
+              : undefined,
+            credits: album.credits
+              ? {
+                  title: album.credits.title
+                    ? {
+                        vi: album.credits.title,
+                        en: enAlbum?.credits?.title || album.credits.title,
+                        "zh-TW": zhAlbum?.credits?.title || album.credits.title,
+                      }
+                    : undefined,
+                  photographer: album.credits.photographer
+                    ? {
+                        name: album.credits.photographer.name,
+                        role: {
+                          vi: album.credits.photographer.role,
+                          en:
+                            enAlbum?.credits?.photographer?.role ||
+                            album.credits.photographer.role,
+                          "zh-TW":
+                            zhAlbum?.credits?.photographer?.role ||
+                            album.credits.photographer.role,
+                        },
+                        note: album.credits.photographer.note
+                          ? {
+                              vi: album.credits.photographer.note,
+                              en:
+                                enAlbum?.credits?.photographer?.note ||
+                                album.credits.photographer.note,
+                              "zh-TW":
+                                zhAlbum?.credits?.photographer?.note ||
+                                album.credits.photographer.note,
+                            }
+                          : undefined,
+                      }
+                    : undefined,
+                  model: album.credits.model
+                    ? {
+                        name: album.credits.model.name,
+                        role: {
+                          vi: album.credits.model.role,
+                          en:
+                            enAlbum?.credits?.model?.role ||
+                            album.credits.model.role,
+                          "zh-TW":
+                            zhAlbum?.credits?.model?.role ||
+                            album.credits.model.role,
+                        },
+                        note: album.credits.model.note
+                          ? {
+                              vi: album.credits.model.note,
+                              en:
+                                enAlbum?.credits?.model?.note ||
+                                album.credits.model.note,
+                              "zh-TW":
+                                zhAlbum?.credits?.model?.note ||
+                                album.credits.model.note,
+                            }
+                          : undefined,
+                      }
+                    : undefined,
                 }
               : undefined,
             category: album.category,

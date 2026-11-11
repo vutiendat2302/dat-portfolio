@@ -32,12 +32,27 @@ interface SourcePhotoItem {
   height?: number;
 }
 
+interface SourcePhotoCredits {
+  title?: string;
+  photographer?: {
+    name: string;
+    role: string;
+    note?: string;
+  };
+  model?: {
+    name: string;
+    role: string;
+    note?: string;
+  };
+}
+
 interface SourcePhotoAlbum {
   id: string;
   slug: string;
   title: string;
   description?: string;
   story?: string;
+  credits?: SourcePhotoCredits;
   category: "me" | "everyone";
   year: string;
   date?: string;

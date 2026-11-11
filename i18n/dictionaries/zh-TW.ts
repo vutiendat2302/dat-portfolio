@@ -57,7 +57,7 @@ export const zhTW: Dictionary = {
     focusAreas: "關注主題",
     album: "個人相簿",
     albumDescription: "紀錄我生活與點滴的一些相片",
-    albumButton: "Google 相簿",
+    albumButton: "Main character",
     achievements: "榮譽與成就",
     achievementsDescription: "求學歷程中獲得的一些榮譽與成果",
     viewCertificate: "檢視證書",
