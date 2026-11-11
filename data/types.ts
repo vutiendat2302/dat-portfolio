@@ -54,3 +54,63 @@ export interface TimelineItem {
   description?: LocalizedText;
   highlights?: LocalizedText[];
 }
+
+export interface PhotoExif {
+  camera?: string;
+  lens?: string;
+  aperture?: string;
+  shutterSpeed?: string;
+  iso?: string | number;
+  focalLength?: string;
+}
+
+export interface PhotoExtra {
+  software?: string;
+  dimensions?: string;
+}
+
+export interface PhotoItem {
+  id: string;
+  src: string;
+  title: LocalizedText;
+  date: string;
+  location: LocalizedText;
+  story?: LocalizedText;
+  exif?: PhotoExif;
+  extra?: PhotoExtra;
+  tags?: LocalizedText[];
+  aspectRatio?: "square" | "portrait" | "landscape";
+  width?: number;
+  height?: number;
+}
+
+export interface PhotoPersonCredit {
+  name: string;
+  role: LocalizedText;
+  note?: LocalizedText;
+}
+
+export interface PhotoCredits {
+  title?: LocalizedText;
+  photographer?: PhotoPersonCredit;
+  model?: PhotoPersonCredit;
+}
+
+export interface PhotoAlbum {
+  id: string;
+  slug: string;
+  title: LocalizedText;
+  description?: LocalizedText;
+  story?: LocalizedText;
+  credits?: PhotoCredits;
+  category: "me" | "everyone";
+  year: string;
+  date?: LocalizedText;
+  location?: LocalizedText;
+  camera?: string;
+  lens?: string;
+  stats?: LocalizedText;
+  coverImage: string;
+  photos: PhotoItem[];
+}
+

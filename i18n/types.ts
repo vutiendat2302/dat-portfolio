@@ -4,6 +4,7 @@ export interface Dictionary {
     about: string;
     projects: string;
     blog: string;
+    photos: string;
     cv: string;
     contact: string;
     menu: string;
@@ -61,6 +62,53 @@ export interface Dictionary {
     eyebrow: string;
     title: string;
     description: string;
+  };
+  photosPage: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    ctaButton: string;
+    tabs: {
+      me: string;
+      everyone: string;
+    };
+    seriesTitle: string;
+    photoCount: string;
+    viewAlbum: string;
+    empty: string;
+    breadcrumbPhotos: string;
+    metaYear: string;
+    metaDate: string;
+    metaLocation: string;
+    metaCount: string;
+    metaCamera: string;
+    metaLens: string;
+    metaStats: string;
+    back: string;
+    hintLightbox: string;
+    prevAlbum: string;
+    nextAlbum: string;
+    allAlbums: string;
+    lightbox: {
+      download: string;
+      copyLink: string;
+      copied: string;
+      close: string;
+      specs: string;
+      camera: string;
+      lens: string;
+      aperture: string;
+      shutter: string;
+      iso: string;
+      focalLength: string;
+      extra: string;
+      software: string;
+      dimensions: string;
+      prev: string;
+      next: string;
+      zoomIn: string;
+      zoomOut: string;
+    };
   };
   cvPage: {
     eyebrow: string;
@@ -132,6 +180,8 @@ export interface Dictionary {
     projectsDescription: string;
     blogTitle: string;
     blogDescription: string;
+    photosTitle: string;
+    photosDescription: string;
     cvTitle: string;
     cvDescription: string;
     contactTitle: string;

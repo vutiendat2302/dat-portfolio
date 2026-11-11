@@ -333,19 +333,27 @@ Không được tạo public route cho bản dịch không tồn tại.
 Dữ liệu có cấu trúc của portfolio được quản lý theo mô hình phân tầng:
 
 ### 6.1. Tầng nhập liệu nguồn tiếng Việt (`data/source/*.json`)
+
 Tác giả chỉ cần viết tiếng Việt đơn thuần tại thư mục này, không cần khai báo lặp lại `{ vi, en, zh-TW }`:
+
 - `data/source/profile.json`
 - `data/source/projects.json`
 - `data/source/skills.json`
 - `data/source/experience.json`
 - `data/source/education.json`
 - `data/source/about.json`
+- `data/source/photos.json`
+
+Quản lý thông số ảnh tự động: Khi tác giả thả ảnh mới vào `public/photos/`, chạy lệnh `npm run exif` để tự động quét độ phân giải và trích xuất thông số EXIF thực tế (máy, ống kính, f/, tốc, ISO, tiêu cự) vào `data/source/photos.json`.
 
 ### 6.2. Tầng dịch tự động (`data/translations/*.json`)
+
 Script `npm run translate` sẽ dịch nội dung tiếng Việt sang `en` và `zh-TW` (sử dụng thuật ngữ IT chuẩn Đài Loan), so sánh hash qua `.hashes.json` để tránh gọi API trùng lặp, và xuất ra file JSON đa ngôn ngữ đầy đủ.
 
 ### 6.3. Tầng TypeScript Data (`data/*.ts`)
+
 Cung cấp typed interface cho các Server Component của ứng dụng:
+
 - `data/profile.ts`
 - `data/projects.ts`
 - `data/skills.ts`
@@ -541,6 +549,8 @@ kebab-case.md
 Sử dụng TailwindCSS thống nhất.
 
 Hạn chế inline style nếu có thể giải quyết bằng Tailwind utilities.
+
+Hạn chế lạm dụng card bo tròn
 
 ### 9.2. Responsive
 
